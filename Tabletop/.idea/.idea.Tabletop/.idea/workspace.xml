@@ -19,7 +19,53 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d8cf30bf-4574-4cd6-9bdf-d06bbe0ed6ed" name="Default Changelist" comment="" />
+    <list default="true" id="d8cf30bf-4574-4cd6-9bdf-d06bbe0ed6ed" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Computer.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Computer/GameSettingsObject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Computer/GameSettingsObject.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Computer/Server.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Computer/Server.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Computer/ServerScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Computer/ServerScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Phones.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Phones/Client.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Phones/Client.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Phones/ClientScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Phones/ClientScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Phones/PlayerData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Phones/PlayerData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UniversalRenderPipelineGlobalSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker2-prev.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe11.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PackageManagerSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,9 +75,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Computer/GameSettingsObject.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Phones/PlayerData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Phones/Client.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Networking/Net_CreatePlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ServerManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -39,7 +85,29 @@
         <option value="$PROJECT_DIR$/Assets/Computer/GameSettingsObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Phones/PlayerData.cs" />
         <option value="$PROJECT_DIR$/Assets/Phones/Client.cs" />
+        <option value="$PROJECT_DIR$/Assets/Computer/ArrayData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Computer/ServerData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Computer/SliderSaver.cs" />
+        <option value="$PROJECT_DIR$/Assets/Computer/StringSaver.cs" />
+        <option value="$PROJECT_DIR$/Assets/Computer/IconSwapper.cs" />
+        <option value="$PROJECT_DIR$/Assets/NetMsg.cs" />
+        <option value="$PROJECT_DIR$/Assets/NetMessage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Net_CreateAccount.cs" />
         <option value="$PROJECT_DIR$/Assets/Computer/Server.cs" />
+        <option value="$PROJECT_DIR$/Assets/Computer/Client.cs" />
+        <option value="$PROJECT_DIR$/Assets/Computer/PlayerData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Computer/Settings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Computer/ConsoleToGUI.cs" />
+        <option value="$PROJECT_DIR$/Assets/Computer/Datas/UnoCardData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Datas/UnoCardData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Networking/Net_CreateAccount.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Networking/Net_CreatePlayer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Networking/NetMessage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Networking/Client.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Networking/Server.cs" />
+        <option value="$PROJECT_DIR$/Assets/Datas/PlayerData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ServerManager.cs" />
       </list>
     </option>
   </component>
@@ -62,6 +130,8 @@
       <option name="presentableId" value="Default" />
       <updated>1641321893654</updated>
       <workItem from="1641321898254" duration="16599000" />
+      <workItem from="1641526674559" duration="36925000" />
+      <workItem from="1641747173006" duration="2459000" />
     </task>
     <servers />
   </component>
@@ -78,14 +148,15 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1641357018414">
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup" timestamp="1641531939176">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032/-1920.0.1920.1032@0.0.1920.1032" timestamp="1641357018414" />
+    <state x="623" y="223" width="672" height="678" key="search.everywhere.popup/0.0.1920.1032/-1920.0.1920.1032@0.0.1920.1032" timestamp="1641531939176" />
   </component>
 </project>
