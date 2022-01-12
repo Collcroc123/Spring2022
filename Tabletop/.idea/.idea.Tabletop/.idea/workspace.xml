@@ -20,14 +20,88 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8cf30bf-4574-4cd6-9bdf-d06bbe0ed6ed" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabletop/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ServerMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ServerMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Networking.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Networking/Client.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Networking/Client.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Networking/NetMessage.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Networking/NetMessage.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Networking/Net_CreatePlayer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Networking/Net_CreatePlayer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Networking/Server.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Networking/Server.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ServerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ServerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/2.0/machine.config" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/2.0/machine.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/2.0/settings.map" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/2.0/settings.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/2.0/web.config" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/2.0/web.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.0/machine.config" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.0/machine.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.0/settings.map" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.0/settings.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.0/web.config" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.0/web.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.5/machine.config" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.5/machine.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.5/settings.map" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.5/settings.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.5/web.config" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/4.5/web.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/browscap.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/browscap.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/config" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/mconfig/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/MonoBleedingEdge/etc/mono/mconfig/config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.2D.Animation.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.2D.Animation.Runtime.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.2D.Common.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.2D.Common.Runtime.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.2D.IK.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.2D.IK.Runtime.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.2D.PixelPerfect.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.2D.PixelPerfect.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.2D.SpriteShape.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.2D.SpriteShape.Runtime.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.2D.Tilemap.Extras.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.2D.Tilemap.Extras.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.Burst.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.Burst.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.Collections.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.Collections.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.InternalAPIEngineBridge.001.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.InternalAPIEngineBridge.001.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.Mathematics.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.Mathematics.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.Netcode.Components.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.Netcode.Components.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.Netcode.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.Netcode.Runtime.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.RenderPipeline.Universal.ShaderLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.RenderPipeline.Universal.ShaderLibrary.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.RenderPipelines.Core.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.RenderPipelines.Core.Runtime.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.RenderPipelines.Core.ShaderLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.RenderPipelines.Core.ShaderLibrary.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.RenderPipelines.Universal.Shaders.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.RenderPipelines.Universal.Shaders.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.TextMeshPro.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.TextMeshPro.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.Timeline.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.Timeline.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.VisualScripting.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.VisualScripting.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.VisualScripting.Flow.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.VisualScripting.Flow.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.VisualScripting.State.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/Unity.VisualScripting.State.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/UnityEngine.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Managed/UnityEngine.UI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Plugins/x86_64/lib_burst_generated.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/Plugins/x86_64/lib_burst_generated.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/RuntimeInitializeOnLoads.json" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/RuntimeInitializeOnLoads.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/ScriptingAssemblies.json" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/ScriptingAssemblies.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/app.info" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/app.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/boot.config" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/boot.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/globalgamemanagers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/globalgamemanagers.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/level0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/resources.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/resources.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Server/Tabletop_Data/sharedassets0.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,9 +112,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Networking/Net_CreatePlayer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/HelloWorldManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/Singleton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/HelloWorldPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ServerManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/Logger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -83,8 +160,33 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -98,12 +200,15 @@
       <workItem from="1641526674559" duration="36925000" />
       <workItem from="1641747173006" duration="2459000" />
       <workItem from="1641928505850" duration="1009000" />
+      <workItem from="1642016288938" duration="8072000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>

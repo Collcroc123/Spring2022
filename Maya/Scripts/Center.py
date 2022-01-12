@@ -1,6 +1,6 @@
 import maya.cmds as cmds
 
-def locator():
+def createLocator():
     sels = cmds.ls(sl=True)
 
     bbox = cmds.xform(sels, q=True, boundingBox=True, ws=True)
@@ -12,4 +12,25 @@ def locator():
 
     cmds.xform(loc, translation=[midX, midY, midZ], ws=True)
 
-locator()
+
+def createJoint():
+    sels = cmds.ls(sl=True)
+    
+    for sel in sels:
+        pos = cmds.xform(sel, q=True, rotatePivot=True, ws=True)
+        
+        cmds.select(cl=True)
+        jnt = cmds.joint(position=[0,0,0], absolute=True)
+        cmds.xform(jnt, translation=pos, ws=True)
+        
+        
+def parentJoints():
+    sels = cmds.ls(sl=True)
+    
+    for i, sel in enumerate(sels):
+        if i < (len(sels)-1):
+            cmds.parent(sels[i], sels[i+1])
+            
+            
+
+parentJoints()

@@ -1,32 +1,57 @@
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class ServerManager : MonoBehaviour
+public class ServerManager : NetworkBehaviour
 {
-    private bool isServer, isClient, isHost, isRunning;
-    public string roomName;
-    public PlayerData player;
+    //[SerializeField]
+    //private bool isServer, isClient, isHost, isRunning;
+    //public string roomName;
+    //public PlayerData player;
+    public TextMeshProUGUI playerCount;
+    private NetworkVariable<int> playersInGame = new NetworkVariable<int>();
+    private NetworkVariable<NetworkString> playerName = new NetworkVariable<NetworkString>();
     
     void Start()
     {
-        
+        //Cursor.visible = true;
+        NetworkManager.Singleton.OnClientConnectedCallback += (id) =>
+        {
+            if (IsServer)
+            {
+                //Debug.Log(id + " Just Connected!");
+                Logger.Instance.LogInfo(id + " Just Connected!");
+                playersInGame.Value++;
+            }
+        };
+        NetworkManager.Singleton.OnClientDisconnectCallback += (id) =>
+        {
+            if (IsServer)
+            {
+                //Debug.Log(id + " Just Disconnected!");
+                Logger.Instance.LogInfo(id + " Just Disconnected!");
+                playersInGame.Value--;
+            }
+        };
     }
 
     void Update()
     {
         //Debug.Log("Players in game: " + PlayerManager.Instance.PlayersInGame);
+        //playerCount.text = "Players in game: " + PlayerManager.Instance.PlayersInGame;
     }
 
     public void StartServer()
     {
         if (NetworkManager.Singleton.StartServer())
         {
-            Debug.Log("STARTING SERVER");
+            //Debug.Log("STARTING SERVER");
+            Logger.Instance.LogInfo("STARTING SERVER");
         }
         else
         {
-            Debug.Log("---SERVER START FAILED");
+            //Debug.Log("---SERVER START FAILED");
+            Logger.Instance.LogInfo("---SERVER START FAILED");
         }
     }
 
@@ -34,11 +59,13 @@ public class ServerManager : MonoBehaviour
     {
         if (NetworkManager.Singleton.StartClient())
         {
-            Debug.Log("STARTING CLIENT");
+            //Debug.Log("STARTING CLIENT");
+            Logger.Instance.LogInfo("STARTING CLIENT");
         }
         else
         {
-            Debug.Log("---CLIENT START FIALED");
+            //Debug.Log("---CLIENT START FAILED");
+            Logger.Instance.LogInfo("---CLIENT START FAILED");
         }
     }
 
@@ -49,7 +76,7 @@ public class ServerManager : MonoBehaviour
 
     public void OnJoinedLobby()
     {
-        SceneManager.LoadScene("ClientMenu");
+        //SceneManager.LoadScene("ClientMenu");
     }
     
 
@@ -65,19 +92,16 @@ public class ServerManager : MonoBehaviour
 
     public void CreateRoom()
     {
-        //PhotonNetwork.CreateRoom(roomName);
         // Create room using typed in name
     }
 
     public void JoinRoom()
     {
-        //PhotonNetwork.JoinRoom(roomName);
         // Get name of room you click on
     }
 
     public void OnJoinedRoom()
     {
-        //PhotonNetwork.LoadLevel("Game");
         // Un-hide lobby UI, fill in info
     }
 }
