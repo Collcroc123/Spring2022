@@ -20,6 +20,7 @@
             <e p="NetMessage.cs" t="Include" />
             <e p="Server.cs" t="Include" />
           </e>
+          <e p="PlayerManager.cs" t="Include" />
           <e p="ServerManager.cs" t="Include" />
           <e p="Settings.cs" t="Include" />
         </e>

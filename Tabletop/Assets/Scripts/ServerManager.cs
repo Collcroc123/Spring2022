@@ -1,4 +1,4 @@
-//using Photon.Pun;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,22 +15,36 @@ public class ServerManager : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log("Players in game: " + PlayersManager.Instance.PlayersInGame);
+        //Debug.Log("Players in game: " + PlayerManager.Instance.PlayersInGame);
     }
 
     public void StartServer()
     {
-        
+        if (NetworkManager.Singleton.StartServer())
+        {
+            Debug.Log("STARTING SERVER");
+        }
+        else
+        {
+            Debug.Log("---SERVER START FAILED");
+        }
     }
 
-    public void StartClient() // yep it true tie up quip trip tip pip rip yip quote prop rep toy rot
+    public void StartClient()
     {
-        //PhotonNetwork.ConnectUsingSettings();
+        if (NetworkManager.Singleton.StartClient())
+        {
+            Debug.Log("STARTING CLIENT");
+        }
+        else
+        {
+            Debug.Log("---CLIENT START FIALED");
+        }
     }
 
     public void OnConnectedToMaster()
     {
-        //PhotonNetwork.JoinLobby();
+        
     }
 
     public void OnJoinedLobby()
