@@ -18,21 +18,21 @@ namespace HelloWorld
         public void Move()
         {
             if (NetworkManager.Singleton.IsServer)
-            {
-                var randomPosition = GetRandomPositionOnPlane();
-                transform.position = randomPosition;
-                Position.Value = randomPosition;
+            { // If this program is the server...
+                var randomPosition = GetRandomPositionOnPlane(); // Make random pos
+                transform.position = randomPosition; // Server moves players to their Vector3
+                Position.Value = randomPosition; // Server saves Position in Vector3
             }
             else
-            {
-                SubmitPositionRequestServerRpc();
+            { // If this is NOT the server...
+                SubmitPositionRequestServerRpc(); // Ask the server to do it
             }
         }
 
         [ServerRpc]
         void SubmitPositionRequestServerRpc(ServerRpcParams rpcParams = default)
         {
-            Position.Value = GetRandomPositionOnPlane();
+            Position.Value = GetRandomPositionOnPlane(); // Server picks random pos
         }
 
         static Vector3 GetRandomPositionOnPlane()
@@ -42,7 +42,7 @@ namespace HelloWorld
 
         void Update()
         {
-            transform.position = Position.Value;
+            transform.position = Position.Value; // Client moves players to their Vector3
         }
     }
 }

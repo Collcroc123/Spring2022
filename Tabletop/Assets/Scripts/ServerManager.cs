@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class ServerManager : NetworkBehaviour
 {
-    //[SerializeField]
-    //private bool isServer, isClient, isHost, isRunning;
     //public string roomName;
     //public PlayerData player;
-    public TextMeshProUGUI playerCount;
-    private NetworkVariable<int> playersInGame = new NetworkVariable<int>();
-    private NetworkVariable<NetworkString> playerName = new NetworkVariable<NetworkString>();
+    //public TextMeshProUGUI playerCount;
+    //private NetworkVariable<int> playersInGame = new NetworkVariable<int>();
+    //private NetworkVariable<NetworkString> playerName = new NetworkVariable<NetworkString>();
     
     void Start()
     {
-        //Cursor.visible = true;
+        /*Cursor.visible = true;
         NetworkManager.Singleton.OnClientConnectedCallback += (id) =>
         {
             if (IsServer)
             {
-                //Debug.Log(id + " Just Connected!");
-                Logger.Instance.LogInfo(id + " Just Connected!");
+                Debug.Log(id + " Just Connected!");
                 playersInGame.Value++;
             }
         };
@@ -28,30 +25,29 @@ public class ServerManager : NetworkBehaviour
         {
             if (IsServer)
             {
-                //Debug.Log(id + " Just Disconnected!");
-                Logger.Instance.LogInfo(id + " Just Disconnected!");
+                Debug.Log(id + " Just Disconnected!");
                 playersInGame.Value--;
             }
-        };
+        };*/
     }
 
     void Update()
     {
-        //Debug.Log("Players in game: " + PlayerManager.Instance.PlayersInGame);
-        //playerCount.text = "Players in game: " + PlayerManager.Instance.PlayersInGame;
+        //if (NetworkManager.Singleton.OnClientConnectedCallback += false)
+        //{
+            
+        //}
     }
 
     public void StartServer()
     {
         if (NetworkManager.Singleton.StartServer())
         {
-            //Debug.Log("STARTING SERVER");
-            Logger.Instance.LogInfo("STARTING SERVER");
+            Debug.Log("STARTING SERVER");
         }
         else
         {
-            //Debug.Log("---SERVER START FAILED");
-            Logger.Instance.LogInfo("---SERVER START FAILED");
+            Debug.Log("--SERVER START FAILED");
         }
     }
 
@@ -59,17 +55,32 @@ public class ServerManager : NetworkBehaviour
     {
         if (NetworkManager.Singleton.StartClient())
         {
-            //Debug.Log("STARTING CLIENT");
-            Logger.Instance.LogInfo("STARTING CLIENT");
+            Debug.Log("STARTING CLIENT");
+            var playerObject = NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject();
         }
         else
         {
-            //Debug.Log("---CLIENT START FAILED");
-            Logger.Instance.LogInfo("---CLIENT START FAILED");
+            Debug.Log("--CLIENT START FAILED");
         }
     }
 
-    public void OnConnectedToMaster()
+    public void ShutDown()
+    {
+        foreach (var client in NetworkManager.Singleton.ConnectedClientsIds)
+        {
+            NetworkManager.Singleton.DisconnectClient(client);
+            Debug.Log("Disconnecting Client " + client);
+        }
+        Debug.Log("=SERVER SHUT DOWN=");
+        NetworkManager.Singleton.Shutdown();
+    }
+
+    public void OnClientConnect()
+    {
+        
+    }
+
+    public void OnClientDisconnect()
     {
         
     }
@@ -82,7 +93,7 @@ public class ServerManager : NetworkBehaviour
 
     public void CreatePlayer()
     {
-        
+        var playerObject = NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject();
     }
 
     public void DeletePlayer()
