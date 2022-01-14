@@ -1,99 +1,37 @@
-using TMPro;
-using Unity.Netcode;
 using UnityEngine;
+using Mirror;
 
-public class ServerManager : NetworkBehaviour
+public class ServerManager : NetworkManager
 {
     //public string roomName;
     //public PlayerData player;
     //public TextMeshProUGUI playerCount;
     //private NetworkVariable<int> playersInGame = new NetworkVariable<int>();
     //private NetworkVariable<NetworkString> playerName = new NetworkVariable<NetworkString>();
-    
-    void Start()
+
+    public override void OnStartServer()
     {
-        /*Cursor.visible = true;
-        NetworkManager.Singleton.OnClientConnectedCallback += (id) =>
-        {
-            if (IsServer)
-            {
-                Debug.Log(id + " Just Connected!");
-                playersInGame.Value++;
-            }
-        };
-        NetworkManager.Singleton.OnClientDisconnectCallback += (id) =>
-        {
-            if (IsServer)
-            {
-                Debug.Log(id + " Just Disconnected!");
-                playersInGame.Value--;
-            }
-        };*/
+        Debug.Log("STARTING SERVER");
     }
 
-    void Update()
+    public override void OnStopServer()
     {
-        //if (NetworkManager.Singleton.OnClientConnectedCallback += false)
-        //{
-            
-        //}
+        Debug.Log("STOPPING SERVER");
     }
 
-    public void StartServer()
+    public override void OnClientConnect(NetworkConnection conn)
     {
-        if (NetworkManager.Singleton.StartServer())
-        {
-            Debug.Log("STARTING SERVER");
-        }
-        else
-        {
-            Debug.Log("--SERVER START FAILED");
-        }
+        Debug.Log("CONNECTED TO SERVER");
     }
 
-    public void StartClient()
+    public override void OnClientDisconnect(NetworkConnection conn)
     {
-        if (NetworkManager.Singleton.StartClient())
-        {
-            Debug.Log("STARTING CLIENT");
-            var playerObject = NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject();
-        }
-        else
-        {
-            Debug.Log("--CLIENT START FAILED");
-        }
+        Debug.Log("DISCONNECTED FROM SERVER");
     }
-
-    public void ShutDown()
-    {
-        foreach (var client in NetworkManager.Singleton.ConnectedClientsIds)
-        {
-            NetworkManager.Singleton.DisconnectClient(client);
-            Debug.Log("Disconnecting Client " + client);
-        }
-        Debug.Log("=SERVER SHUT DOWN=");
-        NetworkManager.Singleton.Shutdown();
-    }
-
-    public void OnClientConnect()
-    {
-        
-    }
-
-    public void OnClientDisconnect()
-    {
-        
-    }
-
-    public void OnJoinedLobby()
-    {
-        //SceneManager.LoadScene("ClientMenu");
-    }
-    
 
     public void CreatePlayer()
     {
-        var playerObject = NetworkManager.Singleton.SpawnManager.GetLocalPlayerObject();
+        
     }
 
     public void DeletePlayer()
