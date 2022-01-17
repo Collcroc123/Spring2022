@@ -1,20 +1,9 @@
-using System;
 using UnityEngine;
 using Mirror;
 
 public class Player : NetworkBehaviour
 {
-    [SyncVar]
-    private bool saidHello;
-
-    private void Start()
-    {
-        if (isLocalPlayer)
-        { // If the client is running this code...
-            
-        }
-    }
-
+    public PlayerData player;
     void HandleMovement()
     {
         if (isLocalPlayer)
@@ -30,22 +19,10 @@ public class Player : NetworkBehaviour
     {
         HandleMovement();
 
-        if (isLocalPlayer && !saidHello && Input.GetKeyDown(KeyCode.X))
+        if (isLocalPlayer && Input.GetKeyDown(KeyCode.X))
         {
             Debug.Log("Saying Hello to Server!");
             Hello();
-        }
-        else if (isServer && saidHello && Input.GetKeyDown(KeyCode.X))
-        {
-            Debug.Log("Saying Hello back to the Client!");
-            saidHello = false;
-            HelloBack();
-            
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Debug.Log("saidHello is " + saidHello);
         }
     }
 
@@ -58,7 +35,7 @@ public class Player : NetworkBehaviour
     void Hello()
     {
         Debug.Log("Received Hello from Client, Reply with X!");
-        saidHello = true;
+        HelloBack();
     }
     
     [TargetRpc]

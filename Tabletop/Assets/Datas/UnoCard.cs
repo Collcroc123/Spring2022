@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(fileName = "New Card", menuName = "Cards/Uno")]
 public class UnoCard : ScriptableObject
 {
     public int color; // Black = 0, Red = 1, Blue = 2, Green = 3, Yellow = 4
@@ -9,8 +9,13 @@ public class UnoCard : ScriptableObject
 
     public void GetImage()
     {
-        image = Resources.Load<Sprite>("Uno-Sheet/" + color + "_" + number);
+        Sprite[] sprites = Resources.LoadAll<Sprite>("Uno-Sheet");
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            if (sprites[i].name == color + "_" + number)
+            {
+                image = sprites[i];
+            }
+        }
     }
-    // if (color == 0 && number > 3) { Debug.Log("INVALID CARD: " + color + "-" + number); }
-    // if (number < 0 || color < 0 || number > 12 || color > 4) { Debug.Log("INVALID CARD: " + color + "-" + number); }
 }
