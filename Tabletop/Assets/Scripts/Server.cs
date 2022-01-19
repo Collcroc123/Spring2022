@@ -3,7 +3,7 @@ using Mirror;
 
 public class Server : NetworkBehaviour
 {
-    private NetworkManager manager;
+    public ServerManager manager;
     public Connector connector;
     private int cardColor, cardNumber;
     private int drawSize = 108, discardSize = 0;
@@ -11,16 +11,7 @@ public class Server : NetworkBehaviour
     public UnoDeck draw, discard;
     public GameObject card;
     private bool deckCreated, dealt;
-    
-    void Start()
-    {
-        manager = GetComponent<NetworkManager>();
-        if (isServer && !deckCreated)
-        {
-            
-        }
-    }
-    
+
     void Update()
     {
         if (NetworkServer.connections.Count >= 4 && !dealt)
@@ -93,10 +84,10 @@ public class Server : NetworkBehaviour
     {
         for (int k = 0; k < num; k++)
         {
-            for (int i = 0; i < NetworkServer.connections.Count; i++)
+            for (int i = 0; i <= connector.currentPlayerCount; i++)
             {
                 Debug.Log("DEAL");
-                connector.NewCard(GetTopCard());
+                connector.NewCard(connector.players[i], GetTopCard());
                 drawSize--;
                 dealt = true;
             }

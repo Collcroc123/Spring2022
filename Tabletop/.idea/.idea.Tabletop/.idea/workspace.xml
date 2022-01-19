@@ -20,65 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8cf30bf-4574-4cd6-9bdf-d06bbe0ed6ed" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Card.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Card.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Datas/CardDeck.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Datas/CardDeck.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Datas/UnoCard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Datas/UnoCard.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CardInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CardInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Client.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Client.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Connector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Connector.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/ServerMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ServerMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ServerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ServerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Uno.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Uno.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.2D.Animation.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.2D.Animation.Runtime.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.2D.Common.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.2D.Common.Runtime.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.2D.IK.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.2D.IK.Runtime.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.2D.PixelPerfect.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.2D.PixelPerfect.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.2D.SpriteShape.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.2D.SpriteShape.Runtime.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.2D.Tilemap.Extras.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.2D.Tilemap.Extras.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.Burst.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.Burst.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.Collections.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.Collections.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.InternalAPIEngineBridge.001.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.InternalAPIEngineBridge.001.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.Mathematics.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.Mathematics.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.Netcode.Components.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.Netcode.Components.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.Netcode.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.Netcode.Runtime.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.RenderPipeline.Universal.ShaderLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.RenderPipeline.Universal.ShaderLibrary.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.RenderPipelines.Core.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.RenderPipelines.Core.Runtime.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.RenderPipelines.Core.ShaderLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.RenderPipelines.Core.ShaderLibrary.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.RenderPipelines.Universal.Shaders.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.RenderPipelines.Universal.Shaders.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.TextMeshPro.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.TextMeshPro.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.Timeline.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.Timeline.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.VisualScripting.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.VisualScripting.Core.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.VisualScripting.Flow.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.VisualScripting.Flow.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.VisualScripting.State.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/Unity.VisualScripting.State.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/UnityEngine.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/UnityEngine.UI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/WebSocket Transport for Netcode for GameObjects.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Managed/WebSocket Transport for Netcode for GameObjects.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Plugins/x86_64/lib_burst_generated.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/Plugins/x86_64/lib_burst_generated.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/RuntimeInitializeOnLoads.json" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/RuntimeInitializeOnLoads.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/ScriptingAssemblies.json" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/ScriptingAssemblies.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/boot.config" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/boot.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/globalgamemanagers" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/globalgamemanagers.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/level0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/resources.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/resources.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/resources.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/resources.assets.resS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/sharedassets0.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/sharedassets0.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/Windows/Tabletop_Data/sharedassets0.assets.resS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Server.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Server.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker2.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker2-prev.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker3-prev.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +58,6 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/CardInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Datas/UnoDeck.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ServerManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -135,13 +95,16 @@
         <option value="$PROJECT_DIR$/Assets/CardInfo.cs" />
         <option value="$PROJECT_DIR$/Assets/Datas/UnoCard.cs" />
         <option value="$PROJECT_DIR$/Assets/Datas/UnoDeck.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ServerManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Plugins/Mirror/Runtime/NetworkManagerHUD.cs" />
         <option value="$PROJECT_DIR$/Assets/Client.cs" />
         <option value="$PROJECT_DIR$/Assets/Connector.cs" />
         <option value="$PROJECT_DIR$/Assets/Server.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ServerManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Client.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Server.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Connector.cs" />
       </list>
     </option>
   </component>
@@ -210,6 +173,7 @@
       <workItem from="1642220964449" duration="15907000" />
       <workItem from="1642283445394" duration="2531000" />
       <workItem from="1642375125283" duration="14157000" />
+      <workItem from="1642567443844" duration="4839000" />
     </task>
     <servers />
   </component>

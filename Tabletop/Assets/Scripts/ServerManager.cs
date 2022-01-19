@@ -3,23 +3,25 @@ using Mirror;
 
 public class ServerManager : NetworkManager
 {
+    public Connector connector;
+
     public override void OnStartServer()
     {
-        Debug.Log("STARTING SERVER");
+        connector.ServerStarted();
     }
 
     public override void OnStopServer()
     {
-        Debug.Log("STOPPING SERVER");
+        connector.ServerStopped();
     }
 
-    public override void OnClientConnect(NetworkConnection conn)
+    public override void OnClientConnect(NetworkConnection client)
     {
-        Debug.Log("CONNECTED TO SERVER");
+        connector.ClientConnected(client);
     }
 
-    public override void OnClientDisconnect(NetworkConnection conn)
+    public override void OnClientDisconnect(NetworkConnection client)
     {
-        Debug.Log("DISCONNECTED FROM SERVER");
+        connector.ClientDisconnected(client);
     }
 }
