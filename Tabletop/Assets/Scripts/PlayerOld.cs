@@ -1,7 +1,7 @@
 using UnityEngine;
 using Mirror;
 
-public class Player : NetworkBehaviour
+public class PlayerOld : NetworkBehaviour
 {
     public PlayerData player;
     void HandleMovement()

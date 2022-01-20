@@ -56,13 +56,13 @@ public class Connector : NetworkBehaviour
 
 
 
-    public void ServerStarted()
+    public override void OnStartServer()
     {
         Debug.Log("STARTING SERVER");
         // players = new NetworkConnection[maxPlayers];
     }
 
-    public void ServerStopped()
+    public override void OnStopServer()
     {
         Debug.Log("STOPPING SERVER");
         currentPlayerCount = 0;
