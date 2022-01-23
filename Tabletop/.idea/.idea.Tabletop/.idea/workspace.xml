@@ -22,22 +22,93 @@
     <list default="true" id="d8cf30bf-4574-4cd6-9bdf-d06bbe0ed6ed" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tabletop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Card.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Card.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Tanks/Models/(Public Domain) Recon_Tank/TankMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Tanks/Models/(Public Domain) Recon_Tank/TankMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CanvasUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/CanvasUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Card.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Card.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/Player.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/Player.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/PlayerData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/PlayerData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/ServerData.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/ServerData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/UnoCard.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/UnoCard.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/UnoDeck.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/UnoDeck.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Discard.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Discard.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Draw.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Draw.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NetManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/NetManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Player.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/AdditiveLevels/Scenes/Offline.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/AdditiveLevels/Scenes/Offline.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/AdditiveLevels/Scenes/Online.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/AdditiveLevels/Scenes/Online.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/RigidbodyPhysics/Materials/Blue.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/RigidbodyPhysics/Materials/Blue.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Room/Scenes/OfflineScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Room/Scenes/OfflineScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Tanks/Prefabs/Tank.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Tanks/Prefabs/Tank.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Tanks/Scenes/Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Tanks/Scenes/Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Tanks/Textures/(Public Domain) Dirt Hand Painted Texture/Dirt.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Tanks/Textures/(Public Domain) Dirt Hand Painted Texture/Dirt.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Tanks/Textures/ProjectileMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Tanks/Textures/ProjectileMaterial.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ServerMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/ServerMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Connector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Connector.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ServerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ServerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ClientMenu.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ClientMenu.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ServerMenu 1.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ServerMenu 1.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ServerMenu.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/ServerMenu.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/.idea/.idea.Scripts.dir/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/.idea/.idea.Scripts.dir/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/.idea/.idea.Scripts.dir/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/.idea/.idea.Scripts.dir/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CardInfo.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Client.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Connector.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Connector.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerOld.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerOld.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Server.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Server.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ServerManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ServerManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Settings.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spawn.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Spawn.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe10.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe10.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe11.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe11.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe2.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe3.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe3.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe4.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe4.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe5.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe5.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe6.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe6.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe7.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe7.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe8.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe8.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe9.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe9.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,13 +127,7 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/PlayerUI.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Datas/UnoDeck.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/CanvasUI.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerOld.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ServerManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/NetManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Player.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Tanks/NetManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -112,6 +177,8 @@
         <option value="$PROJECT_DIR$/Assets/CanvasUI.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Tanks/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/Mirror/Examples/Tanks/NetManager.cs" />
       </list>
     </option>
   </component>
@@ -182,6 +249,7 @@
       <workItem from="1642375125283" duration="14157000" />
       <workItem from="1642567443844" duration="4839000" />
       <workItem from="1642572368736" duration="11053000" />
+      <workItem from="1642914807766" duration="3998000" />
     </task>
     <servers />
   </component>

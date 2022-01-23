@@ -7,16 +7,27 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="CanvasUI.cs" t="Include" />
-        <e p="Datas" t="Include">
-          <e p="PlayerData.cs" t="Include" />
-          <e p="ServerData.cs" t="Include" />
-          <e p="UnoCard.cs" t="Include" />
-          <e p="UnoDeck.cs" t="Include" />
+        <e p="OLD TABLETOP" t="Include">
+          <e p="CanvasUI.cs" t="Include" />
+          <e p="Datas" t="Include">
+            <e p="PlayerData.cs" t="Include" />
+            <e p="ServerData.cs" t="Include" />
+            <e p="UnoCard.cs" t="Include" />
+            <e p="UnoDeck.cs" t="Include" />
+          </e>
+          <e p="NetManager.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
+          <e p="PlayerUI.cs" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="CardInfo.cs" t="Include" />
+            <e p="Client.cs" t="Include" />
+            <e p="Connector.cs" t="Include" />
+            <e p="PlayerOld.cs" t="Include" />
+            <e p="Server.cs" t="Include" />
+            <e p="ServerManager.cs" t="Include" />
+            <e p="Settings.cs" t="Include" />
+          </e>
         </e>
-        <e p="NetManager.cs" t="Include" />
-        <e p="Player.cs" t="Include" />
-        <e p="PlayerUI.cs" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Mirror" t="Include">
             <e p="Authenticators" t="Include">
@@ -261,6 +272,8 @@
                     <e p="Recon_Tank - License.txt" t="Include" />
                   </e>
                 </e>
+                <e p="NetManager.cs" t="Include" />
+                <e p="PlayerMovement.cs" t="Include" />
                 <e p="Scripts" t="Include">
                   <e p="FaceCamera.cs" t="Include" />
                   <e p="Projectile.cs" t="Include" />
@@ -559,15 +572,6 @@
               <e p="EmojiOne.json" t="Include" />
             </e>
           </e>
-        </e>
-        <e p="Scripts" t="Include">
-          <e p="CardInfo.cs" t="Include" />
-          <e p="Client.cs" t="Include" />
-          <e p="Connector.cs" t="Include" />
-          <e p="PlayerOld.cs" t="Include" />
-          <e p="Server.cs" t="Include" />
-          <e p="ServerManager.cs" t="Include" />
-          <e p="Settings.cs" t="Include" />
         </e>
       </e>
       <e p="kcp2k.csproj" t="IncludeRecursive" />
