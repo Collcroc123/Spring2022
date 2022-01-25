@@ -1,20 +1,64 @@
 using UnityEngine;
 using Mirror;
+using TMPro;
 
 public class PlayerMovement : NetworkBehaviour
 { // https://www.youtube.com/watch?v=_QajrabyTJc
+    public Camera mainCamera;
+    [Header("Movement")]
     public CharacterController controller;
+    public float mouseSensitivity = 500f;
     public float speed = 12f;
     public float gravity = -18f;
     public float jumpHeight = 4f;
+    
+    [Header("Jumping")]
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+    
+    [SyncVar] public int health = 100;
+    public TextMeshPro healthTxt;
+    
     private Vector3 velocity;
     private bool isGrounded;
+    private float xRotation;
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     //[Client]
     private void Update()
+    {
+        healthTxt.text = health.ToString();
+        if (isLocalPlayer)
+        {
+            MovePlayer();
+            MoveCamera();
+            //if (hasAuthority) { CmdMove(); }
+        }
+        else
+        {
+            Destroy(mainCamera);
+        }
+    }
+    
+    /*[Command]
+    private void CmdMove()
+    {
+        RpcMove();
+    }
+    
+    [ClientRpc]
+    private void RpcMove()
+    {
+        MovePlayer();
+        MoveCamera();
+    }*/
+
+    private void MovePlayer()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         
@@ -38,19 +82,15 @@ public class PlayerMovement : NetworkBehaviour
         velocity.y += gravity * Time.deltaTime;
         
         controller.Move(velocity * Time.deltaTime);
-        //if (hasAuthority) { CmdMove(); }
     }
-    /*
-    [Command]
-    private void CmdMove()
+
+    private void MoveCamera()
     {
-        RpcMove();
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        transform.Rotate(Vector3.up * mouseX);
     }
-    
-    [ClientRpc]
-    private void RpcMove()
-    {
-        
-    }
-    */
 }

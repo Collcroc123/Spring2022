@@ -22,11 +22,10 @@ class ToolUI:
         self.Delete()
         self.m_Window = cmds.window(self.m_Window, t="Rigging", iconName="icon", wh=(self.width, self.height))
         cmds.columnLayout(cat=("both", -1))
-        cmds.button(l="Orient", c=lambda x: self.DisplayOrient(), bgc=(0.0, 0.5, 0.7), h=50, w=self.width, ann="Creates a locator on selected objects. When nothing is selected, it will create a default one at origin.")
-        cmds.rowColumnLayout(nc=2, cat=(1, "both", 0), cw=[(1, self.width/2), (2, self.width/2)])
-        cmds.button(l="Locator", c=lambda x: self.CreateLocator(), bgc=(0.5, 0.0, 0.7), h=50, w=self.width/2, ann="Creates a locator on selected objects. When nothing is selected, it will create a default one at origin.")
-        cmds.button(l="Joint", c=lambda x: self.CreateJoint(), bgc=(0.7, 0.5, 0.0), h=50, w=self.width/2, ann="Creates a joint on selected objects. When nothing is selected, it will create a default one at origin.")
-        cmds.columnLayout(cat=("both", -1), w=120)
+        cmds.button(l="Toggle Orient", c=lambda x: self.DisplayOrient(), bgc=(0.0, 0.5, 0.7), h=25, w=self.width, ann="Toggles view of orientation and orientation controls in Channel Box.")
+        cmds.button(l="Freeze Transforms", c=lambda x: self.Freeze(), bgc=(0.0, 0.8, 0.7), h=25, w=self.width, ann="Freezes all transforms of selected objects.")
+        cmds.button(l="Locator", c=lambda x: self.CreateLocator(), bgc=(0.5, 0.0, 0.7), h=25, w=self.width, ann="Creates a locator on selected objects. When nothing is selected, it will create a default one at origin.")
+        cmds.button(l="Joint", c=lambda x: self.CreateJoint(), bgc=(0.7, 0.5, 0.0), h=50, w=self.width, ann="Creates a joint on selected objects. When nothing is selected, it will create a default one at origin.")
         cmds.text(l='Joint Radius', h=25, ann="The size of the Joint, accepts any float. 0 defaults to 1")  # fn="boldLabelFont",
         self.jntRadiusText = cmds.textField(pht="Size", tx=1)
         cmds.text(l="\n")
@@ -137,6 +136,12 @@ class ToolUI:
                 cmds.setAttr('%s.jointOrientX' % sel, keyable=not state, channelBox=not state)
                 cmds.setAttr('%s.jointOrientY' % sel, keyable=not state, channelBox=not state)
                 cmds.setAttr('%s.jointOrientZ' % sel, keyable=not state, channelBox=not state)
+                
+    def Freeze(self):
+        sels = cmds.ls(sl=True)
+        for sel in sels:
+            cmds.makeIdentity(sel, apply=True, t=1, r=1, s=1, n=0)
+        return
 
     def OrientJoints(self):
         return
@@ -165,9 +170,9 @@ class ToolUI:
 
         newControl = cmds.circle(c=(0, 0, 0), r=rad, s=sect, sw=deg, n=controlName, d=1)
         newControl = cmds.listRelatives(newControl)
-        group = cmds.group(newControl, n=controlName + "_Grp")
+        grp = cmds.group(newControl, n=controlName + "_Grp")
         if item is not 0:
-            cmds.matchTransform(group, item)
+            cmds.matchTransform(grp, item)
 
         cmds.setAttr(newControl[0] + ".overrideEnabled", 1)
         cmds.setAttr(newControl[0] + ".overrideRGBColors", 1)
