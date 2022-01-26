@@ -9,6 +9,7 @@ public class SteamLobby : MonoBehaviour
     protected Callback<LobbyEnter_t> lobbyEntered;
     private const string HostAddressKey = "HostAddress";
     private NetManager netManager;
+    public static CSteamID LobbyId { get; private set; }
 
     void Start()
     {
@@ -26,15 +27,21 @@ public class SteamLobby : MonoBehaviour
         SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, netManager.maxConnections);
     }
 
+    public void JoinLobby()
+    {
+        //SteamMatchmaking.JoinLobby();
+    }
+
     private void OnLobbyCreated(LobbyCreated_t callback)
     {
         if (callback.m_eResult != EResult.k_EResultOK)
         {
             netManager.Error("COULD NOT CREATE LOBBY");
         }
-        
+
+        LobbyId = new CSteamID(callback.m_ulSteamIDLobby);
         netManager.StartHost();
-        SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), HostAddressKey, SteamUser.GetSteamID().ToString());
+        SteamMatchmaking.SetLobbyData(LobbyId, HostAddressKey, SteamUser.GetSteamID().ToString());
     }
 
     private void OnGameLobbyJoinRequested(GameLobbyJoinRequested_t callback)

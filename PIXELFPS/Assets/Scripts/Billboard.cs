@@ -1,5 +1,5 @@
 using UnityEngine;
-//using TMPro;
+using TMPro;
 
 public class Billboard : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class Billboard : MonoBehaviour
     private float angle;
     public Sprite[] spriteSheet;
     public Transform player;
-    //public TextMeshPro angleTxt;
+    public TextMeshPro angleTxt;
 
     void Start()
     {
@@ -27,15 +27,9 @@ public class Billboard : MonoBehaviour
             {
                 Vector3 direction = mainCam.transform.position - player.position;
                 angle = Mathf.Atan2(direction.x,direction.z) * Mathf.Rad2Deg;
-
-                if (player.eulerAngles.y < 180)
-                {
-                    angle -= player.eulerAngles.y;
-                }
-                else
-                {
-                    angle -= player.eulerAngles.y - 360;
-                }
+                //if (player.eulerAngles.y < 180) angle -= player.eulerAngles.y;
+                //else angle -= player.eulerAngles.y - 360;
+                angleTxt.text = angle.ToString();
                 
                 if (angle > -22.5 && angle <= 22.5)
                     sprite.sprite = spriteSheet[0];
@@ -53,14 +47,9 @@ public class Billboard : MonoBehaviour
                     sprite.sprite = spriteSheet[6];
                 else if (angle > -67.5 && angle <= -22.5)
                     sprite.sprite = spriteSheet[7];
-                
-                //angleTxt.text = angle.ToString();
             }
         }
-        else
-        {
-            Debug.Log("NO MAIN CAM");
-            mainCam = Camera.main;
-        }
+        else mainCam = Camera.main;
+        
     }
 }

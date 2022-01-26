@@ -8,7 +8,10 @@ namespace Mirror.Examples.Tanks
         // LateUpdate so that all camera updates are finished.
         void LateUpdate()
         {
-            transform.forward = Camera.main.transform.forward;
+            if (Camera.main != null)
+            {
+                transform.forward = Camera.main.transform.forward;
+            }
         }
     }
 }
