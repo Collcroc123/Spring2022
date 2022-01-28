@@ -76,6 +76,9 @@ public class PlayerManager : NetworkBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         if (x != 0 || z != 0) isWalking = true;
         else isWalking = false;
+
+        if (Input.GetKeyDown(KeyCode.LeftControl)) speed = 6f;
+        else speed = 12f;
         
         controller.Move(move * speed * Time.deltaTime);
 

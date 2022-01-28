@@ -26,6 +26,6 @@ public class NetManager : NetworkManager
     public void Error(string text)
     {
         errorWindow.SetActive(true);
-        errorWindow.GetComponent<TextMeshPro>().text = "ERROR: \n" + text;
+        errorWindow.GetComponentInChildren<TextMeshPro>().text = "ERROR: \n" + text;
     }
 }

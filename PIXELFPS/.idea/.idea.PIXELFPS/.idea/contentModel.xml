@@ -401,6 +401,7 @@
         <e p="Scripts" t="Include">
           <e p="Billboard.cs" t="Include" />
           <e p="HeadBob.cs" t="Include" />
+          <e p="MatBillboard.cs" t="Include" />
           <e p="NetManager.cs" t="Include" />
           <e p="NewBillboard.cs" t="Include" />
           <e p="PlayerManager.cs" t="Include" />
@@ -418,11 +419,6 @@
           <e p="Steamworks.NET" t="Include">
             <e p="SteamManager.cs" t="Include" />
           </e>
-        </e>
-        <e p="Shaders" t="Include">
-          <e p="DoomSprite3.shader" t="Include" />
-          <e p="DoomSpriteAnimated2.shader" t="Include" />
-          <e p="GetAngle.cs" t="Include" />
         </e>
         <e p="Tanks" t="Include">
           <e p="Models" t="Include">
