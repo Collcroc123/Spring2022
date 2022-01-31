@@ -26,6 +26,7 @@ class ToolUI:
         cmds.button(l="Freeze Transforms", c=lambda x: self.Freeze(), bgc=(0.0, 0.8, 0.7), h=25, w=self.width, ann="Freezes all transforms of selected objects.")
         cmds.button(l="Locator", c=lambda x: self.CreateLocator(), bgc=(0.5, 0.0, 0.7), h=25, w=self.width, ann="Creates a locator on selected objects. When nothing is selected, it will create a default one at origin.")
         cmds.button(l="Joint", c=lambda x: self.CreateJoint(), bgc=(0.7, 0.5, 0.0), h=50, w=self.width, ann="Creates a joint on selected objects. When nothing is selected, it will create a default one at origin.")
+        cmds.button(l="Parent", c=lambda x: self.ParentJoints(), bgc=(0.5, 0.5, 0.0), h=50, w=self.width, ann="Parents objects in the order you selected them in.")
         cmds.text(l='Joint Radius', h=25, ann="The size of the Joint, accepts any float. 0 defaults to 1")  # fn="boldLabelFont",
         self.jntRadiusText = cmds.textField(pht="Size", tx=1)
         cmds.text(l="\n")

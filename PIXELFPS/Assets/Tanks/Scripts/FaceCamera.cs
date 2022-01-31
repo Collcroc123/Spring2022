@@ -5,7 +5,6 @@ namespace Mirror.Examples.Tanks
 {
     public class FaceCamera : MonoBehaviour
     {
-        // LateUpdate so that all camera updates are finished.
         void LateUpdate()
         {
             if (Camera.main != null)
