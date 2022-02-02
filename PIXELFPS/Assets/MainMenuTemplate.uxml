@@ -1,22 +1,21 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Style.uss?fileID=7433441132597879392&amp;guid=fa117bcddf7505848bd041240284bb26&amp;type=3#Style" />
-    <ui:VisualElement name="MenuButtons" style="width: 33%; height: 100%; background-color: rgba(0, 0, 0, 0.59); border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 50px; border-bottom-right-radius: 50px; left: auto; justify-content: center; align-items: flex-start;">
+    <ui:VisualElement name="MenuButtons" style="width: 33%; height: 100%; background-color: rgba(0, 0, 0, 0.78); border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 50px; border-bottom-right-radius: 50px; left: auto; justify-content: center; align-items: flex-start;">
         <ui:Label text="PIXELFPS" display-tooltip-when-elided="true" class="Text" style="position: absolute; left: 15%; top: 5%; font-size: 75px;" />
         <ui:Button text="Singleplayer" display-tooltip-when-elided="true" name="Singleplayer" class="button-style" style="background-color: rgb(108, 178, 60);" />
         <ui:Button text="Multiplayer" display-tooltip-when-elided="true" name="Multiplayer" class="button-style" style="background-color: rgb(156, 67, 171); display: flex;" />
         <ui:Button text="Settings" display-tooltip-when-elided="true" name="Settings" class="button-style" style="background-color: rgb(66, 135, 178);" />
         <ui:Button text="Quit" display-tooltip-when-elided="true" name="Quit" class="button-style" style="background-color: rgb(173, 68, 58);" />
     </ui:VisualElement>
-    <ui:VisualElement name="MultiMenu" class="MenuPanel" style="justify-content: center; align-items: flex-start;">
-        <ui:Label text="Label" display-tooltip-when-elided="true" class="Text" />
-        <ui:Label text="Label" display-tooltip-when-elided="true" class="Text" />
-        <ui:Label text="Label" display-tooltip-when-elided="true" class="Text" />
-        <ui:Label text="Label" display-tooltip-when-elided="true" class="Text" />
-        <ui:Label text="Label" display-tooltip-when-elided="true" class="Text" />
-        <ui:Label text="Label" display-tooltip-when-elided="true" class="Text" />
-        <ui:Label text="Label" display-tooltip-when-elided="true" class="Text" />
-        <ui:Label text="Label" display-tooltip-when-elided="true" class="Text" />
-        <ui:Button text="Local Host" display-tooltip-when-elided="true" class="button-style" style="position: absolute; left: 5%; bottom: 5%; top: auto; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px; width: 400px; background-color: rgb(178, 123, 60);" />
-        <ui:Button text="Steam Host" display-tooltip-when-elided="true" class="button-style" style="position: absolute; left: auto; bottom: 5%; top: auto; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px; width: 400px; right: 5%; background-color: rgb(60, 178, 148);" />
+    <ui:VisualElement name="MultiMenu" class="MenuPanel" style="justify-content: flex-start; align-items: flex-start; padding-left: 50px; padding-right: 50px; padding-top: 50px; -unity-text-align: upper-left; transition-duration: 0.25s; display: flex; background-color: rgba(0, 0, 0, 0.78); visibility: visible;">
+        <ui:Scroller high-value="0" direction="Vertical" value="0" low-value="10" style="height: 650px; width: 25px; position: absolute; right: 0; top: 50px; display: none; visibility: visible;" />
+        <ui:Label text="Lobby Name:" display-tooltip-when-elided="true" name="NameLabel" class="Text" />
+        <ui:TextField picking-mode="Ignore" value="Lobby" text="Lobby Name" style="height: 60px; left: auto; width: 450px; color: rgb(0, 0, 0); font-size: 40px; top: auto; -unity-text-align: upper-left; border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; margin-bottom: 0; margin-top: 0; margin-right: 0; margin-left: 0;" />
+        <ui:Label text="Max Players:" display-tooltip-when-elided="true" name="PlayersLabel" enable-rich-text="true" class="Text" />
+        <ui:SliderInt picking-mode="Ignore" label="64" value="4" high-value="64" focusable="true" show-input-field="false" inverted="false" tabindex="0" style="position: relative; left: 0; height: 70px; width: 600px; -unity-text-align: middle-center; top: 0; font-size: 50px; color: rgb(255, 255, 255); flex-wrap: nowrap; flex-direction: row-reverse; justify-content: flex-start;" />
+        <ui:Label text="Time Limit:" display-tooltip-when-elided="true" name="TimeLabel" class="Text" />
+        <ui:SliderInt picking-mode="Ignore" label="60" value="3600" high-value="3600" focusable="true" show-input-field="false" inverted="false" tabindex="0" low-value="100" direction="Horizontal" style="position: relative; left: 0; height: 70px; width: 600px; -unity-text-align: middle-center; top: 0; font-size: 50px; color: rgb(255, 255, 255); flex-direction: row-reverse; white-space: normal; -unity-text-outline-width: 0;" />
+        <ui:Button text="Local Host" display-tooltip-when-elided="true" class="button-style" style="position: absolute; left: 5%; bottom: 5%; top: auto; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px; width: 400px; background-color: rgb(178, 171, 60);" />
+        <ui:Button text="Steam Host" display-tooltip-when-elided="true" class="button-style" style="position: absolute; left: auto; bottom: 5%; top: auto; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-left-radius: 50px; border-bottom-right-radius: 50px; width: 400px; right: 5%; background-color: rgb(178, 125, 60);" />
     </ui:VisualElement>
 </ui:UXML>

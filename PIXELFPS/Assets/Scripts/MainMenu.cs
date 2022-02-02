@@ -58,7 +58,8 @@ public class MainMenu : MonoBehaviour
     void MultiplayerMenu()
     {
         Debug.Log("MULTIPLAYER MENU");
-        multiMenu.style.display = DisplayStyle.Flex;
+        //multiMenu.style.display = DisplayStyle.Flex;
+        //multiMenu.experimental.animation.Start(0, 200f, 300f);
         //steamLobby.HostLobby();
         //netManager.StartHost();
     }

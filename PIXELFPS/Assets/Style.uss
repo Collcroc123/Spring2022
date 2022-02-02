@@ -28,11 +28,12 @@
     border-right-color: rgb(0, 0, 0);
     border-top-color: rgb(0, 0, 0);
     border-bottom-color: rgb(0, 0, 0);
-    color: rgba(0, 0, 0, 255);
+    color: rgb(0, 0, 0);
     margin-top: 10px;
     margin-bottom: 10px;
     text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.39);
-    background-color: rgba(255, 255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    transition-duration: 0.25s;
 }
 
 .button-style:hover {
@@ -71,6 +72,7 @@
     margin-bottom: 10px;
     -unity-background-image-tint-color: rgba(0, 0, 0, 0.78);
     text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.39);
+    transition-duration: 0.25s;
 }
 
 .MenuPanel {
@@ -81,7 +83,7 @@
     left: 50%;
     top: 50%;
     transform-origin: center;
-    background-color: rgba(0, 0, 0, 0.59);
+    background-color: rgba(0, 0, 0, 0.78);
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -91,6 +93,9 @@
     padding-right: 25px;
     padding-top: 25px;
     padding-bottom: 175px;
+    transition-duration: 0.25s;
+    display: flex;
+    opacity: 1;
 }
 
 .Text {
