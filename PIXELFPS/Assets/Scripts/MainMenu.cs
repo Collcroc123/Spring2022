@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
 
 public class MainMenu : MonoBehaviour
 {
@@ -8,15 +9,16 @@ public class MainMenu : MonoBehaviour
     private SteamLobby steamLobby;
     private bool isActive = false;
     private VisualElement root;
-    private Button singleButton, multiButton, settingsButton, quitButton;
-    private VisualElement singleMenu, multiMenu, settingsMenu, quitMenu;
+    private Button singleButton, multiButton, settingsButton, quitButton, localButton, steamButton;
+    private VisualElement sideMenu, singleMenu, multiMenu, settingsMenu, quitMenu;
 
     private void Start()
     {
         root = GetComponent<UIDocument>().rootVisualElement;
         netManager = networkManagerObj.GetComponent<NetManager>();
         steamLobby = networkManagerObj.GetComponent<SteamLobby>();
-        
+
+        sideMenu = root.Q<VisualElement>("MenuButtons");
         singleButton = root.Q<Button>("Singleplayer");
         multiButton = root.Q<Button>("Multiplayer");
         settingsButton = root.Q<Button>("Settings");
@@ -25,12 +27,19 @@ public class MainMenu : MonoBehaviour
         singleMenu = root.Q<VisualElement>("SingleMenu");
         multiMenu = root.Q<VisualElement>("MultiMenu");
         settingsMenu = root.Q<VisualElement>("SettingsMenu");
-        quitMenu = root.Q<VisualElement>("QuitMenu");
 
+        localButton = root.Q<Button>("LocalButton");
+        steamButton = root.Q<Button>("SteamButton");
+        
         singleButton.clicked += SingleplayerMenu;
         multiButton.clicked += MultiplayerMenu;
         settingsButton.clicked += SettingsMenu;
-        quitButton.clicked += QuitMenu;
+        quitButton.clicked += Quit;
+        localButton.clicked += LocalConnect;
+        steamButton.clicked += SteamConnect;
+        
+        sideMenu.AddToClassList("SlideOut");
+        FadeAll();
     }
 
     void Update()
@@ -40,39 +49,64 @@ public class MainMenu : MonoBehaviour
             isActive = !isActive;
             if (isActive)
             {
-                root.style.display = DisplayStyle.Flex;
+                Cursor.lockState = CursorLockMode.None;
+                sideMenu.RemoveFromClassList("SlideOut");
             }
             else
             {
-                root.style.display = DisplayStyle.None;
+                Cursor.lockState = CursorLockMode.Locked;
+                FadeAll();
+                sideMenu.AddToClassList("SlideOut");
             }
         }
     }
 
     void SingleplayerMenu()
     {
+        FadeAll();
         Debug.Log("SINGLEPLAYER MENU");
-        singleMenu.style.display = DisplayStyle.Flex;
+        singleMenu.RemoveFromClassList("FadeOut");
     }
 
     void MultiplayerMenu()
     {
+        FadeAll();
         Debug.Log("MULTIPLAYER MENU");
-        //multiMenu.style.display = DisplayStyle.Flex;
-        //multiMenu.experimental.animation.Start(0, 200f, 300f);
+        multiMenu.RemoveFromClassList("FadeOut");
         //steamLobby.HostLobby();
         //netManager.StartHost();
     }
 
     void SettingsMenu()
     {
+        FadeAll();
         Debug.Log("SETTINGS MENU");
-        settingsMenu.style.display = DisplayStyle.Flex;
+        settingsMenu.RemoveFromClassList("FadeOut");
     }
 
-    void QuitMenu()
+    void Quit()
     {
-        Debug.Log("QUIT MENU");
-        quitMenu.style.display = DisplayStyle.Flex;
+        Application.Quit();
+    }
+
+    void FadeAll()
+    {
+        singleMenu.AddToClassList("FadeOut");
+        multiMenu.AddToClassList("FadeOut");
+        settingsMenu.AddToClassList("FadeOut");
+    }
+
+    void LocalConnect()
+    {
+        netManager.StartHost();
+        FadeAll();
+        isActive = false;
+    }
+
+    void SteamConnect()
+    {
+        steamLobby.HostLobby();
+        FadeAll();
+        isActive = false;
     }
 }

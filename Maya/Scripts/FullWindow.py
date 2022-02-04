@@ -22,16 +22,20 @@ class ToolUI:
         self.Delete()
         self.m_Window = cmds.window(self.m_Window, t="Rigging", iconName="icon", wh=(self.width, self.height))
         cmds.columnLayout(cat=("both", -1))
-        cmds.button(l="Toggle Orient", c=lambda x: self.DisplayOrient(), bgc=(0.0, 0.5, 0.7), h=25, w=self.width, ann="Toggles view of orientation and orientation controls in Channel Box.")
-        cmds.button(l="Freeze Transforms", c=lambda x: self.Freeze(), bgc=(0.0, 0.8, 0.7), h=25, w=self.width, ann="Freezes all transforms of selected objects.")
-        cmds.button(l="Locator", c=lambda x: self.CreateLocator(), bgc=(0.5, 0.0, 0.7), h=25, w=self.width, ann="Creates a locator on selected objects. When nothing is selected, it will create a default one at origin.")
-        cmds.button(l="Joint", c=lambda x: self.CreateJoint(), bgc=(0.7, 0.5, 0.0), h=50, w=self.width, ann="Creates a joint on selected objects. When nothing is selected, it will create a default one at origin.")
-        cmds.button(l="Parent", c=lambda x: self.ParentJoints(), bgc=(0.5, 0.5, 0.0), h=50, w=self.width, ann="Parents objects in the order you selected them in.")
+        cmds.button(l="Toggle Orient", c=lambda x: self.DisplayOrient(), bgc=(1, 0, 0), h=25, w=self.width, ann="Toggles view of orientation and orientation controls in Channel Box.")
+        cmds.button(l="Freeze Transforms", c=lambda x: self.Freeze(), bgc=(1, 0.5, 0), h=25, w=self.width, ann="Freezes all transforms of selected objects.")
+        cmds.button(l="Locator", c=lambda x: self.CreateLocator(), bgc=(1, 1, 0), h=25, w=self.width, ann="Creates a locator on selected objects. When nothing is selected, it will create a default one at origin.")
+        cmds.button(l="Joint", c=lambda x: self.CreateJoint(), bgc=(0, 1, 0), h=25, w=self.width, ann="Creates a joint on selected objects. When nothing is selected, it will create a default one at origin.")
+        cmds.button(l="Control", c=lambda x: self.SetupControl(), bgc=(0, 1, 0.5), h=25, w=self.width, ann="Creates a control on selected objects. When nothing is selected, it will create a default one at origin.")
+        cmds.button(l="Parent", c=lambda x: self.ParentJoints(), bgc=(0, 1, 1), h=25, w=self.width, ann="Parents objects in the order you selected them in.")
+        cmds.button(l="Constraint", c=lambda x: self.Constraint(), bgc=(0, 0.5, 1), h=25, w=self.width, ann="Creates a constraint between selected Control & Joint.")
+        cmds.button(l="Broken Constraint", c=lambda x: self.BrokenConstraint(), bgc=(0, 0, 1), h=25, w=self.width, ann="Creates a broken constraint between selected Control & Group.")
+        cmds.button(l="Rename", c=lambda x: self.Rename(1), bgc=(0.5, 0, 1), h=25, w=self.width, ann="Renames selected object.")
+        cmds.button(l="Set Color", c=lambda x: self.ColorChange(self.color), bgc=(1, 0, 1), h=25, w=self.width)
+        colorButton = cmds.button(l="Color Picker", c=lambda x: self.ColorPick(), bgc=(1, 1, 1), h=25, w=self.width)
         cmds.text(l='Joint Radius', h=25, ann="The size of the Joint, accepts any float. 0 defaults to 1")  # fn="boldLabelFont",
         self.jntRadiusText = cmds.textField(pht="Size", tx=1)
-        cmds.text(l="\n")
-        cmds.button(l="CONTROL", c=lambda x: self.SetupControl(), bgc=(0.7, 0.7, 0.7), h=50, w=self.width, ann="Creates a control on selected objects. When nothing is selected, it will create a default one at origin.")
-        cmds.text(l="\n")
+        cmds.text(l="\n", h=5)
         cmds.text(l='Control Radius', h=15, ann="The size of the control, accepts any float. 0 defaults to 2")
         self.radiusText = cmds.textField(pht="Size", tx=2)
         cmds.text(l="\n", h=5)
@@ -40,14 +44,10 @@ class ToolUI:
         cmds.text(l="\n", h=5)
         cmds.text(l='Control Sweep', h=15, ann="The amount of the control drawn. 0 defaults to 360, a circle. A semicircle is 180.")
         self.sweepText = cmds.textField(pht="1 - 360 degrees", tx=360)
-        cmds.text(l="\n")
-        cmds.button(l="Rename", c=lambda x: self.Rename(1), bgc=(0, 0.7, 0.2), h=25, w=self.width, ann="Renames selected object.")
         cmds.text(l="\n", h=5)
+        cmds.text(l='New Name', h=15, ann="The new name given to selection. ## are replaced with numbers")
         self.nameText = cmds.textField(pht="Name", tx="NAME_##_Jnt")
-        cmds.text(l="\n")
-        colorButton = cmds.button(l="Color Picker", c=lambda x: self.ColorPick(), bgc=(1, 1, 1), h=25, w=self.width)
-        cmds.button(l="Set Color", c=lambda x: self.ColorChange(self.color), bgc=(0.7, 0, 0.2), h=25, w=self.width)
-        cmds.text(l="\n")
+        cmds.text(l="\n", h=5)
         cmds.showWindow(self.m_Window)
 
     def Delete(self):
@@ -68,7 +68,7 @@ class ToolUI:
                 cmds.setAttr("%s.overrideRGBColors" % shape, True)
                 color = colorsys.hsv_to_rgb(hue[0] / 360, hue[1], hue[2])  # / 360, 1, 0.7
                 cmds.setAttr("%s.overrideColorRGB" % shape, color[0], color[1], color[2])
-                print("Set selected object's color to " + color)
+                #print("Set selected object's color to " + color)
         return
 
     def ColorEdit(self):
@@ -179,6 +179,27 @@ class ToolUI:
         cmds.setAttr(newControl[0] + ".overrideRGBColors", 1)
         color = colorsys.hsv_to_rgb(hue[0] / 360, hue[1], hue[2])  # / 360, 1, 0.7
         cmds.setAttr(newControl[0] + ".overrideColorRGB", color[0], color[1], color[2])
-
+    
+    def Constraint(self):
+        sels = cmds.ls(sl=True)
+        parent = sels[0]
+        child = sels[1]
+        cmds.parentConstraint(parent, child, mo=True, w=1)
+        cmds.scaleConstraint(parent, child, mo=True, w=1)
+     
+    def BrokenConstraint(self):
+        sels = cmds.ls(sl=True)
+        target = sels[0]
+        ctrl = sels[1]
+        grp = cmds.listRelatives(ctrl, p=True)[0]
+        transCon = cmds.parentConstraint(target, grp, mo=True, sr=["x", "y", "z"], w=1)[0]
+        rotCon = cmds.parentConstraint(target, grp, mo=True, st=["x", "y", "z"], w=1)[0]
+        #cmds.scaleConstraint(target, grp, mo=True, w=1)
+        cmds.addAttr(ctrl, ln='FollowTranslate', at='double', min=0, max=1, dv=1)
+        cmds.setAttr('%s.FollowTranslate' % ctrl, e=True, keyable=True)
+        cmds.addAttr(ctrl, ln='FollowRotate', at='double', min=0, max=1, dv=1) # parent=cmds.listRelatives(c=True)[1]
+        cmds.setAttr('%s.FollowRotate' % ctrl, e=True, keyable=True)
+        cmds.connectAttr('%s.FollowTranslate' % ctrl, '%s.w0' % transCon, f=True)
+        cmds.connectAttr('%s.FollowRotate' % ctrl, '%s.w0' % rotCon, f=True)
 
 ToolUI().Create()

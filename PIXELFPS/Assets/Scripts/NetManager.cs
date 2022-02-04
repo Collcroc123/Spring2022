@@ -17,12 +17,6 @@ public class NetManager : NetworkManager
         playerManager.SetSteamId(steamId.m_SteamID);
     }
 
-    public void QuitGame()
-    {
-        Debug.Log("QUITTING GAME");
-        Application.Quit();
-    }
-
     public void Error(string text)
     {
         errorWindow.SetActive(true);
