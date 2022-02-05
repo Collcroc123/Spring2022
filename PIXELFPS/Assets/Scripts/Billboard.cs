@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-using TMPro;
+//using TMPro;
 
 public class Billboard : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class Billboard : MonoBehaviour
     private Camera mainCam;
     private SpriteRenderer sprite;
     private float angle;
-    public TextMeshPro angleTxt;
+    //public TextMeshPro angleTxt;
 
 
     void Start()
@@ -29,7 +29,7 @@ public class Billboard : MonoBehaviour
                 angle = Mathf.Atan2(direction.x,direction.z) * Mathf.Rad2Deg;
                 if (transform.parent.eulerAngles.y - angle < 180) angle -= transform.parent.eulerAngles.y;
                 else angle -= transform.parent.eulerAngles.y - 360;
-                angleTxt.text = angle.ToString();
+                //angleTxt.text = angle.ToString();
                 
                 int index = (int)MathF.Round(angle/45);
                 if (index < 0) index += 8;
@@ -56,4 +56,5 @@ else if (angle > -157.5 && angle <= -112.5)
 else if (angle > -112.5 && angle <= -67.5)
     sprite.sprite = spriteSheet[6];
 else if (angle > -67.5 && angle <= -22.5)
-    sprite.sprite = spriteSheet[7];*/
+    sprite.sprite = spriteSheet[7];
+*/

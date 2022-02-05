@@ -44,7 +44,7 @@ public class PlayerManager : NetworkBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        if (isLocalPlayer)
+        if (isLocalPlayer && Camera.main.gameObject != null)
         {
             Destroy(Camera.main.gameObject);
             mainCamera.SetActive(true);
