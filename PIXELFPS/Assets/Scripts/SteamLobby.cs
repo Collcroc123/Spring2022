@@ -1,6 +1,7 @@
 using Mirror;
 using Steamworks;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SteamLobby : MonoBehaviour
 { // https://www.youtube.com/watch?v=QlbBC07dqnE
@@ -9,6 +10,7 @@ public class SteamLobby : MonoBehaviour
     protected Callback<LobbyEnter_t> lobbyEntered;
     private const string HostAddressKey = "HostAddress";
     private NetManager netManager;
+    public Button steamHost;
     public static CSteamID LobbyId { get; private set; }
 
     void Start()
@@ -19,7 +21,9 @@ public class SteamLobby : MonoBehaviour
             lobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
             gameLobbyJoinRequested = Callback<GameLobbyJoinRequested_t>.Create(OnGameLobbyJoinRequested);
             lobbyEntered = Callback<LobbyEnter_t>.Create(OnLobbyEntered);
+            steamHost.interactable = true;
         }
+        else steamHost.interactable = false;
     }
 
     public void HostLobby()
