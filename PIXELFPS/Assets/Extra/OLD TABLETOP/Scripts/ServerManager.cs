@@ -1,6 +1,6 @@
 using UnityEngine;
 using Mirror;
-
+/*
 public class ServerManager : NetworkManager
 {
     public Connector connector;
@@ -14,4 +14,4 @@ public class ServerManager : NetworkManager
     {
         connector.ClientDisconnected(client);
     }
-}
+}*/

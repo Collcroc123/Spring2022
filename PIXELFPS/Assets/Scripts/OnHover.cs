@@ -10,13 +10,10 @@ public class OnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("HOVERING");
         anim.SetBool("Hovering", true);
     }
-
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("STOPPED HOVERING");
         anim.SetBool("Hovering", false);
     }
 }

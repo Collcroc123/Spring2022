@@ -1,6 +1,6 @@
 using UnityEngine;
 using Mirror;
-
+/*
 public class Server : NetworkBehaviour
 {
     public ServerManager manager;
@@ -128,4 +128,4 @@ public class Server : NetworkBehaviour
         Instantiate(card, new Vector3(1f, (discardSize*0.005f)-0.5f, discardSize*-0.01f), Quaternion.Euler(0, 0, 0));
         discardSize++;
     }
-}
+}*/

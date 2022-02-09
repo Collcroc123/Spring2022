@@ -1,6 +1,6 @@
 using UnityEngine;
 using Mirror;
-
+/*
 public class Connector : NetworkBehaviour
 {
     public ServerManager manager;  // Manages incoming and outgoing connections
@@ -91,4 +91,4 @@ public class Connector : NetworkBehaviour
             }
         }
     }
-}
+}*/

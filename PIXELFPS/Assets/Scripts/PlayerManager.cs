@@ -20,7 +20,6 @@ public class PlayerManager : NetworkBehaviour
     public float gravity = -18f;
     public float jumpHeight = 4f;
     
-    
     [Header("Jumping")]
     public Transform groundCheck;
     public float groundDistance = 0.4f;
@@ -49,10 +48,7 @@ public class PlayerManager : NetworkBehaviour
             Destroy(Camera.main.gameObject);
             mainCamera.SetActive(true);
         }
-        else
-        {
-            Destroy(mainCamera);
-        }
+        else Destroy(mainCamera);
     }
     
     private void Update()
@@ -97,7 +93,7 @@ public class PlayerManager : NetworkBehaviour
         mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
     }
-
+    
     #region STEAM
     
     public void SetSteamId(ulong steamId)

@@ -1,6 +1,6 @@
 using UnityEngine;
 using Mirror;
-
+/*
 public class Client : NetworkBehaviour
 {
     public ServerManager manager;
@@ -27,4 +27,4 @@ public class Client : NetworkBehaviour
         // Client gets rid of card if server received
         // Server plays the card
     }
-}
+}*/

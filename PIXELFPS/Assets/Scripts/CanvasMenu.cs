@@ -1,18 +1,24 @@
+using Mirror;
 using UnityEngine;
 using Cursor = UnityEngine.Cursor;
 
 public class CanvasMenu : MonoBehaviour
 {
     public GameObject networkManagerObj;
-    private NetManager netManager;
-    private SteamLobby steamLobby;
+    //private NetManager netManager;
+    private NetworkManager netManager;
+    //private SteamLobby steamLobby;
     private bool isActive = false;
-    public GameObject sideMenu, playerUI;
-    
+    public GameObject sideMenu;
+
+
+    public GameObject quitButton, disconnectButton, playerUI;
+
+
     private void Start()
     {
         netManager = networkManagerObj.GetComponent<NetManager>();
-        steamLobby = networkManagerObj.GetComponent<SteamLobby>();
+        //steamLobby = networkManagerObj.GetComponent<SteamLobby>();
     }
 
     void Update()
@@ -34,39 +40,33 @@ public class CanvasMenu : MonoBehaviour
     public void LocalHost()
     {
         netManager.StartHost();
-        PlayerStart();
+        OnConnection();
     }
 
-    public void SteamHost()
-    {
-        steamLobby.HostLobby();
-        PlayerStart();
-    }
     public void LocalConnect()
     {
         netManager.StartClient();
-        PlayerStart();
+        OnConnection();
+    }
+    
+    public void SteamHost()
+    {
+        //steamLobby.HostLobby();
+        OnConnection();
     }
 
     public void SteamConnect()
     {
-        steamLobby.JoinLobby();
-        PlayerStart();
+        //steamLobby.JoinLobby();
+        OnConnection();
     }
 
-    public void ShutDown()
-    {
-        netManager.StopClient();
-        netManager.StopHost();
-        netManager.StopServer();
-        playerUI.SetActive(false);
-        Instantiate(Camera.main);
-    }
-
-    void PlayerStart()
+    public void OnConnection()
     {
         isActive = false;
         sideMenu.SetActive(isActive);
+        quitButton.SetActive(false);
+        disconnectButton.SetActive(true);
         playerUI.SetActive(true);
     }
 }
