@@ -6,10 +6,13 @@ using UnityEngine.UI;
 
 public class PlayerManager : NetworkBehaviour
 { // https://www.youtube.com/watch?v=_QajrabyTJc
-    public GameObject mainCamera;
-    private string userName;
+    public string userName;
     public TextMeshPro nameTxt;
     public RawImage userPicture;
+    [SyncVar] public int health = 100;
+    public TextMeshPro healthTxt;
+    [SyncVar] public Color playerColor;
+    
     [SyncVar(hook = nameof(SteamIdUpdated))] private ulong steamId;
     protected Callback<AvatarImageLoaded_t> avatarImageLoaded;
 
@@ -24,20 +27,23 @@ public class PlayerManager : NetworkBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-    
-    [SyncVar] public int health = 100;
-    public TextMeshPro healthTxt;
-    
-    [HideInInspector] public bool isWalking, isGrounded;
+    private bool isWalking, isGrounded; //[HideInInspector] public
     private Vector3 velocity;
     private float xRotation;
+    
+    [Header("Camera")]
+    public Transform headTransform;
+    public GameObject mainCamera;
+    public float bobFrequency = 5f;
+    public float bobXAmplitude = 0.1f;
+    public float bobYAmplitude = 0.1f;
+    [Range(0,1)]public float headBobSmoothing = 0.1f;
+    private float walkingTime;
+    private Vector3 targetCamPos;
 
     public override void OnStartClient()
     {
-        if (SteamManager.Initialized)
-        {
-            avatarImageLoaded = Callback<AvatarImageLoaded_t>.Create(OnAvatarImageLoaded);
-        }
+        if (SteamManager.Initialized) avatarImageLoaded = Callback<AvatarImageLoaded_t>.Create(OnAvatarImageLoaded);
     }
 
     private void Start()
@@ -49,6 +55,16 @@ public class PlayerManager : NetworkBehaviour
             mainCamera.SetActive(true);
         }
         else Destroy(mainCamera);
+        
+        playerColor = GetComponentInChildren<SpriteRenderer>().color =
+            Color.HSVToRGB(Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
+        
+        /*if (isLocalPlayer)
+        {
+            playerColor = GetComponentInChildren<SpriteRenderer>().color =
+                Color.HSVToRGB(Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
+        }
+        else GetComponentInChildren<SpriteRenderer>().color = playerColor;*/
     }
     
     private void Update()
@@ -59,6 +75,14 @@ public class PlayerManager : NetworkBehaviour
         {
             MovePlayer();
             MoveCamera();
+            if (mainCamera != null)
+            {
+                if (!isWalking || !isGrounded) walkingTime = 0;
+                else walkingTime += Time.deltaTime;
+                targetCamPos = headTransform.position + CalculateHeadBobOffset(walkingTime);
+                mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetCamPos, headBobSmoothing);
+                if ((mainCamera.transform.position - targetCamPos).magnitude <= 0.001) mainCamera.transform.position = targetCamPos;
+            }
         }
     }
 
@@ -92,6 +116,20 @@ public class PlayerManager : NetworkBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
+    }
+    
+    private Vector3 CalculateHeadBobOffset(float t)
+    { // Bobs camera when you move
+        float horizontalOffset = 0;
+        float verticalOffset = 0;
+        Vector3 offset = Vector3.zero;
+        if (t > 0)
+        {
+            horizontalOffset = Mathf.Cos(t * bobFrequency) * bobXAmplitude;
+            verticalOffset = Mathf.Sin(t * bobFrequency* 2) * bobYAmplitude;
+            offset = headTransform.right * horizontalOffset + headTransform.up * verticalOffset;
+        }
+        return offset;
     }
     
     #region STEAM

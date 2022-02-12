@@ -1,26 +1,25 @@
 using UnityEngine;
 using Steamworks;
 using Mirror;
+using Mirror.FizzySteam;
 using UnityEngine.UI;
 
 public class SteamActions : MonoBehaviour
 { // https://www.youtube.com/watch?v=QlbBC07dqnE
+    private NetworkActions netManager;
     protected Callback<LobbyCreated_t> lobbyCreated;
     protected Callback<GameLobbyJoinRequested_t> gameLobbyJoinRequested;
     protected Callback<LobbyEnter_t> lobbyEntered;
     private const string HostAddressKey = "HostAddress";
-    private NetManager netManager;
     public Button steamHost;
 
     public GameAction OnSteamLobbyCreated;
-    public GameAction OnSteamLobbyJoinRequest;
-    public GameAction OnSteamLobbyJoined;
 
     public static CSteamID LobbyId { get; private set; }
     
     void Start()
     {
-        netManager = GetComponent<NetManager>();
+        netManager = GetComponent<NetworkActions>();
         if (SteamManager.Initialized)
         {
             lobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
@@ -33,11 +32,16 @@ public class SteamActions : MonoBehaviour
     
     public void HostLobby()
     {
+        Debug.Log("HOSTING STEAM LOBBY");
+        if (gameObject.GetComponent<FizzySteamworks>() == null) gameObject.AddComponent<FizzySteamworks>();
+        if (gameObject.GetComponent<SteamManager>() == null) gameObject.AddComponent<SteamManager>();
+        //netManager.transport;
         SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, netManager.maxConnections);
     }
     
     public void JoinLobby()
     { // HOW?
+        Debug.Log("JOINING STEAM LOBBY");
         //SteamMatchmaking.JoinLobby();
     }
     
@@ -53,7 +57,6 @@ public class SteamActions : MonoBehaviour
     private void OnGameLobbyJoinRequested(GameLobbyJoinRequested_t callback)
     {
         SteamMatchmaking.JoinLobby(callback.m_steamIDLobby);
-        OnSteamLobbyJoinRequest.RaiseAction();
     }
 
     private void OnLobbyEntered(LobbyEnter_t callback)
@@ -64,6 +67,15 @@ public class SteamActions : MonoBehaviour
             netManager.networkAddress = hostAddress;
             netManager.StartClient();
         }
-        OnSteamLobbyJoined.RaiseAction();
+    }
+
+    public void OnPlayerAdded(NetworkConnection conn)
+    {
+        if (SteamManager.Initialized)
+        {
+            CSteamID steamId = SteamMatchmaking.GetLobbyMemberByIndex(SteamActions.LobbyId, netManager.numPlayers - 1);
+            var playerManager = conn.identity.GetComponent<PlayerManager>();
+            playerManager.SetSteamId(steamId.m_SteamID);
+        }
     }
 }

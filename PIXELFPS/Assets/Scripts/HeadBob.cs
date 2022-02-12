@@ -8,7 +8,6 @@ public class HeadBob : MonoBehaviour
     public float bobHorizontalAmplitude = 0.1f;
     public float bobVerticalAmplitude = 0.1f;
     [Range(0,1)]public float headBobSmoothing = 0.1f;
-    private bool isWalking;
     private float walkingTime;
     private Vector3 targetCamPos;
     private PlayerManager playerMan;
@@ -20,12 +19,14 @@ public class HeadBob : MonoBehaviour
 
     void Update()
     {
-        if (!playerMan.isWalking || !playerMan.isGrounded) walkingTime = 0;
-        else walkingTime += Time.deltaTime;
-        targetCamPos = headTransform.position + CalculateHeadBobOffset(walkingTime);
-        cameraTransform.position = Vector3.Lerp(cameraTransform.position, targetCamPos, headBobSmoothing);
-        if ((cameraTransform.position - targetCamPos).magnitude <= 0.001)
-            cameraTransform.position = targetCamPos;
+        if (cameraTransform != null)
+        {
+            //if (!playerMan.isWalking || !playerMan.isGrounded) walkingTime = 0;
+            //else walkingTime += Time.deltaTime;
+            targetCamPos = headTransform.position + CalculateHeadBobOffset(walkingTime);
+            cameraTransform.position = Vector3.Lerp(cameraTransform.position, targetCamPos, headBobSmoothing);
+            if ((cameraTransform.position - targetCamPos).magnitude <= 0.001) cameraTransform.position = targetCamPos;
+        }
     }
     
     private Vector3 CalculateHeadBobOffset(float t)
