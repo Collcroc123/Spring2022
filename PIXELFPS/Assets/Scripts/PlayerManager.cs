@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class PlayerManager : NetworkBehaviour
 { // https://www.youtube.com/watch?v=_QajrabyTJc
-    public string userName;
-    public TextMeshPro nameTxt;
     public RawImage userPicture;
-    [SyncVar] public int health = 100;
+    public TextMeshPro nameTxt;
     public TextMeshPro healthTxt;
-    [SyncVar] public Color playerColor;
-    
+    [SyncVar] public int health = 100;
+    [SyncVar(hook = nameof(PlayerColor))] public Color playerColor;
+    [SyncVar(hook = nameof(PlayerName))] public string userName;
+    public PlayerData playerData;
     [SyncVar(hook = nameof(SteamIdUpdated))] private ulong steamId;
     protected Callback<AvatarImageLoaded_t> avatarImageLoaded;
 
@@ -49,22 +49,15 @@ public class PlayerManager : NetworkBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        if (isLocalPlayer) GetComponentInChildren<SpriteRenderer>().enabled = false;
         if (isLocalPlayer && Camera.main.gameObject != null)
         {
             Destroy(Camera.main.gameObject);
             mainCamera.SetActive(true);
         }
         else Destroy(mainCamera);
-        
-        playerColor = GetComponentInChildren<SpriteRenderer>().color =
-            Color.HSVToRGB(Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
-        
-        /*if (isLocalPlayer)
-        {
-            playerColor = GetComponentInChildren<SpriteRenderer>().color =
-                Color.HSVToRGB(Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
-        }
-        else GetComponentInChildren<SpriteRenderer>().color = playerColor;*/
+        playerColor = Color.HSVToRGB(Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
+        userName = playerData.name;
     }
     
     private void Update()
@@ -130,6 +123,16 @@ public class PlayerManager : NetworkBehaviour
             offset = headTransform.right * horizontalOffset + headTransform.up * verticalOffset;
         }
         return offset;
+    }
+
+    private void PlayerColor(Color oldColor, Color newColor)
+    {
+        GetComponentInChildren<SpriteRenderer>().color = newColor;
+    }
+
+    private void PlayerName(string oldName, string newName)
+    {
+        nameTxt.text = newName;
     }
     
     #region STEAM

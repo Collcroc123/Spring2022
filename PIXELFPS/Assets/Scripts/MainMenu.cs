@@ -1,20 +1,23 @@
 using UnityEngine;
 using Cursor = UnityEngine.Cursor;
+using UnityEngine.SceneManagement;
 
-public class CanvasMenu : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     private bool isActive = false;
     public GameObject sideMenu;
-    public GameObject quitButton, disconnectButton, playerUI;
-
-
+    public GameObject playerUI;
+    
     private void Start()
     {
+        if (SceneManager.GetActiveScene().name == "Menu") sideMenu.SetActive(true);
+        else playerUI.SetActive(true);
         //steamLobby = networkManagerObj.GetComponent<SteamLobby>();
     }
 
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Menu") return;
         if (Input.GetKeyDown(KeyCode.Escape))
         { // Show or Hide Menu When Escape is Pressed
             isActive = !isActive;
@@ -27,14 +30,5 @@ public class CanvasMenu : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
-    }
-
-    public void OnConnection()
-    {
-        isActive = false;
-        sideMenu.SetActive(isActive);
-        quitButton.SetActive(false);
-        disconnectButton.SetActive(true);
-        playerUI.SetActive(true);
     }
 }

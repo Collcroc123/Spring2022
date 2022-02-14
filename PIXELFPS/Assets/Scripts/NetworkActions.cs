@@ -18,21 +18,13 @@ public class NetworkActions : NetworkManager
     private int currentServer;
     readonly Dictionary<long, ServerResponse> discoveredServers = new Dictionary<long, ServerResponse>();
     
-    public void Start()
+    void Start()
     {
         netDisc = GetComponent<NetworkDiscovery>();
+        //UnityEditor.Events.UnityEventTools.AddPersistentListener(netDisc.OnServerFound, OnDiscoveredServer);
+        //UnityEditor.Undo.RecordObjects(new Object[] { this, netDisc }, "Set NetworkDiscovery");
     }
-    
-    void OnValidate()
-    {
-        if (netDisc== null)
-        {
-            netDisc = GetComponent<NetworkDiscovery>();
-            //UnityEditor.Events.UnityEventTools.AddPersistentListener(netDisc.OnServerFound, OnDiscoveredServer);
-            //UnityEditor.Undo.RecordObjects(new Object[] { this, netDisc }, "Set NetworkDiscovery");
-        }
-    }
-    
+
     public void FindServers()
     {
         Debug.Log("FINDING LOCAL LOBBIES");
