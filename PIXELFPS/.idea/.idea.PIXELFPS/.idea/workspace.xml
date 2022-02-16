@@ -20,81 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33b664d7-3875-4fca-9567-73ffd0c57544" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Maya/Rigs/Takoto_Model.ma" beforeDir="false" afterPath="$PROJECT_DIR$/../Maya/Rigs/Takoto_Model.ma" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/riderModule.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Card.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Card.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Datas.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Datas/Player.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Datas/Player.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Datas/PlayerData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Datas/PlayerData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Datas/UnoCard.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Datas/UnoCard.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Datas/UnoDeck.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Datas/UnoDeck.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/.idea/.idea.Scripts.dir/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/.idea/.idea.Scripts.dir/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/.idea/.idea.Scripts.dir/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/.idea/.idea.Scripts.dir/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/CanvasUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/CanvasUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/CardInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/CardInfo.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/Client.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/Client.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/Connector.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/Connector.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/NetManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/NetManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/OLDPlayer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/OLDPlayer.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/PlayerOld.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/PlayerOld.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/PlayerUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/PlayerUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/Server.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/Server.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/ServerManager.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/ServerManager.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/Settings.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/OLD TABLETOP/Scripts/Settings.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/New Material 1.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/New Material 1.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/New Material.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/New Material.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Person-Sheet 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Person-Sheet 2.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/PlayerMaterial.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/PlayerMaterial.mat.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ClientPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ClientPlayer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Billboard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Billboard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CanvasMenu.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CanvasMenu.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameAction.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameAction.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameActionHandler.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameActionHandler.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HeadBob.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HeadBob.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Server Prefab.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Server Prefab.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NetworkActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NetworkActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewBillboard.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NewBillboard.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpellData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SpellData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ServerData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ServerData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ServerSelected.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ServerSelected.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker2-prev.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker3-prev.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,6 +169,7 @@
       <workItem from="1644458591382" duration="9316000" />
       <workItem from="1644613918762" duration="15091000" />
       <workItem from="1644865881980" duration="8068000" />
+      <workItem from="1645046829001" duration="5900000" />
     </task>
     <servers />
   </component>

@@ -14,15 +14,26 @@ public class NetworkActions : NetworkManager
     public GameObject scrollView;
     public GameObject serverPrefab;
     private NetworkDiscovery netDisc;
-    private GameObject[] serverList;
+    private List<GameObject> serverList = new List<GameObject>();
     private int currentServer;
-    readonly Dictionary<long, ServerResponse> discoveredServers = new Dictionary<long, ServerResponse>();
+    public ServerResponse currentSelectedServer;
+    //readonly Dictionary<long, ServerResponse> discoveredServers = new Dictionary<long, ServerResponse>();
     
+/*#if UNITY_EDITOR
+    void OnValidate()
+    {
+        if (netDisc == null)
+        {
+            netDisc = GetComponent<NetworkDiscovery>();
+            UnityEditor.Events.UnityEventTools.AddPersistentListener(netDisc.OnServerFound, OnDiscoveredServer);
+            UnityEditor.Undo.RecordObjects(new Object[] { this, netDisc }, "Set NetworkDiscovery");
+        }
+    }
+#endif*/
+
     void Start()
     {
         netDisc = GetComponent<NetworkDiscovery>();
-        //UnityEditor.Events.UnityEventTools.AddPersistentListener(netDisc.OnServerFound, OnDiscoveredServer);
-        //UnityEditor.Undo.RecordObjects(new Object[] { this, netDisc }, "Set NetworkDiscovery");
     }
 
     public void FindServers()
@@ -40,30 +51,33 @@ public class NetworkActions : NetworkManager
         netDisc.AdvertiseServer();
     }
     
-    public void JoinServer(ServerResponse info)
+    public void JoinServer()
     {
         Debug.Log("JOINING LOCAL LOBBY");
         netDisc.StopDiscovery();
-        StartClient(info.uri);
+        StartClient(currentSelectedServer.uri);
     }
     
     public void OnDiscoveredServer(ServerResponse info)
     { // Note that you can check the versioning to decide if you can connect to the server or not using this method
-        discoveredServers[info.serverId] = info;
+        //discoveredServers[info.serverId] = info;
         Debug.Log("SERVER FOUND: " + info.EndPoint.Address);
-        //GameObject serverEntry = Instantiate(serverPrefab);
-        //serverEntry.transform.parent = scrollView.transform;
-        //serverEntry.GetComponentInChildren<TextMeshPro>().text = info.EndPoint.Address.ToString();
-        //serverList[currentServer] = serverEntry;
-        //currentServer++;
+        if (!NetworkClient.isConnected && !NetworkServer.active && !NetworkClient.active)
+        {
+            GameObject serverEntry = Instantiate(serverPrefab, scrollView.transform, true);
+            ServerSelected servSel = serverEntry.GetComponent<ServerSelected>();
+            servSel.server = ScriptableObject.CreateInstance<ServerData>();
+            servSel.server.info = info;
+            serverList.Add(serverEntry);
+        }
     }
+    
 
     private void ClearServerList()
     {
         Debug.Log("CLEARED SERVER LIST");
-        discoveredServers.Clear();
+        //discoveredServers.Clear();
         foreach (GameObject svr in serverList) Destroy(svr);
-        currentServer = 0;
     }
 
     public void ShutDown()
@@ -91,6 +105,6 @@ public class NetworkActions : NetworkManager
     public void Error(string text)
     {
         errorWindow.SetActive(true);
-        errorWindow.GetComponentInChildren<TextMeshPro>().text = "ERROR: \n" + text;
+        errorWindow.GetComponentInChildren<TextMeshProUGUI>().text = "ERROR: \n" + text;
     }
 }
