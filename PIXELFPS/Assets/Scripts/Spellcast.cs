@@ -1,62 +1,50 @@
-using System.Collections;
+using Mirror;
 using UnityEngine;
 
-public class Spellcast : MonoBehaviour
+public class Spellcast : NetworkBehaviour
 {
-    [HideInInspector] public SpellData spell; // Current gun
-    [HideInInspector] public GameObject castSpawn; // Location where bullet spawns
-    private Renderer texture; // Bullet's texture
-    private Rigidbody rbody; // Bullet's rigidbody
-    private AudioSource source; // Gunshot sound
+    public SpellData spell; // Current Spell
+    private SpriteRenderer texture; // Spell's texture
+    private Rigidbody rbody; // Spell's rigidbody
+    private AudioSource source; // Spellcast sound
     //public GameObject hitAnim; // Sound and particles
-    // Private Light bulletLight;
     
+
+    public override void OnStartServer()
+    {
+        Invoke(nameof(DestroySelf), spell.duration);
+    }
+    
+    // set velocity for server and client. this way we don't have to sync the
+    // position, because both the server and the client simulate it.
     void Start()
-    { // Gives cast attributes depending on what gun is fired
+    {
         texture = GetComponentInChildren<SpriteRenderer>();
         source = GetComponent<AudioSource>();
         rbody = GetComponent<Rigidbody>();
-        texture.material = spell.spellTexture;
-        rbody.velocity = castSpawn.transform.forward * spell.castSpeed;
+        texture.sprite = spell.spellTexture;
+        rbody.AddForce(transform.forward * spell.force);
         //source.clip = spell.castSound[Random.Range(0, spell.castSound.Length - 1)];
-        source.clip = spell.castSound[0];
-        source.pitch = Random.Range(0.9f, 1.1f);
-        source.Play();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    { // Checks if spell hits something
-        if (other.CompareTag("Enemy") && gameObject.CompareTag("FriendlySpell"))
-        {
-            Hit();
-        }
-        else if (other.CompareTag("Player") && gameObject.CompareTag("EnemySpell"))
-        {
-            Hit();
-        }
-        else if (other.CompareTag("Wall") || other.CompareTag("Door") || other.CompareTag("Crate"))
-        {
-            if (!spell.canBounce)
-            {
-                Hit();
-            }
-        }
+        //source.clip = spell.castSound[0];
+        //source.pitch = Random.Range(0.9f, 1.1f);
+        //source.Play();
     }
     
-    private void Hit()
+    // destroy for everyone on the server
+    [Server]
+    void DestroySelf()
+    {
+        Debug.Log("IM DESTROYED!!!");
+        //Instantiate(hitAnim, gameObject.transform.position, Quaternion.Euler(90, 0 ,0));
+        NetworkServer.Destroy(gameObject);
+    }
+    
+    // ServerCallback because we don't want a warning
+    // if OnTriggerEnter is called on the client
+    [ServerCallback]
+    void OnTriggerEnter(Collider co)
     {
         //Instantiate(hitAnim, gameObject.transform.position, Quaternion.Euler(90, 0 ,0));
-        Destroy(gameObject);
-    }
-    
-    private void OnTriggerExit(Collider other)
-    { //deletes spell if it hits nothing after 5 secs
-        //StartCoroutine(WaitFor(5));
-    }
-
-    private IEnumerator WaitFor(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-        Destroy(gameObject);
+        if (co.CompareTag("Player") == false) NetworkServer.Destroy(gameObject);
     }
 }

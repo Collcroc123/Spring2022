@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Steamworks;
 using Mirror;
@@ -6,98 +7,90 @@ using UnityEngine.UI;
 
 public class PlayerManager : NetworkBehaviour
 { // https://www.youtube.com/watch?v=_QajrabyTJc
-    public RawImage userPicture;
-    public TextMeshPro nameTxt;
-    public TextMeshPro healthTxt;
-    [SyncVar] public int health = 100;
+    public TextMeshPro healthBar;
+    public PlayerData player;
+    public SpellData currentSpell;
+    public int respawnTime = 5;
+    private int maxHealth = 4;
+    [SyncVar] public int health = 4;
     [SyncVar(hook = nameof(PlayerColor))] public Color playerColor;
-    [SyncVar(hook = nameof(PlayerName))] public string userName;
-    public PlayerData playerData;
-    [SyncVar(hook = nameof(SteamIdUpdated))] private ulong steamId;
     protected Callback<AvatarImageLoaded_t> avatarImageLoaded;
-
+    //private Transform castPoint;
+    
     [Header("Movement")]
-    public CharacterController controller;
-    public float mouseSensitivity = 500f;
     public float speed = 12f;
     public float gravity = -18f;
     public float jumpHeight = 4f;
-    
-    [Header("Jumping")]
-    public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-    private bool isWalking, isGrounded; //[HideInInspector] public
+    private CharacterController controller;
+    private bool isWalking, isGrounded;
     private Vector3 velocity;
     private float xRotation;
     
     [Header("Camera")]
-    public Transform headTransform;
-    public GameObject mainCamera;
+    public float mouseSensitivity = 500f;
     public float bobFrequency = 5f;
     public float bobXAmplitude = 0.1f;
     public float bobYAmplitude = 0.1f;
     [Range(0,1)]public float headBobSmoothing = 0.1f;
+    private Transform headTransform;
+    private GameObject mainCamera;
     private float walkingTime;
     private Vector3 targetCamPos;
-
+    
     public override void OnStartClient()
-    {
-        if (SteamManager.Initialized) avatarImageLoaded = Callback<AvatarImageLoaded_t>.Create(OnAvatarImageLoaded);
+    { // If Steam Running and Avatar Loaded, Tell Player Data to Get Avatar
+        if (SteamManager.Initialized) avatarImageLoaded = Callback<AvatarImageLoaded_t>.Create(player.OnAvatarImageLoaded);
     }
 
     private void Start()
     {
+        controller = GetComponent<CharacterController>();
+        headTransform = gameObject.transform.GetChild(0);
+        mainCamera = gameObject.transform.GetChild(0).GetChild(0).gameObject;
+        //castPoint = gameObject.transform.GetChild(0).GetChild(1);
         Cursor.lockState = CursorLockMode.Locked;
         if (isLocalPlayer) GetComponentInChildren<SpriteRenderer>().enabled = false;
-        if (isLocalPlayer && Camera.main.gameObject != null)
+        if (isLocalPlayer)
         {
-            Destroy(Camera.main.gameObject);
+            if (Camera.main.gameObject != null) Destroy(Camera.main.gameObject);
             mainCamera.SetActive(true);
+            gameObject.tag = "Player";
         }
         else Destroy(mainCamera);
         playerColor = Color.HSVToRGB(Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
-        userName = playerData.name;
     }
     
     private void Update()
-    {
-        healthTxt.text = health.ToString();
-        
+    { //healthTxt.text = health.ToString();
+        healthBar.text = new string('-', health);
         if (hasAuthority)
         {
             MovePlayer();
             MoveCamera();
-            if (mainCamera != null)
-            {
-                if (!isWalking || !isGrounded) walkingTime = 0;
-                else walkingTime += Time.deltaTime;
-                targetCamPos = headTransform.position + CalculateHeadBobOffset(walkingTime);
-                mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetCamPos, headBobSmoothing);
-                if ((mainCamera.transform.position - targetCamPos).magnitude <= 0.001) mainCamera.transform.position = targetCamPos;
-            }
+            if (mainCamera != null) HeadBob();
+            if (Input.GetKeyDown(KeyCode.Mouse0)) CmdFire();
         }
     }
 
     private void MovePlayer()
     { // Moves Player Based on Keyboard Input and Status
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        Vector3 location = gameObject.transform.position;
+        location.y = gameObject.transform.position.y - 1.2f;
+        isGrounded = Physics.CheckSphere(location, groundDistance, groundMask);
         if (isGrounded && velocity.y < 0) velocity.y = -2f;
-
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
         if (x != 0 || z != 0) isWalking = true;
         else isWalking = false;
-
-        if (Input.GetKeyDown(KeyCode.LeftControl)) speed = 6f;
+        if (Input.GetKeyDown(KeyCode.LeftShift)) speed = 18f;
+        else if (Input.GetKeyDown(KeyCode.LeftControl)) speed = 6f;
         else speed = 12f;
-        
         controller.Move(move * speed * Time.deltaTime);
-
         if (Input.GetButtonDown("Jump") && isGrounded) velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         velocity.y += gravity * Time.deltaTime;
-        
         controller.Move(velocity * Time.deltaTime);
     }
 
@@ -110,9 +103,18 @@ public class PlayerManager : NetworkBehaviour
         mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
     }
+
+    private void HeadBob()
+    { // Bobs Camera Around While Moving
+        if (!isWalking || !isGrounded) walkingTime = 0;
+        else walkingTime += Time.deltaTime;
+        targetCamPos = headTransform.position + CalculateHeadBobOffset(walkingTime);
+        mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetCamPos, headBobSmoothing);
+        if ((mainCamera.transform.position - targetCamPos).magnitude <= 0.001) mainCamera.transform.position = targetCamPos;
+    }
     
     private Vector3 CalculateHeadBobOffset(float t)
-    { // Bobs camera when you move
+    { // Calculates How The Camera Should Bob
         float horizontalOffset = 0;
         float verticalOffset = 0;
         Vector3 offset = Vector3.zero;
@@ -126,7 +128,7 @@ public class PlayerManager : NetworkBehaviour
     }
 
     private void PlayerColor(Color oldColor, Color newColor)
-    {
+    { // Syncs Player Color
         GetComponentInChildren<SpriteRenderer>().color = newColor;
         if (isLocalPlayer)
         {
@@ -134,14 +136,50 @@ public class PlayerManager : NetworkBehaviour
             GameObject.Find("RHand").GetComponent<Image>().color = newColor;
         }
     }
-
-    private void PlayerName(string oldName, string newName)
+    
+    [Command] // this is called on the server
+    void CmdFire()
     {
-        nameTxt.text = newName;
+        GameObject projectile = Instantiate(currentSpell.cast, mainCamera.transform.position, mainCamera.transform.rotation);
+        NetworkServer.Spawn(projectile);
+        //CastCooldown(currentSpell.castRate);
+        RpcOnFire();
+    }
+
+    [ClientRpc] // this is called on the player that fired for all observers
+    void RpcOnFire()
+    {
+        //animator.SetTrigger("Shoot");
     }
     
-    #region STEAM
+    private IEnumerator CastCooldown(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
+
+    [ServerCallback]
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Spell")) // other.GetComponent<Spellcast>() != null || 
+        {
+            --health;
+            if (health <= 0)
+            {
+                NetworkServer.UnSpawn(gameObject);
+                Respawn(respawnTime);
+            }
+        }
+    }
     
+    private IEnumerator Respawn(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        NetworkServer.Spawn(gameObject);
+        health = maxHealth;
+    }
+
+    #region STEAM
+    /*
     public void SetSteamId(ulong steamId)
     { // Saves this player's Steam ID
         this.steamId = steamId;
@@ -150,22 +188,14 @@ public class PlayerManager : NetworkBehaviour
     private void SteamIdUpdated(ulong oldSteamId, ulong newSteamId)
     { // Loads and Sets User's Steam Name and Avatar
         var cSteamId = new CSteamID(newSteamId);
-        userName = SteamFriends.GetFriendPersonaName(cSteamId);
-        nameTxt.text = userName;
-
+        player.steamName = SteamFriends.GetFriendPersonaName(cSteamId);
         int imageId = SteamFriends.GetLargeFriendAvatar(cSteamId);
-        if (imageId != -1)
-        {
-            userPicture.texture = GetSteamImageAsTexture(imageId);
-        }
+        if (imageId != -1) player.steamImage = GetSteamImageAsTexture(imageId);
     }
 
     private void OnAvatarImageLoaded(AvatarImageLoaded_t callback)
     { // Loads in User's Steam Avatar if Delayed
-        if (callback.m_steamID.m_SteamID == steamId)
-        {
-            userPicture.texture = GetSteamImageAsTexture(callback.m_iImage);
-        }
+        if (callback.m_steamID.m_SteamID == steamId) player.steamImage = GetSteamImageAsTexture(callback.m_iImage);
     }
 
     private Texture2D GetSteamImageAsTexture(int iImage)
@@ -184,7 +214,6 @@ public class PlayerManager : NetworkBehaviour
             }
         }
         return texture;
-    }
-    
+    }*/
     #endregion
 }

@@ -12,7 +12,6 @@ public class SteamActions : MonoBehaviour
     protected Callback<LobbyEnter_t> lobbyEntered;
     private const string HostAddressKey = "HostAddress";
     public Button steamHost;
-
     public GameAction OnSteamLobbyCreated;
 
     public static CSteamID LobbyId { get; private set; }
@@ -22,19 +21,20 @@ public class SteamActions : MonoBehaviour
         netManager = GetComponent<NetworkActions>();
         if (SteamManager.Initialized)
         {
+            Debug.Log("STEAM IS RUNNING");
             lobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
             gameLobbyJoinRequested = Callback<GameLobbyJoinRequested_t>.Create(OnGameLobbyJoinRequested);
             lobbyEntered = Callback<LobbyEnter_t>.Create(OnLobbyEntered);
             steamHost.interactable = true;
         }
-        else steamHost.interactable = false;
+        //else steamHost.interactable = false;
     }
     
     public void HostLobby()
     {
         Debug.Log("HOSTING STEAM LOBBY");
         if (gameObject.GetComponent<FizzySteamworks>() == null) gameObject.AddComponent<FizzySteamworks>();
-        if (gameObject.GetComponent<SteamManager>() == null) gameObject.AddComponent<SteamManager>();
+        //if (gameObject.GetComponent<SteamManager>() == null) gameObject.AddComponent<SteamManager>();
         //netManager.transport;
         SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, netManager.maxConnections);
     }
@@ -74,8 +74,8 @@ public class SteamActions : MonoBehaviour
         if (SteamManager.Initialized)
         {
             CSteamID steamId = SteamMatchmaking.GetLobbyMemberByIndex(SteamActions.LobbyId, netManager.numPlayers - 1);
-            var playerManager = conn.identity.GetComponent<PlayerManager>();
-            playerManager.SetSteamId(steamId.m_SteamID);
+            var player = conn.identity.GetComponent<PlayerManager>().player;
+            player.SetSteamId(steamId.m_SteamID);
         }
     }
 }

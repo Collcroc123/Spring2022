@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Mirror.Discovery;
 using UnityEngine;
-using Steamworks;
 using Mirror;
 using TMPro;
 
@@ -71,7 +70,6 @@ public class NetworkActions : NetworkManager
             serverList.Add(serverEntry);
         }
     }
-    
 
     private void ClearServerList()
     {
@@ -91,15 +89,9 @@ public class NetworkActions : NetworkManager
     }
     
     public override void OnServerAddPlayer(NetworkConnection conn)
-    { // Gets and Sets new player's Steam ID
+    {
         base.OnServerAddPlayer(conn);
         OnPlayerAdded.RaiseAction();
-        if (SteamManager.Initialized)
-        {
-            CSteamID steamId = SteamMatchmaking.GetLobbyMemberByIndex(SteamActions.LobbyId, numPlayers - 1);
-            var playerManager = conn.identity.GetComponent<PlayerManager>();
-            playerManager.SetSteamId(steamId.m_SteamID);
-        }
     }
     
     public void Error(string text)

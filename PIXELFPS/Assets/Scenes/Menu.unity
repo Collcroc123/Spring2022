@@ -2096,6 +2096,7 @@ GameObject:
   - component: {fileID: 1521942586}
   - component: {fileID: 1521942588}
   - component: {fileID: 1521942587}
+  - component: {fileID: 1521942589}
   m_Layer: 5
   m_Name: Settings Menu
   m_TagString: Untagged
@@ -2164,6 +2165,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521942585}
   m_CullTransparentMesh: 1
+--- !u!114 &1521942589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521942585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109fae1413e01814e8a6405095f1f2cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1555263883
 GameObject:
   m_ObjectHideFlags: 0
@@ -3007,9 +3020,8 @@ GameObject:
   - component: {fileID: 1796006825}
   - component: {fileID: 1796006824}
   - component: {fileID: 1796006826}
-  - component: {fileID: 1796006823}
   - component: {fileID: 1796006821}
-  - component: {fileID: 1796006822}
+  - component: {fileID: 1796006823}
   - component: {fileID: 1796006828}
   - component: {fileID: 1796006827}
   m_Layer: 0
@@ -3134,20 +3146,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1796006822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1796006820}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6442dc8070ceb41f094e44de0bf87274, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  offsetX: 0
-  offsetY: 0
 --- !u!114 &1796006823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4646,10 +4644,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 551728452}
-        m_TargetAssemblyTypeName: CanvasMenu, Assembly-CSharp
-        m_MethodName: Quit
-        m_Mode: 1
+      - m_Target: {fileID: 4839844804648570988}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4658,10 +4656,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4839844804648570988}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 551728452}
+        m_TargetAssemblyTypeName: CanvasMenu, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5081,7 +5079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 0
+  m_HorizontalFit: 1
   m_VerticalFit: 1
 --- !u!1 &4839844805363118648
 GameObject:
@@ -7337,7 +7335,7 @@ GameObject:
   - component: {fileID: 4839844806292499892}
   - component: {fileID: 4839844806292499895}
   m_Layer: 5
-  m_Name: Scroll View
+  m_Name: Server List
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

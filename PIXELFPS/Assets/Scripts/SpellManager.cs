@@ -35,9 +35,9 @@ public class SpellManager : MonoBehaviour
         if (isEnemy) yield return new WaitForSeconds(1f);
         Spellcast cast = Instantiate(spell.cast, gameObject.transform.position, gameObject.transform.rotation).GetComponent<Spellcast>();
         cast.spell = spell;
-        cast.castSpawn = gameObject;
+        //cast.castSpawn = gameObject;
         if (isEnemy) cast.tag = "EnemySpell";
-        yield return new WaitForSeconds(spell.castRate);
+        yield return new WaitForSeconds(spell.rate);
         isCasting = false;
     }
 }
