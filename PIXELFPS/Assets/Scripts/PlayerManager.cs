@@ -128,6 +128,11 @@ public class PlayerManager : NetworkBehaviour
     private void PlayerColor(Color oldColor, Color newColor)
     {
         GetComponentInChildren<SpriteRenderer>().color = newColor;
+        if (isLocalPlayer)
+        {
+            GameObject.Find("LHand").GetComponent<Image>().color = newColor;
+            GameObject.Find("RHand").GetComponent<Image>().color = newColor;
+        }
     }
 
     private void PlayerName(string oldName, string newName)
