@@ -8,21 +8,18 @@ public class Spellcast : NetworkBehaviour
     private Rigidbody rbody; // Spell's rigidbody
     private AudioSource source; // Spellcast sound
     //public GameObject hitAnim; // Sound and particles
-    
 
     public override void OnStartServer()
     {
         Invoke(nameof(DestroySelf), spell.duration);
     }
     
-    // set velocity for server and client. this way we don't have to sync the
-    // position, because both the server and the client simulate it.
     void Start()
-    {
+    { // Set velocity for server and client so we don't have to sync the position since both now simulate it.
         texture = GetComponentInChildren<SpriteRenderer>();
         source = GetComponent<AudioSource>();
         rbody = GetComponent<Rigidbody>();
-        texture.sprite = spell.spellTexture;
+        texture.sprite = spell.texture;
         rbody.AddForce(transform.forward * spell.force);
         //source.clip = spell.castSound[Random.Range(0, spell.castSound.Length - 1)];
         //source.clip = spell.castSound[0];
@@ -30,21 +27,17 @@ public class Spellcast : NetworkBehaviour
         //source.Play();
     }
     
-    // destroy for everyone on the server
     [Server]
     void DestroySelf()
-    {
-        Debug.Log("IM DESTROYED!!!");
-        //Instantiate(hitAnim, gameObject.transform.position, Quaternion.Euler(90, 0 ,0));
+    { // Destroy for everyone on the server
+        //Instantiate(hitAnim, gameObject.transform.position, gameObject.transform.rotation);
         NetworkServer.Destroy(gameObject);
     }
     
-    // ServerCallback because we don't want a warning
-    // if OnTriggerEnter is called on the client
     [ServerCallback]
     void OnTriggerEnter(Collider co)
-    {
-        //Instantiate(hitAnim, gameObject.transform.position, Quaternion.Euler(90, 0 ,0));
-        if (co.CompareTag("Player") == false) NetworkServer.Destroy(gameObject);
+    { // ServerCallback because we don't want a warning if OnTriggerEnter is called on the client
+        //Instantiate(hitAnim, gameObject.transform.position, gameObject.transform.rotation);
+        if (co.GetComponent<PlayerManager>().netId != spell.player) NetworkServer.Destroy(gameObject);
     }
 }

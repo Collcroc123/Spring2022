@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Mirror.Discovery;
 using UnityEngine;
@@ -9,26 +10,13 @@ public class NetworkActions : NetworkManager
     public GameAction OnPlayerAdded;
     public GameAction OnShutdown;
     public GameObject errorWindow;
-    
     public GameObject scrollView;
     public GameObject serverPrefab;
+    
     private NetworkDiscovery netDisc;
     private List<GameObject> serverList = new List<GameObject>();
-    private int currentServer;
+    private List<ServerResponse> currentServers = new List<ServerResponse>();
     public ServerResponse currentSelectedServer;
-    //readonly Dictionary<long, ServerResponse> discoveredServers = new Dictionary<long, ServerResponse>();
-    
-/*#if UNITY_EDITOR
-    void OnValidate()
-    {
-        if (netDisc == null)
-        {
-            netDisc = GetComponent<NetworkDiscovery>();
-            UnityEditor.Events.UnityEventTools.AddPersistentListener(netDisc.OnServerFound, OnDiscoveredServer);
-            UnityEditor.Undo.RecordObjects(new Object[] { this, netDisc }, "Set NetworkDiscovery");
-        }
-    }
-#endif*/
 
     void Start()
     {
@@ -37,14 +25,14 @@ public class NetworkActions : NetworkManager
 
     public void FindServers()
     {
-        Debug.Log("FINDING LOCAL LOBBIES");
+        Debug.Log("FINDING LOBBIES");
         ClearServerList();
         netDisc.StartDiscovery();
     }
     
     public void HostServer()
     {
-        Debug.Log("HOSTING LOCAL LOBBY");
+        Debug.Log("HOSTING LOBBY");
         ClearServerList();
         StartHost();
         netDisc.AdvertiseServer();
@@ -52,7 +40,7 @@ public class NetworkActions : NetworkManager
     
     public void JoinServer()
     {
-        Debug.Log("JOINING LOCAL LOBBY");
+        Debug.Log("JOINING LOBBY");
         netDisc.StopDiscovery();
         StartClient(currentSelectedServer.uri);
     }
@@ -63,19 +51,23 @@ public class NetworkActions : NetworkManager
         Debug.Log("SERVER FOUND: " + info.EndPoint.Address);
         if (!NetworkClient.isConnected && !NetworkServer.active && !NetworkClient.active)
         {
-            GameObject serverEntry = Instantiate(serverPrefab, scrollView.transform, true);
-            ServerSelected servSel = serverEntry.GetComponent<ServerSelected>();
-            servSel.server = ScriptableObject.CreateInstance<ServerData>();
-            servSel.server.info = info;
-            serverList.Add(serverEntry);
+            if (!currentServers.Contains(info))
+            { // DOES NOT WORK WITH MULTIPLE SERVERS ON ONE IP
+                GameObject serverEntry = Instantiate(serverPrefab, scrollView.transform, true);
+                ServerSelected servSel = serverEntry.GetComponent<ServerSelected>();
+                servSel.server = ScriptableObject.CreateInstance<ServerData>();
+                servSel.server.info = info;
+                serverList.Add(serverEntry);
+                currentServers.Add(info);
+            }
         }
     }
 
     private void ClearServerList()
     {
         Debug.Log("CLEARED SERVER LIST");
-        //discoveredServers.Clear();
         foreach (GameObject svr in serverList) Destroy(svr);
+        currentServers.Clear();
     }
 
     public void ShutDown()
@@ -92,6 +84,20 @@ public class NetworkActions : NetworkManager
     {
         base.OnServerAddPlayer(conn);
         OnPlayerAdded.RaiseAction();
+    }
+
+    public void RespawnPlayer(GameObject player, int time)
+    {
+        StartCoroutine(WaitRespawn(player, time));
+    }
+
+    private IEnumerator WaitRespawn(GameObject player, int time)
+    {
+        Debug.Log("DEAD");
+        player.SetActive(false);
+        yield return new WaitForSeconds(time);
+        player.SetActive(true);
+        Debug.Log("ALIVE");
     }
     
     public void Error(string text)

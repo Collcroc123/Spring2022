@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class ServerSelected : MonoBehaviour
 {
-    private Button joinButton;
     [HideInInspector] public ServerData server;
     private NetworkActions netAct;
+    private Button joinButton;
     public TextMeshProUGUI name, players;
 
     public void LobbySelected()
@@ -19,6 +19,7 @@ public class ServerSelected : MonoBehaviour
 
     void Start()
     {
+        transform.localScale = new Vector3(1, 1, 1);
         name.text = server.info.EndPoint.Address.ToString();//REPLACE WITH SERVER.NAME
         players.text = "0" + "/" + server.maxPlayers;
         netAct = GameObject.Find("NetManager").GetComponent<NetworkActions>();

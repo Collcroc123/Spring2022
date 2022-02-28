@@ -15,8 +15,8 @@ public class PlayerManager : NetworkBehaviour
     [SyncVar] public int health = 4;
     [SyncVar(hook = nameof(PlayerColor))] public Color playerColor;
     protected Callback<AvatarImageLoaded_t> avatarImageLoaded;
-    //private Transform castPoint;
-    
+    private NetworkActions netActs;
+
     [Header("Movement")]
     public float speed = 12f;
     public float gravity = -18f;
@@ -36,9 +36,10 @@ public class PlayerManager : NetworkBehaviour
     [Range(0,1)]public float headBobSmoothing = 0.1f;
     private Transform headTransform;
     private GameObject mainCamera;
+    private Transform castPoint;
     private float walkingTime;
     private Vector3 targetCamPos;
-    
+
     public override void OnStartClient()
     { // If Steam Running and Avatar Loaded, Tell Player Data to Get Avatar
         if (SteamManager.Initialized) avatarImageLoaded = Callback<AvatarImageLoaded_t>.Create(player.OnAvatarImageLoaded);
@@ -46,26 +47,28 @@ public class PlayerManager : NetworkBehaviour
 
     private void Start()
     {
+        netActs = FindObjectOfType<NetworkActions>();
         controller = GetComponent<CharacterController>();
         headTransform = gameObject.transform.GetChild(0);
         mainCamera = gameObject.transform.GetChild(0).GetChild(0).gameObject;
-        //castPoint = gameObject.transform.GetChild(0).GetChild(1);
+        castPoint = gameObject.transform.GetChild(0).GetChild(0).GetChild(0);
+        Camera cam = mainCamera.GetComponent<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
         if (isLocalPlayer) GetComponentInChildren<SpriteRenderer>().enabled = false;
         if (isLocalPlayer)
         {
             if (Camera.main.gameObject != null) Destroy(Camera.main.gameObject);
-            mainCamera.SetActive(true);
+            cam.enabled = true;
             gameObject.tag = "Player";
         }
-        else Destroy(mainCamera);
+        else cam.enabled = false;
         playerColor = Color.HSVToRGB(Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
     }
     
     private void Update()
     { //healthTxt.text = health.ToString();
         healthBar.text = new string('-', health);
-        if (hasAuthority)
+        if (isLocalPlayer || hasAuthority)
         {
             MovePlayer();
             MoveCamera();
@@ -140,7 +143,8 @@ public class PlayerManager : NetworkBehaviour
     [Command] // this is called on the server
     void CmdFire()
     {
-        GameObject projectile = Instantiate(currentSpell.cast, mainCamera.transform.position, mainCamera.transform.rotation);
+        GameObject projectile = Instantiate(currentSpell.cast, castPoint.transform.position, castPoint.transform.rotation);
+        projectile.GetComponent<Spellcast>().spell.player = (int)netId;
         NetworkServer.Spawn(projectile);
         //CastCooldown(currentSpell.castRate);
         RpcOnFire();
@@ -151,30 +155,33 @@ public class PlayerManager : NetworkBehaviour
     {
         //animator.SetTrigger("Shoot");
     }
+
+    [ServerCallback]
+    void OnTriggerEnter(Collider other)
+    {
+        SpellData spell = other.GetComponent<Spellcast>().spell;
+        if (spell.player != (int)netId) 
+        {
+            health -= spell.damage;
+            if (health <= 0)
+            {
+                netActs.RespawnPlayer(gameObject, respawnTime);
+                StartCoroutine(ResetHealth(respawnTime)); // SET HEALTH AFTER RESPAWN!!!
+                //NetworkServer.Destroy(gameObject);
+                //NetworkServer.UnSpawn(gameObject);
+                //Respawn(respawnTime);
+            }
+        }
+    }
     
     private IEnumerator CastCooldown(float seconds)
     {
         yield return new WaitForSeconds(seconds);
     }
-
-    [ServerCallback]
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Spell")) // other.GetComponent<Spellcast>() != null || 
-        {
-            --health;
-            if (health <= 0)
-            {
-                NetworkServer.UnSpawn(gameObject);
-                Respawn(respawnTime);
-            }
-        }
-    }
     
-    private IEnumerator Respawn(float seconds)
+    private IEnumerator ResetHealth(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        NetworkServer.Spawn(gameObject);
         health = maxHealth;
     }
 
