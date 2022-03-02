@@ -12,7 +12,7 @@ public class SteamActions : MonoBehaviour
     protected Callback<LobbyEnter_t> lobbyEntered;
     private const string HostAddressKey = "HostAddress";
     public Button steamHost;
-    public GameAction OnSteamLobbyCreated;
+    //public GameAction OnSteamLobbyCreated;
 
     public static CSteamID LobbyId { get; private set; }
     
@@ -27,15 +27,12 @@ public class SteamActions : MonoBehaviour
             lobbyEntered = Callback<LobbyEnter_t>.Create(OnLobbyEntered);
             steamHost.interactable = true;
         }
-        //else steamHost.interactable = false;
     }
     
     public void HostLobby()
     {
         Debug.Log("HOSTING STEAM LOBBY");
         if (gameObject.GetComponent<FizzySteamworks>() == null) gameObject.AddComponent<FizzySteamworks>();
-        //if (gameObject.GetComponent<SteamManager>() == null) gameObject.AddComponent<SteamManager>();
-        //netManager.transport;
         SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, netManager.maxConnections);
     }
     
@@ -51,7 +48,7 @@ public class SteamActions : MonoBehaviour
         LobbyId = new CSteamID(callback.m_ulSteamIDLobby);
         netManager.StartHost();
         SteamMatchmaking.SetLobbyData(LobbyId, HostAddressKey, SteamUser.GetSteamID().ToString());
-        OnSteamLobbyCreated.RaiseAction();
+        //OnSteamLobbyCreated.RaiseAction();
     }
 
     private void OnGameLobbyJoinRequested(GameLobbyJoinRequested_t callback)

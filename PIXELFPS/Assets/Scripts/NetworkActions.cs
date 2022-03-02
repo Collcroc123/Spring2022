@@ -7,14 +7,14 @@ using TMPro;
 
 public class NetworkActions : NetworkManager
 {
-    public GameAction OnPlayerAdded;
-    public GameAction OnShutdown;
+    //public GameAction OnPlayerAdded;
+    //public GameAction OnShutdown;
     public GameObject errorWindow;
     public GameObject scrollView;
     public GameObject serverPrefab;
     
     private NetworkDiscovery netDisc;
-    private List<GameObject> serverList = new List<GameObject>();
+    private List<GameObject> serverPrefabList = new List<GameObject>();
     private List<ServerResponse> currentServers = new List<ServerResponse>();
     public ServerResponse currentSelectedServer;
 
@@ -47,7 +47,6 @@ public class NetworkActions : NetworkManager
     
     public void OnDiscoveredServer(ServerResponse info)
     { // Note that you can check the versioning to decide if you can connect to the server or not using this method
-        //discoveredServers[info.serverId] = info;
         Debug.Log("SERVER FOUND: " + info.EndPoint.Address);
         if (!NetworkClient.isConnected && !NetworkServer.active && !NetworkClient.active)
         {
@@ -57,7 +56,7 @@ public class NetworkActions : NetworkManager
                 ServerSelected servSel = serverEntry.GetComponent<ServerSelected>();
                 servSel.server = ScriptableObject.CreateInstance<ServerData>();
                 servSel.server.info = info;
-                serverList.Add(serverEntry);
+                serverPrefabList.Add(serverEntry);
                 currentServers.Add(info);
             }
         }
@@ -66,7 +65,7 @@ public class NetworkActions : NetworkManager
     private void ClearServerList()
     {
         Debug.Log("CLEARED SERVER LIST");
-        foreach (GameObject svr in serverList) Destroy(svr);
+        foreach (GameObject svr in serverPrefabList) Destroy(svr);
         currentServers.Clear();
     }
 
@@ -76,15 +75,21 @@ public class NetworkActions : NetworkManager
         StopClient();
         StopHost();
         StopServer();
-        Instantiate(Camera.main);
-        OnShutdown.RaiseAction();
+        /*if (NetworkServer.active)
+        {
+            if (NetworkClient.isConnected) StopHost();
+            else StopServer();
+        }
+        else if (NetworkClient.isConnected) StopClient();*/
+        //Instantiate(Camera.main);
+        //OnShutdown.RaiseAction();
     }
     
-    public override void OnServerAddPlayer(NetworkConnection conn)
+    /*public override void OnServerAddPlayer(NetworkConnection conn)
     {
         base.OnServerAddPlayer(conn);
         OnPlayerAdded.RaiseAction();
-    }
+    }*/
 
     public void RespawnPlayer(GameObject player, int time)
     {
@@ -104,5 +109,10 @@ public class NetworkActions : NetworkManager
     {
         errorWindow.SetActive(true);
         errorWindow.GetComponentInChildren<TextMeshProUGUI>().text = "ERROR: \n" + text;
+    }
+    
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

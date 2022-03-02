@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: BaseSpell
   m_EditorClassIdentifier: 
   player: 0
-  cast: {fileID: 7067382707065146406, guid: b422fd7b3ce4e1042ab010566dc1c9c4, type: 3}
+  prefab: {fileID: 7067382707065146406, guid: b422fd7b3ce4e1042ab010566dc1c9c4, type: 3}
+  damage: 1
   rate: 0.25
   force: 1000
-  cost: 0
-  recharge: 0
   duration: 5
-  damage: 1
+  cost: 0
   canBounce: 0
+  icon: {fileID: -1454390235, guid: 185b835e1c11db34486c11b0aa4342f1, type: 3}
   texture: {fileID: 1194844603, guid: 185b835e1c11db34486c11b0aa4342f1, type: 3}
-  sound: []
+  castSound:
+  - {fileID: 0}

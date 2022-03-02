@@ -12,7 +12,6 @@ public class MainMenu : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().name == "Menu") sideMenu.SetActive(true);
         else playerUI.SetActive(true);
-        //steamLobby = networkManagerObj.GetComponent<SteamLobby>();
     }
 
     void Update()
@@ -25,10 +24,5 @@ public class MainMenu : MonoBehaviour
             if (isActive) Cursor.lockState = CursorLockMode.None;
             else Cursor.lockState = CursorLockMode.Locked;
         }
-    }
-
-    public void Quit()
-    {
-        Application.Quit();
     }
 }

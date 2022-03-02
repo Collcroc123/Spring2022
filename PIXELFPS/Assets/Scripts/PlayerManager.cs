@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerManager : NetworkBehaviour
 { // https://www.youtube.com/watch?v=_QajrabyTJc
+    #region General
     public TextMeshPro healthBar;
     public PlayerData player;
     public SpellData currentSpell;
@@ -14,9 +15,11 @@ public class PlayerManager : NetworkBehaviour
     private int maxHealth = 4;
     [SyncVar] public int health = 4;
     [SyncVar(hook = nameof(PlayerColor))] public Color playerColor;
-    protected Callback<AvatarImageLoaded_t> avatarImageLoaded;
+    protected Callback<AvatarImageLoaded_t> avatarImageLoaded; //protected
     private NetworkActions netActs;
-
+    private bool canShoot = true;
+    #endregion
+    #region Movement
     [Header("Movement")]
     public float speed = 12f;
     public float gravity = -18f;
@@ -27,7 +30,8 @@ public class PlayerManager : NetworkBehaviour
     private bool isWalking, isGrounded;
     private Vector3 velocity;
     private float xRotation;
-    
+    #endregion
+    #region Camera
     [Header("Camera")]
     public float mouseSensitivity = 500f;
     public float bobFrequency = 5f;
@@ -39,7 +43,8 @@ public class PlayerManager : NetworkBehaviour
     private Transform castPoint;
     private float walkingTime;
     private Vector3 targetCamPos;
-
+    #endregion
+    
     public override void OnStartClient()
     { // If Steam Running and Avatar Loaded, Tell Player Data to Get Avatar
         if (SteamManager.Initialized) avatarImageLoaded = Callback<AvatarImageLoaded_t>.Create(player.OnAvatarImageLoaded);
@@ -77,6 +82,7 @@ public class PlayerManager : NetworkBehaviour
         }
     }
 
+    #region Camera & Movement
     private void MovePlayer()
     { // Moves Player Based on Keyboard Input and Status
         Vector3 location = gameObject.transform.position;
@@ -129,7 +135,8 @@ public class PlayerManager : NetworkBehaviour
         }
         return offset;
     }
-
+    #endregion
+    
     private void PlayerColor(Color oldColor, Color newColor)
     { // Syncs Player Color
         GetComponentInChildren<SpriteRenderer>().color = newColor;
@@ -143,17 +150,27 @@ public class PlayerManager : NetworkBehaviour
     [Command] // this is called on the server
     void CmdFire()
     {
-        GameObject projectile = Instantiate(currentSpell.cast, castPoint.transform.position, castPoint.transform.rotation);
-        projectile.GetComponent<Spellcast>().spell.player = (int)netId;
-        NetworkServer.Spawn(projectile);
-        //CastCooldown(currentSpell.castRate);
-        RpcOnFire();
+        if (canShoot)
+        {
+            canShoot = false;
+            GameObject projectile = Instantiate(currentSpell.prefab, castPoint.transform.position, castPoint.transform.rotation);
+            projectile.GetComponent<Spellcast>().spell.player = (int)netId;
+            NetworkServer.Spawn(projectile);
+            //RpcOnFire();
+            CastCooldown(currentSpell.rate);
+        }
     }
 
     [ClientRpc] // this is called on the player that fired for all observers
     void RpcOnFire()
     {
         //animator.SetTrigger("Shoot");
+    }
+    
+    private IEnumerator CastCooldown(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        canShoot = true;
     }
 
     [ServerCallback]
@@ -167,18 +184,10 @@ public class PlayerManager : NetworkBehaviour
             {
                 netActs.RespawnPlayer(gameObject, respawnTime);
                 StartCoroutine(ResetHealth(respawnTime)); // SET HEALTH AFTER RESPAWN!!!
-                //NetworkServer.Destroy(gameObject);
-                //NetworkServer.UnSpawn(gameObject);
-                //Respawn(respawnTime);
             }
         }
     }
-    
-    private IEnumerator CastCooldown(float seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-    }
-    
+
     private IEnumerator ResetHealth(float seconds)
     {
         yield return new WaitForSeconds(seconds);
