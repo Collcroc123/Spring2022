@@ -152,12 +152,12 @@ public class PlayerManager : NetworkBehaviour
     {
         if (canShoot)
         {
-            canShoot = false;
+            //canShoot = false;
             GameObject projectile = Instantiate(currentSpell.prefab, castPoint.transform.position, castPoint.transform.rotation);
             projectile.GetComponent<Spellcast>().spell.player = (int)netId;
             NetworkServer.Spawn(projectile);
             //RpcOnFire();
-            CastCooldown(currentSpell.rate);
+            //CastCooldown(currentSpell.rate);
         }
     }
 
