@@ -832,6 +832,7 @@ MonoBehaviour:
   scrollView: {fileID: 4515698477889626196}
   serverPrefab: {fileID: 8908159028719796136, guid: 51bb72779df338448a4626d7049c30aa,
     type: 3}
+  currentSelectedServer: {fileID: 0}
 --- !u!4 &1891144104
 Transform:
   m_ObjectHideFlags: 0
@@ -1679,7 +1680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &4515698477346510049
 GameObject:
   m_ObjectHideFlags: 0

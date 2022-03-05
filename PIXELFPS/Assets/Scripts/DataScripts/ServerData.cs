@@ -1,11 +1,23 @@
+using Mirror;
 using Mirror.Discovery;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Datas/ServerData")]
 public class ServerData : ScriptableObject
 {
-    public ServerResponse info;
-    public string name;
+    [HideInInspector] public ServerResponse info;
+    [Tooltip("Server name")]
+    public string serverName;
+    [Tooltip("Password needed to join server")]
     public string password;
-    public int maxPlayers;
+    [Tooltip("Max number players that can join")]
+    public int maxPlayers = 4;
+
+    [Tooltip("What % the player speed is multiplied")] 
+    [Range(25,300)] public int playerSpeedMultiplier = 100;
+    [Tooltip("What % the gravity is multiplied")] 
+    [Range(25, 300)] public int gravityMultiplier = 100;
+    [Tooltip("How long after death until the player respawns")] 
+    [Range(0,30)] public int respawnTime = 5;
+    
 }

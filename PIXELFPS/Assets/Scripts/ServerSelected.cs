@@ -3,28 +3,29 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ServerSelected : MonoBehaviour
+public class ServerSelected : NetworkBehaviour
 {
-    [HideInInspector] public ServerData server;
+    [SyncVar] public ServerData server; //[HideInInspector] 
     private NetworkActions netAct;
     private Button joinButton;
-    private TextMeshProUGUI name, players, ping;
+    private TextMeshProUGUI nameTxt, playersTxt, pingTxt;
 
     public void LobbySelected()
     {
         joinButton = GameObject.Find("Join Lobby Button").GetComponent<Button>();
         joinButton.interactable = true;
-        netAct.currentSelectedServer = server.info;
+        netAct.currentSelectedServer = server;
     }
 
     void Start()
     {
-        name = gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        players = gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-        ping = gameObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
+        nameTxt = gameObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        playersTxt = gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        pingTxt = gameObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
         transform.localScale = new Vector3(1, 1, 1);
-        name.text = server.info.EndPoint.Address.ToString(); //REPLACE WITH SERVER.NAME
-        players.text = "0" + "/" + server.maxPlayers;
+        if (server.serverName != null) nameTxt.text = server.serverName;
+        else nameTxt.text = server.info.EndPoint.Address.ToString();
+        playersTxt.text = "0" + "/" + server.maxPlayers;
         //ping.text = "Ping: ";
         netAct = GameObject.Find("NetManager").GetComponent<NetworkActions>();
     }

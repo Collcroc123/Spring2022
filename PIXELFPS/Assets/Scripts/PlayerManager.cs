@@ -19,9 +19,10 @@ public class PlayerManager : NetworkBehaviour
     private NetworkActions netActs;
     private bool canShoot = true;
     #endregion
+    
     #region Movement
     [Header("Movement")]
-    public float speed = 12f;
+    public float speed = 10f;
     public float gravity = -18f;
     public float jumpHeight = 4f;
     public float groundDistance = 0.4f;
@@ -31,13 +32,14 @@ public class PlayerManager : NetworkBehaviour
     private Vector3 velocity;
     private float xRotation;
     #endregion
+    
     #region Camera
     [Header("Camera")]
     public float mouseSensitivity = 500f;
     public float bobFrequency = 5f;
     public float bobXAmplitude = 0.1f;
     public float bobYAmplitude = 0.1f;
-    [Range(0,1)]public float headBobSmoothing = 0.1f;
+    [Range(0,1)] public float headBobSmoothing = 0.1f;
     private Transform headTransform;
     private GameObject mainCamera;
     private Transform castPoint;
@@ -68,6 +70,9 @@ public class PlayerManager : NetworkBehaviour
         }
         else cam.enabled = false;
         playerColor = Color.HSVToRGB(Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
+        speed *= netActs.currentSelectedServer.playerSpeedMultiplier/100;
+        gravity *= netActs.currentSelectedServer.gravityMultiplier/100;
+        respawnTime *= netActs.currentSelectedServer.respawnTime;
     }
     
     private void Update()

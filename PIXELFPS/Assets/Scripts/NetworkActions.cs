@@ -16,7 +16,7 @@ public class NetworkActions : NetworkManager
     private NetworkDiscovery netDisc;
     private List<GameObject> serverPrefabList = new List<GameObject>();
     private List<ServerResponse> currentServers = new List<ServerResponse>();
-    public ServerResponse currentSelectedServer;
+    [HideInInspector] public ServerData currentSelectedServer;
 
     void Start()
     {
@@ -42,7 +42,7 @@ public class NetworkActions : NetworkManager
     {
         Debug.Log("JOINING LOBBY");
         netDisc.StopDiscovery();
-        StartClient(currentSelectedServer.uri);
+        StartClient(currentSelectedServer.info.uri);
     }
     
     public void OnDiscoveredServer(ServerResponse info)
@@ -54,7 +54,7 @@ public class NetworkActions : NetworkManager
             { // DOES NOT WORK WITH MULTIPLE SERVERS ON ONE IP
                 GameObject serverEntry = Instantiate(serverPrefab, scrollView.transform, true);
                 ServerSelected servSel = serverEntry.GetComponent<ServerSelected>();
-                servSel.server = ScriptableObject.CreateInstance<ServerData>();
+                //servSel.server = ScriptableObject.CreateInstance<ServerData>();
                 servSel.server.info = info;
                 serverPrefabList.Add(serverEntry);
                 currentServers.Add(info);
