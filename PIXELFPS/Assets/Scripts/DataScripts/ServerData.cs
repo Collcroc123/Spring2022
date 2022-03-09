@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Datas/ServerData")]
 public class ServerData : ScriptableObject
 {
-    [HideInInspector] public ServerResponse info;
+    //[HideInInspector] public ServerResponse info;
     [Tooltip("Server name")]
     public string serverName;
     [Tooltip("Password needed to join server")]
@@ -19,5 +19,4 @@ public class ServerData : ScriptableObject
     [Range(25, 300)] public int gravityMultiplier = 100;
     [Tooltip("How long after death until the player respawns")] 
     [Range(0,30)] public int respawnTime = 5;
-    
 }

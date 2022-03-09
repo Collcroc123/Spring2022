@@ -1,11 +1,13 @@
 using Mirror;
+using Mirror.Discovery;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ServerSelected : NetworkBehaviour
 {
-    [SyncVar] public ServerData server; //[HideInInspector] 
+    //[SyncVar] public ServerData server; //[HideInInspector]
+    [HideInInspector] public ServerResponse info;
     private NetworkActions netAct;
     private Button joinButton;
     private TextMeshProUGUI nameTxt, playersTxt, pingTxt;
@@ -14,7 +16,7 @@ public class ServerSelected : NetworkBehaviour
     {
         joinButton = GameObject.Find("Join Lobby Button").GetComponent<Button>();
         joinButton.interactable = true;
-        netAct.currentSelectedServer = server;
+        netAct.currentSelectedServer = info;
     }
 
     void Start()
@@ -23,9 +25,9 @@ public class ServerSelected : NetworkBehaviour
         playersTxt = gameObject.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         pingTxt = gameObject.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
         transform.localScale = new Vector3(1, 1, 1);
-        if (server.serverName != null) nameTxt.text = server.serverName;
-        else nameTxt.text = server.info.EndPoint.Address.ToString();
-        playersTxt.text = "0" + "/" + server.maxPlayers;
+        //if (server.serverName != null) nameTxt.text = server.serverName;else 
+        nameTxt.text = info.EndPoint.Address.ToString();
+        //playersTxt.text = "0" + "/" + server.maxPlayers;
         //ping.text = "Ping: ";
         netAct = GameObject.Find("NetManager").GetComponent<NetworkActions>();
     }

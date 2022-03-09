@@ -70,9 +70,9 @@ public class PlayerManager : NetworkBehaviour
         }
         else cam.enabled = false;
         playerColor = Color.HSVToRGB(Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
-        speed *= netActs.currentSelectedServer.playerSpeedMultiplier/100;
-        gravity *= netActs.currentSelectedServer.gravityMultiplier/100;
-        respawnTime *= netActs.currentSelectedServer.respawnTime;
+        //speed *= netActs.currentSelectedServer.playerSpeedMultiplier/100;
+        //gravity *= netActs.currentSelectedServer.gravityMultiplier/100;
+        //respawnTime *= netActs.currentSelectedServer.respawnTime;
     }
     
     private void Update()
