@@ -473,7 +473,6 @@
           <e p="OnHover.cs" t="Include" />
           <e p="PlayerManager.cs" t="Include" />
           <e p="ServerSelected.cs" t="Include" />
-          <e p="SettingsMenu.cs" t="Include" />
           <e p="Spellcast.cs" t="Include" />
           <e p="SteamActions.cs" t="Include" />
           <e p="Steamworks.NET" t="Include">

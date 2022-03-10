@@ -12,8 +12,8 @@ public class PlayerManager : NetworkBehaviour
     public PlayerData player;
     public SpellData currentSpell;
     public int respawnTime = 5;
-    private int maxHealth = 4;
-    [SyncVar] public int health = 4;
+    private int maxHealth = 100;
+    [SyncVar] public int health = 100;
     [SyncVar(hook = nameof(PlayerColor))] public Color playerColor;
     protected Callback<AvatarImageLoaded_t> avatarImageLoaded; //protected
     private NetworkActions netActs;
@@ -70,14 +70,14 @@ public class PlayerManager : NetworkBehaviour
         }
         else cam.enabled = false;
         playerColor = Color.HSVToRGB(Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
-        //speed *= netActs.currentSelectedServer.playerSpeedMultiplier/100;
-        //gravity *= netActs.currentSelectedServer.gravityMultiplier/100;
-        //respawnTime *= netActs.currentSelectedServer.respawnTime;
+        //speed *= netActs.settings.playerSpeedMultiplier/100;
+        //gravity *= netActs.settings.gravityMultiplier/100;
+        //respawnTime *= netActs.settings.respawnTime;
     }
     
     private void Update()
-    { //healthTxt.text = health.ToString();
-        healthBar.text = new string('-', health);
+    {
+        //healthBar.text = new string('-', health);
         if (isLocalPlayer || hasAuthority)
         {
             MovePlayer();

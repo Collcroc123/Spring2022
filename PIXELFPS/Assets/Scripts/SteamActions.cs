@@ -12,7 +12,6 @@ public class SteamActions : MonoBehaviour
     protected Callback<LobbyEnter_t> lobbyEntered;
     private const string HostAddressKey = "HostAddress";
     public Button steamHost;
-    //public GameAction OnSteamLobbyCreated;
 
     public static CSteamID LobbyId { get; private set; }
     

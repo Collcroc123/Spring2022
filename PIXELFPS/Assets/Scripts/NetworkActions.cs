@@ -7,8 +7,6 @@ using TMPro;
 
 public class NetworkActions : NetworkManager
 {
-    //public GameAction OnPlayerAdded;
-    //public GameAction OnShutdown;
     public GameObject errorWindow;
     public GameObject scrollView;
     public GameObject serverPrefab;
@@ -17,6 +15,7 @@ public class NetworkActions : NetworkManager
     private List<GameObject> serverPrefabList = new List<GameObject>();
     private List<ServerResponse> currentServers = new List<ServerResponse>();
     [HideInInspector] public ServerResponse currentSelectedServer;
+    public MainMenu settings;
 
     void Start()
     {
