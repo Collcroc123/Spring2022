@@ -17,28 +17,31 @@ public class PlayerManager : NetworkBehaviour
     [SyncVar(hook = nameof(PlayerColor))] public Color playerColor;
     protected Callback<AvatarImageLoaded_t> avatarImageLoaded; //protected
     private NetworkActions netActs;
-    private bool canShoot = true;
+    [SyncVar] private bool canAttack = true;
+    private Animator anim;
+    private MeleeTrigger melee;
     #endregion
     
     #region Movement
     [Header("Movement")]
     public float speed = 10f;
     public float gravity = -18f;
-    public float jumpHeight = 4f;
-    public float groundDistance = 0.4f;
+    public float jumpHeight = 7.5f;
     public LayerMask groundMask;
-    private CharacterController controller;
     private bool isWalking, isGrounded;
+    private Vector3 playerMovementInput;
+    private Vector2 playerMouseInput;
+    private Rigidbody playerBody;
     private Vector3 velocity;
     private float xRotation;
     #endregion
     
     #region Camera
     [Header("Camera")]
-    public float mouseSensitivity = 500f;
+    public float mouseSensitivity = 250f;
     public float bobFrequency = 5f;
-    public float bobXAmplitude = 0.1f;
-    public float bobYAmplitude = 0.1f;
+    public float bobXAmplitude = 0.2f;
+    public float bobYAmplitude = 0.2f;
     [Range(0,1)] public float headBobSmoothing = 0.1f;
     private Transform headTransform;
     private GameObject mainCamera;
@@ -55,10 +58,11 @@ public class PlayerManager : NetworkBehaviour
     private void Start()
     {
         netActs = FindObjectOfType<NetworkActions>();
-        controller = GetComponent<CharacterController>();
+        playerBody = GetComponent<Rigidbody>();
         headTransform = gameObject.transform.GetChild(0);
         mainCamera = gameObject.transform.GetChild(0).GetChild(0).gameObject;
         castPoint = gameObject.transform.GetChild(0).GetChild(0).GetChild(0);
+        melee = castPoint.GetComponent<MeleeTrigger>();
         Camera cam = mainCamera.GetComponent<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
         if (isLocalPlayer) GetComponentInChildren<SpriteRenderer>().enabled = false;
@@ -70,6 +74,7 @@ public class PlayerManager : NetworkBehaviour
         }
         else cam.enabled = false;
         playerColor = Color.HSVToRGB(Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
+        anim = GameObject.Find("RHand").GetComponent<Animator>();
         //speed *= netActs.settings.playerSpeedMultiplier/100;
         //gravity *= netActs.settings.gravityMultiplier/100;
         //respawnTime *= netActs.settings.respawnTime;
@@ -80,42 +85,37 @@ public class PlayerManager : NetworkBehaviour
         //healthBar.text = new string('-', health);
         if (isLocalPlayer || hasAuthority)
         {
+            playerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+            playerMouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * mouseSensitivity * Time.deltaTime;
             MovePlayer();
-            MoveCamera();
-            if (mainCamera != null) HeadBob();
+            MovePlayerCamera();
+            HeadBob();
             if (Input.GetKeyDown(KeyCode.Mouse0)) CmdFire();
+            if (Input.GetKeyDown(KeyCode.F)) CmdPunch();
         }
     }
 
     #region Camera & Movement
     private void MovePlayer()
     { // Moves Player Based on Keyboard Input and Status
+        Vector3 moveVector = transform.TransformDirection(playerMovementInput) * speed;
+        playerBody.velocity = new Vector3(moveVector.x, playerBody.velocity.y, moveVector.z);
         Vector3 location = gameObject.transform.position;
-        location.y = gameObject.transform.position.y - 1.2f;
-        isGrounded = Physics.CheckSphere(location, groundDistance, groundMask);
-        if (isGrounded && velocity.y < 0) velocity.y = -2f;
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        Vector3 move = transform.right * x + transform.forward * z;
-        if (x != 0 || z != 0) isWalking = true;
+        location.y = gameObject.transform.position.y - 0.75f;
+        isGrounded = Physics.CheckSphere(location, 0.5f, groundMask);
+        Debug.Log(isGrounded);
+        if (playerMovementInput.magnitude > 0) isWalking = true;
         else isWalking = false;
-        if (Input.GetKeyDown(KeyCode.LeftShift)) speed = 18f;
-        else if (Input.GetKeyDown(KeyCode.LeftControl)) speed = 6f;
-        else speed = 12f;
-        controller.Move(move * speed * Time.deltaTime);
-        if (Input.GetButtonDown("Jump") && isGrounded) velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded) 
+            playerBody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
     }
 
-    private void MoveCamera()
-    { // Moves Camera Based on Mouse Movement
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-        xRotation -= mouseY;
+    private void MovePlayerCamera()
+    {
+        xRotation -= playerMouseInput.y;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * mouseX);
+        transform.Rotate(0f, playerMouseInput.x, 0f);
     }
 
     private void HeadBob()
@@ -141,28 +141,15 @@ public class PlayerManager : NetworkBehaviour
         return offset;
     }
     #endregion
-    
-    private void PlayerColor(Color oldColor, Color newColor)
-    { // Syncs Player Color
-        GetComponentInChildren<SpriteRenderer>().color = newColor;
-        if (isLocalPlayer)
-        {
-            GameObject.Find("LHand").GetComponent<Image>().color = newColor;
-            GameObject.Find("RHand").GetComponent<Image>().color = newColor;
-        }
-    }
-    
+
+    #region Attack
     [Command] // this is called on the server
     void CmdFire()
     {
-        if (canShoot)
+        if (canAttack)
         {
-            //canShoot = false;
-            GameObject projectile = Instantiate(currentSpell.prefab, castPoint.transform.position, castPoint.transform.rotation);
-            projectile.GetComponent<Spellcast>().spell.player = (int)netId;
-            NetworkServer.Spawn(projectile);
-            //RpcOnFire();
-            //CastCooldown(currentSpell.rate);
+            if (currentSpell != null) StartCoroutine(CastCooldown(currentSpell.rate));
+            else StartCoroutine(PunchCooldown(1));
         }
     }
 
@@ -171,13 +158,35 @@ public class PlayerManager : NetworkBehaviour
     {
         //animator.SetTrigger("Shoot");
     }
+
+    [Command]
+    void CmdPunch()
+    {
+        if (canAttack) StartCoroutine(PunchCooldown(1));
+    }
     
     private IEnumerator CastCooldown(float seconds)
     {
+        canAttack = false;
+        GameObject projectile = Instantiate(currentSpell.prefab, castPoint.transform.position, castPoint.transform.rotation);
+        projectile.GetComponent<Spellcast>().spell.player = (int)netId;
+        NetworkServer.Spawn(projectile);
+        anim.Play("Attack4F");
+        //RpcOnFire();
         yield return new WaitForSeconds(seconds);
-        canShoot = true;
+        canAttack = true;
     }
 
+    private IEnumerator PunchCooldown(float cooldown)
+    {
+        canAttack= false;
+        melee.Punch(castPoint.transform.rotation.eulerAngles, 1000);
+        yield return new WaitForSeconds(cooldown);
+        canAttack = true;
+    }
+    #endregion
+    
+    #region Health
     [ServerCallback]
     void OnTriggerEnter(Collider other)
     {
@@ -197,6 +206,17 @@ public class PlayerManager : NetworkBehaviour
     {
         yield return new WaitForSeconds(seconds);
         health = maxHealth;
+    }
+    #endregion
+    
+    private void PlayerColor(Color oldColor, Color newColor)
+    { // Syncs Player Color
+        GetComponentInChildren<SpriteRenderer>().color = newColor;
+        if (isLocalPlayer)
+        {
+            GameObject.Find("LHand").GetComponent<Image>().color = newColor;
+            GameObject.Find("RHand").GetComponent<Image>().color = newColor;
+        }
     }
 
     #region STEAM

@@ -41,7 +41,10 @@ public class Spellcast : NetworkBehaviour
     void OnTriggerEnter(Collider co)
     { // ServerCallback because we don't want a warning if OnTriggerEnter is called on the client
         //Instantiate(hitAnim, gameObject.transform.position, gameObject.transform.rotation);
-        if (co.GetComponent<PlayerManager>() == false || co.GetComponent<PlayerManager>().netId != spell.player)
-            NetworkServer.Destroy(gameObject);
+        if (!co.CompareTag("Spell"))
+        {
+            if (co.GetComponent<PlayerManager>() == false || co.GetComponent<PlayerManager>().netId != spell.player)
+                NetworkServer.Destroy(gameObject);
+        }
     }
 }
