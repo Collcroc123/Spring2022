@@ -27,7 +27,7 @@ public class MainMenu : NetworkBehaviour
 
     void OnEnable()
     {
-        SceneManager.sceneLoaded += OnLevelWasLoaded;
+        SceneManager.sceneLoaded += OnLevelLoaded;
     }
     
     void Awake()
@@ -47,7 +47,7 @@ public class MainMenu : NetworkBehaviour
         }
     }
 
-    void OnLevelWasLoaded(Scene scene, LoadSceneMode mode)
+    void OnLevelLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "Menu")
         {

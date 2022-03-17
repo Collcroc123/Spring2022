@@ -85,10 +85,8 @@ public class PlayerManager : NetworkBehaviour
         //healthBar.text = new string('-', health);
         if (isLocalPlayer || hasAuthority)
         {
-            playerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
-            playerMouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * mouseSensitivity * Time.deltaTime;
-            MovePlayer();
             MovePlayerCamera();
+            MovePlayer();
             HeadBob();
             if (Input.GetKeyDown(KeyCode.Mouse0)) CmdFire();
             if (Input.GetKeyDown(KeyCode.F)) CmdPunch();
@@ -98,20 +96,22 @@ public class PlayerManager : NetworkBehaviour
     #region Camera & Movement
     private void MovePlayer()
     { // Moves Player Based on Keyboard Input and Status
+        playerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         Vector3 moveVector = transform.TransformDirection(playerMovementInput) * speed;
         playerBody.velocity = new Vector3(moveVector.x, playerBody.velocity.y, moveVector.z);
+        //playerBody.MovePosition(transform.position + moveVector * Time.deltaTime);
         Vector3 location = gameObject.transform.position;
-        location.y = gameObject.transform.position.y - 0.75f;
-        isGrounded = Physics.CheckSphere(location, 0.5f, groundMask);
-        Debug.Log(isGrounded);
+        location.y = gameObject.transform.position.y - 0.8f;
+        isGrounded = Physics.CheckSphere(location, 0.25f, groundMask);
         if (playerMovementInput.magnitude > 0) isWalking = true;
-        else isWalking = false;
+        else isWalking = false; // playerMovementInput.x != 0 || playerMovementInput.z != 0
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) 
             playerBody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
     }
-
+    
     private void MovePlayerCamera()
     {
+        playerMouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * mouseSensitivity * Time.deltaTime;
         xRotation -= playerMouseInput.y;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
