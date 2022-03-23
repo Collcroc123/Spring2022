@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
-using Steamworks;
 using Mirror;
 using TMPro;
 using UnityEngine.UI;
+using Steamworks;
 
 public class PlayerManager : NetworkBehaviour
 { // https://www.youtube.com/watch?v=_QajrabyTJc
@@ -15,7 +15,7 @@ public class PlayerManager : NetworkBehaviour
     private int maxHealth = 100;
     [SyncVar] public int health = 100;
     [SyncVar(hook = nameof(PlayerColor))] public Color playerColor;
-    protected Callback<AvatarImageLoaded_t> avatarImageLoaded; //protected
+    //protected Callback<AvatarImageLoaded_t> avatarImageLoaded; //protected
     private NetworkActions netActs;
     [SyncVar] private bool canAttack = true;
     private Animator anim;
@@ -28,7 +28,7 @@ public class PlayerManager : NetworkBehaviour
     public float gravity = -18f;
     public float jumpHeight = 7.5f;
     public LayerMask groundMask;
-    private bool isWalking, isGrounded;
+    public BoolData isWalking, isGrounded;
     private Vector3 playerMovementInput;
     private Vector2 playerMouseInput;
     private Rigidbody playerBody;
@@ -39,27 +39,21 @@ public class PlayerManager : NetworkBehaviour
     #region Camera
     [Header("Camera")]
     public float mouseSensitivity = 250f;
-    public float bobFrequency = 5f;
-    public float bobXAmplitude = 0.2f;
-    public float bobYAmplitude = 0.2f;
-    [Range(0,1)] public float headBobSmoothing = 0.1f;
-    private Transform headTransform;
     private GameObject mainCamera;
     private Transform castPoint;
     private float walkingTime;
     private Vector3 targetCamPos;
     #endregion
     
-    public override void OnStartClient()
+    /*public override void OnStartClient()
     { // If Steam Running and Avatar Loaded, Tell Player Data to Get Avatar
         if (SteamManager.Initialized) avatarImageLoaded = Callback<AvatarImageLoaded_t>.Create(player.OnAvatarImageLoaded);
-    }
+    }*/
 
     private void Start()
     {
         netActs = FindObjectOfType<NetworkActions>();
         playerBody = GetComponent<Rigidbody>();
-        headTransform = gameObject.transform.GetChild(0);
         mainCamera = gameObject.transform.GetChild(0).GetChild(0).gameObject;
         castPoint = gameObject.transform.GetChild(0).GetChild(0).GetChild(0);
         melee = castPoint.GetComponent<MeleeTrigger>();
@@ -86,18 +80,12 @@ public class PlayerManager : NetworkBehaviour
         if (isLocalPlayer || hasAuthority)
         {
             MovePlayer();
-            //MovePlayerCamera();
+            MovePlayerCamera();
             //transform.Rotate(0f, mainCamera.transform.rotation.y, 0f);
             //playerBody.MoveRotation(Quaternion.Euler(0f, mainCamera.transform.rotation.y, 0f));
-            //HeadBob();
             if (Input.GetKeyDown(KeyCode.Mouse0)) CmdFire();
             if (Input.GetKeyDown(KeyCode.F)) CmdPunch();
         }
-    }
-
-    private void FixedUpdate()
-    {
-        
     }
 
     #region Camera & Movement
@@ -109,9 +97,9 @@ public class PlayerManager : NetworkBehaviour
         //playerBody.MovePosition(transform.position + moveVector * Time.deltaTime);
         Vector3 location = gameObject.transform.position;
         location.y = gameObject.transform.position.y - 0.8f;
-        isGrounded = Physics.CheckSphere(location, 0.25f, groundMask);
-        if (playerMovementInput.magnitude > 0) isWalking = true;
-        else isWalking = false; // playerMovementInput.x != 0 || playerMovementInput.z != 0
+        isGrounded.var = Physics.CheckSphere(location, 0.25f, groundMask);
+        if (playerMovementInput.magnitude > 0) isWalking.var = true;
+        else isWalking.var = false; // playerMovementInput.x != 0 || playerMovementInput.z != 0
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded) 
             playerBody.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
     }
@@ -124,29 +112,6 @@ public class PlayerManager : NetworkBehaviour
         mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(0f, playerMouseInput.x, 0f);
         //playerBody.MoveRotation(Quaternion.Euler(0f, playerMouseInput.x, 0f));
-    }
-
-    private void HeadBob()
-    { // Bobs Camera Around While Moving
-        if (!isWalking || !isGrounded) walkingTime = 0;
-        else walkingTime += Time.deltaTime;
-        targetCamPos = headTransform.position + CalculateHeadBobOffset(walkingTime);
-        mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, targetCamPos, headBobSmoothing);
-        if ((mainCamera.transform.position - targetCamPos).magnitude <= 0.001) mainCamera.transform.position = targetCamPos;
-    }
-    
-    private Vector3 CalculateHeadBobOffset(float t)
-    { // Calculates How The Camera Should Bob
-        float horizontalOffset = 0;
-        float verticalOffset = 0;
-        Vector3 offset = Vector3.zero;
-        if (t > 0)
-        {
-            horizontalOffset = Mathf.Cos(t * bobFrequency) * bobXAmplitude;
-            verticalOffset = Mathf.Sin(t * bobFrequency* 2) * bobYAmplitude;
-            offset = headTransform.right * horizontalOffset + headTransform.up * verticalOffset;
-        }
-        return offset;
     }
     #endregion
 

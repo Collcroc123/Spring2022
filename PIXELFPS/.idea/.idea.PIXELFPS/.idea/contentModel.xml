@@ -456,7 +456,10 @@
             <e p="Style.uss" t="Include" />
           </e>
         </e>
+        <e p="HeadBob.cs" t="Include" />
         <e p="MeleeTrigger.cs" t="Include" />
+        <e p="MoveCamera.cs" t="Include" />
+        <e p="PlayerMovement.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AngleBillboard.cs" t="Include" />
           <e p="Billboard.cs" t="Include" />
@@ -480,7 +483,6 @@
             <e p="SteamManager.cs" t="Include" />
           </e>
         </e>
-        <e p="TestGrav.cs" t="Include" />
       </e>
       <e p="FizzySteamworks.csproj" t="IncludeRecursive" />
       <e p="kcp2k.csproj" t="IncludeRecursive" />
