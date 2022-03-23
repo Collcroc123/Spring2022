@@ -85,12 +85,19 @@ public class PlayerManager : NetworkBehaviour
         //healthBar.text = new string('-', health);
         if (isLocalPlayer || hasAuthority)
         {
-            MovePlayerCamera();
             MovePlayer();
-            HeadBob();
+            //MovePlayerCamera();
+            //transform.Rotate(0f, mainCamera.transform.rotation.y, 0f);
+            //playerBody.MoveRotation(Quaternion.Euler(0f, mainCamera.transform.rotation.y, 0f));
+            //HeadBob();
             if (Input.GetKeyDown(KeyCode.Mouse0)) CmdFire();
             if (Input.GetKeyDown(KeyCode.F)) CmdPunch();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
     #region Camera & Movement
@@ -116,6 +123,7 @@ public class PlayerManager : NetworkBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         mainCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(0f, playerMouseInput.x, 0f);
+        //playerBody.MoveRotation(Quaternion.Euler(0f, playerMouseInput.x, 0f));
     }
 
     private void HeadBob()
