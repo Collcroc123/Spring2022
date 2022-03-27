@@ -43,7 +43,7 @@ public class NetworkActions : NetworkManager
         netDisc.StopDiscovery();
         StartClient(currentSelectedServer.uri);
     }
-    
+
     public void OnDiscoveredServer(ServerResponse info)
     { // Note that you can check the versioning to decide if you can connect to the server or not using this method
         Debug.Log("SERVER FOUND: " + info.EndPoint.Address);
@@ -74,21 +74,7 @@ public class NetworkActions : NetworkManager
         StopClient();
         StopHost();
         StopServer();
-        /*if (NetworkServer.active)
-        {
-            if (NetworkClient.isConnected) StopHost();
-            else StopServer();
-        }
-        else if (NetworkClient.isConnected) StopClient();*/
-        //Instantiate(Camera.main);
-        //OnShutdown.RaiseAction();
     }
-    
-    /*public override void OnServerAddPlayer(NetworkConnection conn)
-    {
-        base.OnServerAddPlayer(conn);
-        OnPlayerAdded.RaiseAction();
-    }*/
 
     public void RespawnPlayer(GameObject player, int time)
     {

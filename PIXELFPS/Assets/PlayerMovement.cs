@@ -1,8 +1,8 @@
-using System.Collections;
 using System;
 using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
+//using Steamworks;
 
 // RigidBody Based Movement by Dani
 // https://www.youtube.com/watch?v=XAC8U9-dTZU
@@ -42,16 +42,18 @@ public class PlayerMovement : NetworkBehaviour
     private float sensitivity = 50f;
     private float sensMultiplier = 1f;
     
-    public SpellData currentSpell;
-    private Animator anim;
-    [SyncVar] private bool canAttack = true;
-    [SyncVar(hook = nameof(PlayerColor))] public Color playerColor;
     private MeleeTrigger melee;
-    private int maxHealth = 100;
-    [SyncVar] public int health = 100;
+    public SpellData currentSpell;
+    public float punchForce = 1000;
+    [SyncVar] private bool canAttack = true;
+    private Animator anim;
     public int respawnTime = 5;
+    public int maxHealth = 100;
+    [SyncVar] private int health = 100;
+    [SyncVar(hook = nameof(PlayerColor))] public Color playerColor;
+    //protected Callback<AvatarImageLoaded_t> avatarImageLoaded;
 
-    void Awake()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
         netActs = FindObjectOfType<NetworkActions>();
@@ -60,22 +62,17 @@ public class PlayerMovement : NetworkBehaviour
         Camera cam = playerCam.GetChild(0).GetComponent<Camera>();
         if (isLocalPlayer)
         {
-            Debug.Log("IS LOCAL PLAYER!");
             orientation.GetComponentInChildren<SpriteRenderer>().enabled = false;
-            if (Camera.main.gameObject != null) Destroy(Camera.main.gameObject);
+            //if (Camera.main.gameObject != null) Destroy(Camera.main.gameObject);
             cam.enabled = true;
             gameObject.tag = "Player";
         }
-        //else cam.enabled = false;
+        else cam.enabled = false;
         playerColor = Color.HSVToRGB(UnityEngine.Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
         anim = GameObject.Find("RHand").GetComponent<Animator>();
         //speed *= netActs.settings.playerSpeedMultiplier/100;
         //gravity *= netActs.settings.gravityMultiplier/100;
         //respawnTime *= netActs.settings.respawnTime;
-    }
-    
-    void Start()
-    {
         playerScale =  transform.localScale;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -106,7 +103,7 @@ public class PlayerMovement : NetworkBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift)) StartCrouch();
         if (Input.GetKeyUp(KeyCode.LeftShift)) StopCrouch();
         if (Input.GetKeyDown(KeyCode.Mouse0)) CmdFire();
-        if (Input.GetKeyDown(KeyCode.F)) CmdPunch();
+        if (Input.GetKeyDown(KeyCode.F) && canAttack) CmdPunch();
     }
     
     #region Crouch
@@ -294,33 +291,29 @@ public class PlayerMovement : NetworkBehaviour
         {
             if (currentSpell != null)
             {
+                Debug.Log("MAGIC!");
                 canAttack = false;
                 GameObject projectile = Instantiate(currentSpell.prefab, castPoint.transform.position, castPoint.transform.rotation);
                 projectile.GetComponent<Spellcast>().spell.player = (int)netId;
                 NetworkServer.Spawn(projectile);
                 anim.Play("Attack4F");
-                Invoke(nameof(CastCooldown), currentSpell.rate);
+                Invoke(nameof(AttackCooldown), currentSpell.rate);
             }
-            else StartCoroutine(PunchCooldown(1));
+            else CmdPunch();
         }
     }
 
     [Command]
     void CmdPunch()
     {
-        if (canAttack) StartCoroutine(PunchCooldown(1));
+        Debug.Log("PUNCH!");
+        canAttack= false;
+        melee.Punch(castPoint.transform.rotation.eulerAngles, punchForce);
+        Invoke(nameof(AttackCooldown), 1);
     }
     
-    private void CastCooldown()
+    private void AttackCooldown()
     {
-        canAttack = true;
-    }
-
-    private IEnumerator PunchCooldown(float cooldown)
-    {
-        canAttack= false;
-        melee.Punch(castPoint.transform.rotation.eulerAngles, 1000);
-        yield return new WaitForSeconds(cooldown);
         canAttack = true;
     }
     #endregion
@@ -359,4 +352,9 @@ public class PlayerMovement : NetworkBehaviour
             GameObject.Find("RHand").GetComponent<Image>().color = newColor;
         }
     }
+    
+    /*public override void OnStartClient()
+    { // If Steam Running and Avatar Loaded, Tell Player Data to Get Avatar
+        if (SteamManager.Initialized) avatarImageLoaded = Callback<AvatarImageLoaded_t>.Create(player.OnAvatarImageLoaded);
+    }*/
 }

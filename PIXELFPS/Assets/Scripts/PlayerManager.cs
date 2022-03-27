@@ -62,7 +62,7 @@ public class PlayerManager : NetworkBehaviour
         if (isLocalPlayer) GetComponentInChildren<SpriteRenderer>().enabled = false;
         if (isLocalPlayer)
         {
-            if (Camera.main.gameObject != null) Destroy(Camera.main.gameObject);
+            //if (Camera.main.gameObject != null) Destroy(Camera.main.gameObject);
             cam.enabled = true;
             gameObject.tag = "Player";
         }

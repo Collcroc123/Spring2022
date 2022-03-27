@@ -153,6 +153,14 @@ Library: lib_burst_generated
 --compilation-defines=MODULE_PHYSICS_EXISTS
 --compilation-defines=MODULE_PHYSICS_2D_EXISTS
 --compilation-defines=MODULE_PARTICLE_SYSTEM_EXISTS
+--compilation-defines=CINEMACHINE_POST_PROCESSING_V2
+--compilation-defines=CINEMACHINE_TIMELINE
+--compilation-defines=CINEMACHINE_PHYSICS_2D
+--compilation-defines=CINEMACHINE_PHYSICS
+--compilation-defines=CINEMACHINE_UGUI
+--compilation-defines=CINEMACHINE_LWRP_7_3_1
+--compilation-defines=CINEMACHINE_UNITY_ANIMATION
+--compilation-defines=CINEMACHINE_UNITY_IMGUI
 --compilation-defines=USING_PARTICLE_SYSTEM
 --compilation-defines=TIMELINE_FRAMEACCURATE
 --linker-options=PdbAltPath="PIXELFPS_Data/Plugins/x86_64"
@@ -170,6 +178,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS\Temp\StagingArea\Data\Managed\com.rlabrecque.steamworks.net.dll
 --root-assembly=C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS\Temp\StagingArea\Data\Managed\Unity.RenderPipeline.Universal.ShaderLibrary.dll
+--root-assembly=C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS\Temp\StagingArea\Data\Managed\Cinemachine.dll
 --root-assembly=C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS\Temp\StagingArea\Data\Managed\FizzySteamworks.dll
 --root-assembly=C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS\Temp\StagingArea\Data\Managed\Telepathy.dll
 --root-assembly=C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS\Temp\StagingArea\Data\Managed\Unity.ProBuilder.Poly2Tri.dll
@@ -356,6 +365,14 @@ Library: lib_burst_generated
 --compilation-defines=MODULE_PHYSICS_EXISTS
 --compilation-defines=MODULE_PHYSICS_2D_EXISTS
 --compilation-defines=MODULE_PARTICLE_SYSTEM_EXISTS
+--compilation-defines=CINEMACHINE_POST_PROCESSING_V2
+--compilation-defines=CINEMACHINE_TIMELINE
+--compilation-defines=CINEMACHINE_PHYSICS_2D
+--compilation-defines=CINEMACHINE_PHYSICS
+--compilation-defines=CINEMACHINE_UGUI
+--compilation-defines=CINEMACHINE_LWRP_7_3_1
+--compilation-defines=CINEMACHINE_UNITY_ANIMATION
+--compilation-defines=CINEMACHINE_UNITY_IMGUI
 --compilation-defines=USING_PARTICLE_SYSTEM
 --compilation-defines=TIMELINE_FRAMEACCURATE
 --linker-options=PdbAltPath="PIXELFPS_Data/Plugins/x86_64"
@@ -373,6 +390,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS\Temp\StagingArea\Data\Managed\com.rlabrecque.steamworks.net.dll
 --root-assembly=C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS\Temp\StagingArea\Data\Managed\Unity.RenderPipeline.Universal.ShaderLibrary.dll
+--root-assembly=C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS\Temp\StagingArea\Data\Managed\Cinemachine.dll
 --root-assembly=C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS\Temp\StagingArea\Data\Managed\FizzySteamworks.dll
 --root-assembly=C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS\Temp\StagingArea\Data\Managed\Telepathy.dll
 --root-assembly=C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS\Temp\StagingArea\Data\Managed\Unity.ProBuilder.Poly2Tri.dll

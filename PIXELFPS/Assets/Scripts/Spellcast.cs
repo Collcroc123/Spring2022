@@ -43,7 +43,7 @@ public class Spellcast : NetworkBehaviour
         //Instantiate(hitAnim, gameObject.transform.position, gameObject.transform.rotation);
         if (!co.CompareTag("Spell"))
         {
-            if (co.GetComponent<PlayerManager>() == false || co.GetComponent<PlayerManager>().netId != spell.player)
+            if (co.GetComponent<PlayerMovement>() == false || co.GetComponent<PlayerMovement>().netId != spell.player)
                 NetworkServer.Destroy(gameObject);
         }
     }
