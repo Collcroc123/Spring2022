@@ -70,7 +70,7 @@ public class SteamActions : MonoBehaviour
         if (SteamManager.Initialized)
         {
             CSteamID steamId = SteamMatchmaking.GetLobbyMemberByIndex(SteamActions.LobbyId, netManager.numPlayers - 1);
-            var player = conn.identity.GetComponent<PlayerManager>().player;
+            var player = conn.identity.GetComponent<PlayerMovement>().player;
             player.SetSteamId(steamId.m_SteamID);
         }
     }

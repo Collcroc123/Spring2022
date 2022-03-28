@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror.Discovery;
@@ -39,9 +40,17 @@ public class NetworkActions : NetworkManager
     
     public void JoinServer()
     {
-        Debug.Log("JOINING LOBBY");
-        netDisc.StopDiscovery();
-        StartClient(currentSelectedServer.uri);
+        try
+        {
+            Debug.Log("JOINING LOBBY " + currentSelectedServer.uri);
+            netDisc.StopDiscovery();
+            //StartClient();
+            StartClient(currentSelectedServer.uri);
+        }
+        catch (Exception e)
+        {
+            Debug.Log("ERROR HERE!: " + e);
+        }
     }
 
     public void OnDiscoveredServer(ServerResponse info)
@@ -64,7 +73,7 @@ public class NetworkActions : NetworkManager
     private void ClearServerList()
     {
         Debug.Log("CLEARED SERVER LIST");
-        foreach (GameObject svr in serverPrefabList) Destroy(svr);
+        foreach (GameObject svr in serverPrefabList) NetworkServer.Destroy(svr);
         currentServers.Clear();
     }
 

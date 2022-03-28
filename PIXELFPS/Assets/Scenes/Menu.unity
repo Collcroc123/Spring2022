@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -242,6 +242,7 @@ Transform:
   - {fileID: 1454133164}
   - {fileID: 2043187937}
   - {fileID: 2141250359}
+  - {fileID: 1745156033}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -805,12 +806,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745156029}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 5.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 372800513}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1752032384
@@ -893,8 +894,8 @@ GameObject:
   - component: {fileID: 1891144102}
   - component: {fileID: 1891144101}
   - component: {fileID: 1891144099}
-  - component: {fileID: 1891144105}
   - component: {fileID: 1891144106}
+  - component: {fileID: 1891144105}
   m_Layer: 0
   m_Name: NetManager
   m_TagString: Untagged
@@ -1016,6 +1017,7 @@ MonoBehaviour:
   playerSpawnMethod: 1
   spawnPrefabs:
   - {fileID: 7067382707065146406, guid: b422fd7b3ce4e1042ab010566dc1c9c4, type: 3}
+  - {fileID: 0}
   errorWindow: {fileID: 9043349970839606816}
   scrollView: {fileID: 4515698477889626196}
   serverPrefab: {fileID: 8908159028719796136, guid: 51bb72779df338448a4626d7049c30aa,
@@ -1058,7 +1060,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891144098}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88c37d3deca7a834d80cfd8d3cfcc510, type: 3}
   m_Name: 
@@ -1447,7 +1449,6 @@ GameObject:
   - component: {fileID: 2083985549}
   - component: {fileID: 2083985548}
   - component: {fileID: 2083985552}
-  - component: {fileID: 2083985553}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1549,28 +1550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561c33a062fb5ac489dd305ffcc41ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
   sideMenu: {fileID: 4515698478738453666}
   playerUI: {fileID: 4423921694937719495}
   disconnectButton: {fileID: 5467036380279729053}
---- !u!114 &2083985553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2083985547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 3823259484
-  serverOnly: 0
-  visible: 0
-  m_AssetId: 
-  hasSpawned: 0
 --- !u!1 &2141250358
 GameObject:
   m_ObjectHideFlags: 0

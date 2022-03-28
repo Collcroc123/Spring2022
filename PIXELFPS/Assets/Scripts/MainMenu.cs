@@ -1,9 +1,8 @@
-using Mirror;
 using UnityEngine;
 using Cursor = UnityEngine.Cursor;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : NetworkBehaviour
+public class MainMenu : MonoBehaviour
 {
     private bool isActive = true;
     public GameObject sideMenu;
@@ -30,7 +29,7 @@ public class MainMenu : NetworkBehaviour
         SceneManager.sceneLoaded += OnLevelLoaded;
     }
     
-    void Awake()
+    void Start()
     {
         DontDestroyOnLoad(transform.gameObject);
     }

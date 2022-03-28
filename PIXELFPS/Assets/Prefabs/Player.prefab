@@ -370,12 +370,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2687895488000819611}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0.3}
+  m_LocalPosition: {x: 0, y: -0.100000024, z: 0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 9130234396122360320}
-  m_RootOrder: 0
+  m_Father: {fileID: 9130234397265870070}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4869324312962108673
 BoxCollider:
@@ -670,6 +670,7 @@ GameObject:
   - component: {fileID: 9130234395687575825}
   - component: {fileID: 9130234395687575824}
   - component: {fileID: 9130234395687575827}
+  - component: {fileID: 1807544862663849999}
   m_Layer: 0
   m_Name: Player
   m_TagString: Enemy
@@ -711,6 +712,7 @@ MonoBehaviour:
   syncInterval: 0.1
   playerCam: {fileID: 9130234397265870070}
   orientation: {fileID: 9130234396365445688}
+  player: {fileID: 0}
   moveSpeed: 4000
   maxSpeed: 15
   grounded: {fileID: 11400000, guid: 7f20f571a400d3a489fa1308845cfecd, type: 2}
@@ -724,11 +726,12 @@ MonoBehaviour:
   jumpForce: 600
   slideForce: 400
   slideCounterMovement: 0.2
+  sensitivity: 100
   currentSpell: {fileID: 11400000, guid: b2ee07a15d4ac974e96b7aa044bad592, type: 2}
   punchForce: 400
-  playerColor: {r: 0, g: 0, b: 0, a: 0}
-  health: 100
   respawnTime: 5
+  maxHealth: 100
+  playerColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!136 &9130234395687575916
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -758,7 +761,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 2
+  m_CollisionDetection: 0
 --- !u!114 &9130234395687575825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,6 +848,41 @@ MonoBehaviour:
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   target: {fileID: 9130234397501126785}
+--- !u!114 &1807544862663849999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9130234395687575918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 734b48bea0b204338958ee3d885e11f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 0
+  sendInterval: 0.05
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 0
+  bufferTimeMultiplier: 1
+  bufferSizeLimit: 64
+  catchupThreshold: 4
+  catchupMultiplier: 0.1
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 5
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  target: {fileID: 9130234396365445688}
 --- !u!1 &9130234396122360323
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,8 +913,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3693250519039251707}
+  m_Children: []
   m_Father: {fileID: 9130234397265870070}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1005,7 +1042,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9130234397265870070}
-  - component: {fileID: 9130234397265870071}
   - component: {fileID: 9130234397265870068}
   m_Layer: 0
   m_Name: Camera
@@ -1027,22 +1063,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9130234396122360320}
+  - {fileID: 3693250519039251707}
   m_Father: {fileID: 9130234397501126785}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9130234397265870071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9130234397265870065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb4374dd4bd06ca4ab41c600a4631859, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 9130234397501126785}
 --- !u!114 &9130234397265870068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,6 +1079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3f3e3f32a93a94a8b8a0b14cf6003f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 9130234397501126785}
   bobFrequency: 5
   bobXAmplitude: 0.2
   bobYAmplitude: 0.2

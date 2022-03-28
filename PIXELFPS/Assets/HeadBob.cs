@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class HeadBob : MonoBehaviour
 {
+    public Transform player;
     public float bobFrequency = 5f;
     public float bobXAmplitude = 0.2f;
     public float bobYAmplitude = 0.2f;
@@ -23,6 +24,7 @@ public class HeadBob : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = player.transform.position;
         Bob();
     }
     

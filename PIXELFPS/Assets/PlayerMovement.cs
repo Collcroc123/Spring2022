@@ -14,15 +14,16 @@ public class PlayerMovement : NetworkBehaviour
     private Transform castPoint;
     private NetworkActions netActs;
     private Rigidbody rb;
-    
+    public PlayerData player;
+
     [Header("Movement")]
-    public float moveSpeed = 4500;
-    public float maxSpeed = 20;
+    public float moveSpeed = 4000;
+    public float maxSpeed = 15;
     public BoolData grounded, moving, sliding;
     public LayerMask whatIsGround;
     public float counterMovement = 0.175f;
     public float maxSlopeAngle = 35f;
-    public float jumpForce = 550f;
+    public float jumpForce = 600f;
     private bool readyToJump = true;
     private float jumpCooldown = 0.25f;
     private float threshold = 0.01f;
@@ -39,12 +40,12 @@ public class PlayerMovement : NetworkBehaviour
     
     //Rotation and look
     private float xRotation;
-    private float sensitivity = 50f;
+    public float sensitivity = 100f;
     private float sensMultiplier = 1f;
     
     private MeleeTrigger melee;
     public SpellData currentSpell;
-    public float punchForce = 1000;
+    public float punchForce = 400;
     [SyncVar] private bool canAttack = true;
     private Animator anim;
     public int respawnTime = 5;
@@ -57,17 +58,17 @@ public class PlayerMovement : NetworkBehaviour
     {
         rb = GetComponent<Rigidbody>();
         netActs = FindObjectOfType<NetworkActions>();
-        castPoint = gameObject.transform.GetChild(0).GetChild(0).GetChild(0).GetChild(0);
+        castPoint = gameObject.transform.GetChild(0).GetChild(0).GetChild(1);
         melee = castPoint.GetComponent<MeleeTrigger>();
         Camera cam = playerCam.GetChild(0).GetComponent<Camera>();
         if (isLocalPlayer)
         {
             orientation.GetComponentInChildren<SpriteRenderer>().enabled = false;
-            //if (Camera.main.gameObject != null) Destroy(Camera.main.gameObject);
-            cam.enabled = true;
+            //if (Camera.main.gameObject != null) NetworkServer.Destroy(Camera.main.gameObject);
+            //cam.enabled = true;
             gameObject.tag = "Player";
         }
-        else cam.enabled = false;
+        else NetworkServer.Destroy(cam.gameObject); //cam.enabled = false;
         playerColor = Color.HSVToRGB(UnityEngine.Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
         anim = GameObject.Find("RHand").GetComponent<Animator>();
         //speed *= netActs.settings.playerSpeedMultiplier/100;
