@@ -41,6 +41,7 @@ public class MainMenu : MonoBehaviour
         { // Show or Hide Menu When Escape is Pressed
             isActive = !isActive;
             sideMenu.SetActive(isActive);
+            Cursor.visible = isActive;
             if (isActive) Cursor.lockState = CursorLockMode.None;
             else Cursor.lockState = CursorLockMode.Locked;
         }
@@ -48,19 +49,11 @@ public class MainMenu : MonoBehaviour
 
     void OnLevelLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "Menu")
-        {
-            isActive = true;
-            sideMenu.SetActive(isActive);
-            playerUI.SetActive(false);
-            disconnectButton.SetActive(false);
-        }
-        else
-        {
-            isActive = false;
-            sideMenu.SetActive(isActive);
-            playerUI.SetActive(true);
-            disconnectButton.SetActive(true);
-        }
+        if (scene.name == "Menu") isActive = true;
+        else isActive = false;
+        sideMenu.SetActive(isActive);
+        playerUI.SetActive(!isActive);
+        disconnectButton.SetActive(!isActive);
+        Cursor.visible = isActive;
     }
 }

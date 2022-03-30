@@ -712,7 +712,7 @@ MonoBehaviour:
   syncInterval: 0.1
   playerCam: {fileID: 9130234397265870070}
   orientation: {fileID: 9130234396365445688}
-  player: {fileID: 0}
+  player: {fileID: 11400000, guid: 879b96ff39af11341b2bef2b922ee3c6, type: 2}
   moveSpeed: 4000
   maxSpeed: 15
   grounded: {fileID: 11400000, guid: 7f20f571a400d3a489fa1308845cfecd, type: 2}
@@ -727,7 +727,7 @@ MonoBehaviour:
   slideForce: 400
   slideCounterMovement: 0.2
   sensitivity: 100
-  currentSpell: {fileID: 11400000, guid: b2ee07a15d4ac974e96b7aa044bad592, type: 2}
+  currentSpell: {fileID: 11400000, guid: b68e91c6fcd31884ea42883dddf87a6a, type: 2}
   punchForce: 400
   respawnTime: 5
   maxHealth: 100
@@ -761,7 +761,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &9130234395687575825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,7 +794,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   clientAuthority: 1
-  sendInterval: 0.01
+  sendInterval: 0.005
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -828,7 +828,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   clientAuthority: 1
-  sendInterval: 0.01
+  sendInterval: 0.005
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
@@ -862,8 +862,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 0
-  sendInterval: 0.05
+  clientAuthority: 1
+  sendInterval: 0.005
   syncPosition: 1
   syncRotation: 1
   syncScale: 0
