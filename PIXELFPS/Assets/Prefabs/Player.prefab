@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 3693250519039251707}
   - component: {fileID: 4869324312962108673}
   - component: {fileID: 8809692533330083729}
+  - component: {fileID: 2288905317516338866}
   m_Layer: 0
   m_Name: Castpoint
   m_TagString: Spell
@@ -402,6 +403,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f62c4d6ccbed548a13f870393a1d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  currentSpell: {fileID: 11400000, guid: b2ee07a15d4ac974e96b7aa044bad592, type: 2}
+  punchForce: 400
+--- !u!114 &2288905317516338866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2687895488000819611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: 5f75186ed5d7b59408b8ccfca50e8a12
+  hasSpawned: 0
 --- !u!1 &4380504715465963844
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,6 +687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9130234395687575917}
   - component: {fileID: 9130234395687575826}
+  - component: {fileID: 6131246629170482231}
   - component: {fileID: 9130234395687575916}
   - component: {fileID: 9130234395687575919}
   - component: {fileID: 9130234395687575825}
@@ -727,11 +750,23 @@ MonoBehaviour:
   slideForce: 400
   slideCounterMovement: 0.2
   sensitivity: 100
-  currentSpell: {fileID: 11400000, guid: b68e91c6fcd31884ea42883dddf87a6a, type: 2}
-  punchForce: 400
-  respawnTime: 5
-  maxHealth: 100
   playerColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &6131246629170482231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9130234395687575918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f254700fee38de1419b690d31e105610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  healthTxt: {fileID: 3232295923257532024}
+  respawnTime: 5
 --- !u!136 &9130234395687575916
 CapsuleCollider:
   m_ObjectHideFlags: 0
