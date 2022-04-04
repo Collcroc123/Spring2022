@@ -108,7 +108,7 @@ public class PlayerMovement : NetworkBehaviour
             CmdFire();
             if (canAttack) anim.Play("Attack4F");
         }
-        if (Input.GetKeyDown(KeyCode.F) && canAttack) CmdPunch();
+        if (Input.GetKeyDown(KeyCode.F) && canAttack) Melee();
     }
     
     #region Crouch
@@ -289,7 +289,7 @@ public class PlayerMovement : NetworkBehaviour
     }
     
     #region Attack
-    [ClientRpc] // this is called on the server
+    [Command] // this is called on the server
     void CmdFire()
     {
         Debug.Log("Server CanAttack = " + canAttack);
@@ -305,20 +305,20 @@ public class PlayerMovement : NetworkBehaviour
                 NetworkServer.Spawn(projectile);
                 Invoke(nameof(AttackCooldown), currentSpell.rate);
             }
-            else CmdPunch();
+            else Melee();
         }
     }
-
-    [ClientRpc]
-    void CmdPunch()
+    
+    [Command]
+    void Melee()
     {
         Debug.Log("PUNCH!");
-        canAttack= false;
+        canAttack = false;
         melee.Punch(castPoint.transform.rotation.eulerAngles, punchForce);
         Invoke(nameof(AttackCooldown), 1);
     }
     
-    [ClientRpc]
+    [Command]
     private void AttackCooldown()
     {
         canAttack = true;

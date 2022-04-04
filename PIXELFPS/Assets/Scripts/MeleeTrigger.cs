@@ -1,31 +1,39 @@
+using Mirror;
 using UnityEngine;
 
-public class MeleeTrigger : MonoBehaviour
+public class MeleeTrigger : NetworkBehaviour
 {
-    private Rigidbody rb;
+    [SyncVar] private GameObject target;
 
-    void Update()
-    {
-        //if (character != null && impact.magnitude > 0.2) character.Move(impact * Time.deltaTime); // apply the impact force
-        //impact = Vector3.Lerp(impact, Vector3.zero, 5*Time.deltaTime); // consumes the impact energy each cycle
-    }
-    
-    // call this function to add an impact force:
     public void Punch(Vector3 dir, float force)
     {
+        CmdPunch(target, dir, force);
+    }
+    
+    [Command]
+    public void CmdPunch(GameObject target, Vector3 dir, float force)
+    {
+        NetworkIdentity targetID = target.GetComponent<NetworkIdentity>();
+        RpcPunch(targetID.connectionToClient, dir, force);
+    }
+    
+    [TargetRpc]
+    public void RpcPunch(NetworkConnection tg, Vector3 dir, float force)
+    {
+        Rigidbody rb = target.GetComponent<Rigidbody>();
         Vector3 direction = transform.forward;
         direction.y = 0.75f;
-        Debug.Log(direction);
         if (rb != null) rb.AddForce(direction * force);
+        //Debug.Log(direction);
     }
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy")) rb = other.GetComponent<Rigidbody>();
+        if (other.CompareTag("Enemy")) target = other.gameObject;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Enemy")) rb = null;
+        if (other.CompareTag("Enemy")) target = null;
     }
 }
