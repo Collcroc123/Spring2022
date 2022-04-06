@@ -16,16 +16,16 @@ public class PlayerMovement : NetworkBehaviour
     [Header("Movement")]
     public float moveSpeed = 4000;
     public float maxSpeed = 15;
-    public LayerMask whatIsGround;
     public float counterMovement = 0.175f;
     public float maxSlopeAngle = 35f;
     public float jumpForce = 600f;
-    [HideInInspector] public bool grounded, moving, sliding; //tracks if active
-    [SyncVar] private bool canJump = true; //tracks jump cooldown
+    public LayerMask whatIsGround;
+    [HideInInspector] [SyncVar] public bool isMoving, isGrounded, isSliding;
+    [SyncVar] private bool canJump = true;
     private float jumpCooldown = 0.25f;
     private float threshold = 0.01f;
     private float x, y;
-    private bool pressedJump, pressedSprint, pressedCrouch; //tracks input
+    private bool pressedJump, pressedCrouch, pressedSprint;
     private Vector3 normalVector = Vector3.up;
     private Vector3 wallNormalVector;
 
@@ -34,8 +34,6 @@ public class PlayerMovement : NetworkBehaviour
     private Vector3 playerScale;
     public float slideForce = 400;
     public float slideCounterMovement = 0.2f;
-    
-    public Transform playerCam;
 
     [Header("Cosmetic")]
     [SyncVar(hook = nameof(PlayerColor))] public Color playerColor;
@@ -48,8 +46,6 @@ public class PlayerMovement : NetworkBehaviour
         if (isLocalPlayer)
         {
             orientation.GetComponentInChildren<SpriteRenderer>().enabled = false;
-            //if (Camera.main.gameObject != null) NetworkServer.Destroy(Camera.main.gameObject);
-            //cam.enabled = true;
             gameObject.tag = "Player";
         }
         playerColor = Color.HSVToRGB(UnityEngine.Random.Range(0.0f, 1.0f), 1.0f, 1.0f);
@@ -75,8 +71,8 @@ public class PlayerMovement : NetworkBehaviour
     {
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
-        if (x != 0 || y != 0) moving = true;
-        else moving = false;
+        if (x != 0 || y != 0) isMoving = true;
+        else isMoving = false;
         pressedJump = Input.GetButton("Jump");
         pressedCrouch = Input.GetKey(KeyCode.LeftShift);
         if (Input.GetKeyDown(KeyCode.LeftShift)) StartCrouch();
@@ -91,53 +87,44 @@ public class PlayerMovement : NetworkBehaviour
         Vector2 mag = FindVelRelativeToLook();
         float xMag = mag.x, yMag = mag.y;
         CounterMovement(x, y, mag); // Counteract sliding and sloppy movement
-        if (canJump && grounded && pressedJump) Jump(); // If holding jump && ready to jump, then jump
+        if (isGrounded && canJump && pressedJump) Jump(); // If holding jump && ready to jump, then jump
         float maxSpeed = this.maxSpeed; // Set max speed
-        if (pressedCrouch && grounded && canJump)
+        if (pressedCrouch && isGrounded && canJump)
         { // If sliding down a ramp, add force down so player stays grounded and also builds speed
             rb.AddForce(Vector3.down * Time.deltaTime * 3000);
             return;
         }
-        
-        //If speed is larger than maxspeed, cancel out the input so you don't go over max speed
+        // If speed is larger than maxspeed, cancel out the input so you don't go over max speed
         if (x > 0 && xMag > maxSpeed) x = 0;
         if (x < 0 && xMag < -maxSpeed) x = 0;
         if (y > 0 && yMag > maxSpeed) y = 0;
         if (y < 0 && yMag < -maxSpeed) y = 0;
-        
         float multiplier = 1f, multiplierV = 1f; // Some multipliers
-        
-        if (!grounded)
+        if (!isGrounded)
         { // Movement in air
             //multiplier = 0.5f;
             //multiplierV = 0.5f;
         }
-        if (grounded && pressedCrouch) multiplierV = 0f; // Movement while sliding
-        
-        //Apply forces to move player
+        if (isGrounded && pressedCrouch) multiplierV = 0f; // Movement while sliding
         rb.AddForce(orientation.transform.forward * y * moveSpeed * Time.deltaTime * multiplier * multiplierV);
         rb.AddForce(orientation.transform.right * x * moveSpeed * Time.deltaTime * multiplier);
     }
     
     private void CounterMovement(float x, float y, Vector2 mag)
     {
-        if (!grounded || pressedJump) return;
+        if (!isGrounded || pressedJump) return;
         if (pressedCrouch)
         { // Slow down sliding
             rb.AddForce(moveSpeed * Time.deltaTime * -rb.velocity.normalized * slideCounterMovement);
             return;
         }
-        
-        //Counter movement
+        // Counter movement
         if (Math.Abs(mag.x) > threshold && Math.Abs(x) < 0.05f || (mag.x < -threshold && x > 0) || (mag.x > threshold && x < 0))
             rb.AddForce(moveSpeed * orientation.transform.right * Time.deltaTime * -mag.x * counterMovement);
-        
         if (Math.Abs(mag.y) > threshold && Math.Abs(y) < 0.05f || (mag.y < -threshold && y > 0) || (mag.y > threshold && y < 0))
             rb.AddForce(moveSpeed * orientation.transform.forward * Time.deltaTime * -mag.y * counterMovement);
-
-        //Limit diagonal running. This will also cause a full stop if sliding fast and un-crouching, so not optimal.
         if (Mathf.Sqrt((Mathf.Pow(rb.velocity.x, 2) + Mathf.Pow(rb.velocity.z, 2))) > maxSpeed)
-        {
+        { // Limit diagonal running. This will also cause a full stop if sliding fast and un-crouching, so not optimal.
             float fallspeed = rb.velocity.y;
             Vector3 n = rb.velocity.normalized * maxSpeed;
             rb.velocity = new Vector3(n.x, fallspeed, n.z);
@@ -160,19 +147,14 @@ public class PlayerMovement : NetworkBehaviour
     #region Jump
     private void Jump()
     {
-        if (grounded && canJump)
+        if (isGrounded && canJump)
         {
             canJump = false;
-
-            //Add jump forces
             rb.AddForce(Vector2.up * jumpForce * 1.5f);
             rb.AddForce(normalVector * jumpForce * 0.5f);
-            
-            //If jumping while falling, reset y velocity.
-            Vector3 vel = rb.velocity;
+            Vector3 vel = rb.velocity; // If jumping while falling, reset y velocity.
             if (rb.velocity.y < 0.5f) rb.velocity = new Vector3(vel.x, 0, vel.z);
             else if (rb.velocity.y > 0) rb.velocity = new Vector3(vel.x, vel.y / 2, vel.z);
-            
             Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
@@ -185,25 +167,20 @@ public class PlayerMovement : NetworkBehaviour
     private bool cancellingGrounded;
     private void OnCollisionStay(Collision other)
     {
-        //Make sure we are only checking for walkable layers
-        int layer = other.gameObject.layer;
+        int layer = other.gameObject.layer; // Make sure we are only checking for walkable layers
         if (whatIsGround != (whatIsGround | (1 << layer))) return;
-
-        //Iterate through every collision in a physics update
         for (int i = 0; i < other.contactCount; i++)
-        {
+        { // Iterate through every collision in a physics update
             Vector3 normal = other.contacts[i].normal;
             if (IsFloor(normal))
             {
-                grounded = true;
+                isGrounded = true;
                 cancellingGrounded = false;
                 normalVector = normal;
                 CancelInvoke(nameof(StopGrounded));
             }
         }
-
-        //Invoke ground/wall cancel, since we can't check normals with CollisionExit
-        float delay = 3f;
+        float delay = 3f; // Invoke ground/wall cancel, can't check normals with CollisionExit
         if (!cancellingGrounded)
         {
             cancellingGrounded = true;
@@ -219,7 +196,7 @@ public class PlayerMovement : NetworkBehaviour
 
     private void StopGrounded()
     {
-        grounded = false;
+        isGrounded = false;
     }
     
     #endregion
@@ -227,15 +204,15 @@ public class PlayerMovement : NetworkBehaviour
     #region Crouch
     private void StartCrouch()
     {
-        sliding = true;
+        isSliding = true;
         transform.localScale = crouchScale;
         transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
-        if (rb.velocity.magnitude > 0.5f && grounded) rb.AddForce(orientation.transform.forward * slideForce);
+        if (rb.velocity.magnitude > 0.5f && isGrounded) rb.AddForce(orientation.transform.forward * slideForce);
     }
 
     private void StopCrouch()
     {
-        sliding = false;
+        isSliding = false;
         transform.localScale = playerScale;
         transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
     }

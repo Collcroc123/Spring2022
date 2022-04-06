@@ -1,3 +1,4 @@
+//using Mirror;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Datas/SpellData")]
@@ -24,4 +25,12 @@ public class SpellData : ScriptableObject
     public Sprite texture;
     [Tooltip("Sounds that play when casting the spell")]
     public AudioClip[] castSound;
+    /*
+    void Fire()
+    {
+        GameObject projectile = Instantiate(prefab, castPoint.transform.position, castPoint.transform.rotation);
+        projectile.GetComponent<Spellcast>().spell = this;
+        projectile.GetComponent<Spellcast>().spell.player = (int)netId;
+        NetworkServer.Spawn(projectile);
+    }*/
 }

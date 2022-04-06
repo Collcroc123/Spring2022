@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class PlayerCamera : NetworkBehaviour
 {
-    private PlayerMovement player;
-    private Transform orientation;
-    private Transform headTF, cameraTF, mainCamera;
-    private Vector3 targetCamPos;
-    private float walkingTime;
-    private float xRotation;
-    private float sensMultiplier = 1f;
-    public float sensitivity = 100f;
-    public float bobFrequency = 5f;
-    public float bobXAmplitude = 0.2f;
-    public float bobYAmplitude = 0.2f;
-    [Range(0,1)] public float headBobSmoothing = 0.1f;
+    private Transform orientation, headTF, cameraTF, mainCamera;
+    private PlayerMovement player;                      // Player Movement Information
+    private Vector3 targetCamPos;                       // Camera Bob's Position
+    private float xRotation;                            // Camera's X Rotation
+    private float walkingTime;                          // How Long the Player Has Been Moving
+    private float sensMultiplier = 1f;                  // Sensitivity Multiplier
+    public float sensitivity = 100f;                    // Mouse Sensitivity
+    public float bobFrequency = 5f;                     // How Fast Camera Bobs
+    public float bobXAmplitude = 0.2f;                  // How Wide Camera Bobs
+    public float bobYAmplitude = 0.2f;                  // How High Camera Bobs
+    [Range(0,1)] public float headBobSmoothing = 0.1f;  // How Smooth Camera Bobs
+    
 
     void Start()
     {
@@ -23,7 +23,11 @@ public class PlayerCamera : NetworkBehaviour
         headTF = transform.GetChild(0);
         cameraTF = headTF.GetChild(0);
         mainCamera = cameraTF.GetChild(0);
-        if(!isLocalPlayer) Destroy(mainCamera);
+        if(isLocalPlayer)
+        {
+            if (Camera.main.gameObject != null) NetworkServer.Destroy(Camera.main.gameObject);
+        }
+        else Destroy(mainCamera.gameObject);
     }
     
     void Update()
@@ -57,7 +61,7 @@ public class PlayerCamera : NetworkBehaviour
 
     private void Bob()
     { // Bobs Camera Around While Moving
-        if (player.moving && player.grounded && !player.sliding)
+        if (player.isMoving && player.isGrounded && !player.isSliding)
         {
             walkingTime += Time.deltaTime;
             targetCamPos = headTF.position + CalculateBobOffset(walkingTime);

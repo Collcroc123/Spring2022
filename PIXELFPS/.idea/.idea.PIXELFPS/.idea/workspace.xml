@@ -20,12 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33b664d7-3875-4fca-9567-73ffd0c57544" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/contentModel.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HeadBob.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/HeadBob.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/IsGrounded.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/IsGrounded.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/IsMelee.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/IsMelee.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/IsMoving.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/IsMoving.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/IsSliding.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/IsSliding.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cast.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cast.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataScripts/SpellData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataScripts/SpellData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCamera.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
@@ -38,15 +49,14 @@
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level1.resS" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level1.resS" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/resources.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/resources.assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets0.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets0.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets0.assets.resS" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets1.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets1.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker2-prev.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,8 +75,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerCamera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -129,6 +139,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34994584" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -137,7 +149,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$USER_HOME$/Desktop/Builds\PIXELFPS.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -156,10 +168,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="4404">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="4404" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -218,6 +230,7 @@
       <workItem from="1649036295890" duration="6559000" />
       <workItem from="1649093706424" duration="12575000" />
       <workItem from="1649191302367" duration="14194000" />
+      <workItem from="1649266225160" duration="9971000" />
     </task>
     <servers />
   </component>
