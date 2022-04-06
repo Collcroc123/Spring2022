@@ -1,15 +1,14 @@
-using System;
 using Mirror;
 using UnityEngine;
 
 public class PlayerAttack : NetworkBehaviour
 {
-    [Header("Attack")]
-    private PlayerAttack melee;
-    private Animator anim;
-    [SyncVar] private bool canAttack = true;
-    public SpellData currentSpell;
-    public float punchForce = 400;
+    public GameObject castPoint;
+    private Animator anim; // Attack Animation
+    [SyncVar] private bool canAttack = true; // Limits Attack Speed
+    public SpellData currentSpell; // Currently Equipped Spell
+    public float punchForce = 400; // How Hard to Push Players
+    public float punchDamage = 5; // How Much Damage Punches Do
     [SyncVar] private GameObject target;
 
     private void Start()
@@ -41,7 +40,7 @@ public class PlayerAttack : NetworkBehaviour
             {
                 Debug.Log("MAGIC!");
                 canAttack = false;
-                GameObject projectile = Instantiate(currentSpell.prefab, gameObject.transform.position, gameObject.transform.rotation);
+                GameObject projectile = Instantiate(currentSpell.prefab, castPoint.transform.position, castPoint.transform.rotation);
                 projectile.GetComponent<Spellcast>().spell = currentSpell;
                 projectile.GetComponent<Spellcast>().spell.player = (int)netId;
                 NetworkServer.Spawn(projectile);
@@ -56,7 +55,7 @@ public class PlayerAttack : NetworkBehaviour
     {
         Debug.Log("PUNCH!");
         canAttack = false;
-        Punch(gameObject.transform.rotation.eulerAngles, punchForce);
+        Punch(castPoint.transform.rotation.eulerAngles, punchForce);
         Invoke(nameof(AttackCooldown), 1);
     }
     
@@ -75,7 +74,8 @@ public class PlayerAttack : NetworkBehaviour
 
     public void Punch(Vector3 dir, float force)
     {
-        CmdPunch(target, dir, force);
+        if (canAttack) anim.Play("Attack4F"); // CHANGE TO PUNCH
+        if (target != null) CmdPunch(target, dir, force);
     }
     
     [Command]
@@ -89,7 +89,7 @@ public class PlayerAttack : NetworkBehaviour
     public void RpcPunch(NetworkConnection tg, Vector3 dir, float force)
     {
         Rigidbody rb = target.GetComponent<Rigidbody>();
-        Vector3 direction = transform.forward;
+        Vector3 direction = castPoint.transform.forward;
         direction.y = 0.75f;
         if (rb != null) rb.AddForce(direction * force);
         //Debug.Log(direction);
