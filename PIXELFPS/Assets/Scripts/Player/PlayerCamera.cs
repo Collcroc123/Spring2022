@@ -25,7 +25,7 @@ public class PlayerCamera : NetworkBehaviour
         mainCamera = cameraTF.GetChild(0);
         if(isLocalPlayer)
         {
-            if (Camera.main.gameObject != null) NetworkServer.Destroy(Camera.main.gameObject);
+            //if (Camera.main.gameObject != null) Destroy(Camera.main.gameObject);
         }
         else Destroy(mainCamera.gameObject);
     }

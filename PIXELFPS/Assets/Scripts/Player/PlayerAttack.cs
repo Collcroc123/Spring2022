@@ -22,55 +22,55 @@ public class PlayerAttack : NetworkBehaviour
         {
             if (canAttack)
             {
-                if (Input.GetKeyDown(KeyCode.Mouse0)) Fire();
-                if (Input.GetKeyDown(KeyCode.F)) Punch();
+                if (Input.GetKeyDown(KeyCode.Mouse0)) Fire(castPoint.transform.rotation);
+                if (Input.GetKeyDown(KeyCode.F)) Punch(castPoint.transform.forward);
             }
         }
     }
 
-    void Fire()
+    void Fire(Quaternion rot)
     {
         if (currentSpell != null)
         {
             canAttack = false;
             anim.Play("Attack4F");
-            CmdFire();
+            CmdFire(rot);
             Invoke(nameof(AttackCooldown), currentSpell.rate);
         }
-        else Punch();
+        //else Punch();
     }
 
     [Command]
-    void CmdFire()
+    void CmdFire(Quaternion rot)
     {
-        GameObject projectile = Instantiate(currentSpell.prefab, castPoint.transform.position, castPoint.transform.rotation);
+        GameObject projectile = Instantiate(currentSpell.prefab, castPoint.transform.position, rot);
         projectile.GetComponent<Spellcast>().spell = currentSpell;
         projectile.GetComponent<Spellcast>().spell.player = (int)netId;
         NetworkServer.Spawn(projectile);
     }
     
-    void Punch()
+    void Punch(Vector3 dir)
     {
         canAttack = false;
         anim.Play("Attack4F"); // CHANGE TO PUNCH
-        if (target != null) CmdPunch(target, castPoint.transform.rotation.eulerAngles, punchForce);
+        if (target != null) CmdPunch(target, punchForce, dir);
         Invoke(nameof(AttackCooldown), 1);
     }
 
     [Command]
-    public void CmdPunch(GameObject targ, Vector3 dir, float force)
+    public void CmdPunch(GameObject targ, float force, Vector3 dir)
     {
         NetworkIdentity targetID = targ.GetComponent<NetworkIdentity>();
-        RpcPunch(targetID.connectionToClient, targ, dir, force);
+        RpcPunch(targetID.connectionToClient, targ, force, dir);
     }
     
     [TargetRpc]
-    public void RpcPunch(NetworkConnection tg, GameObject targ, Vector3 dir, float force)
+    public void RpcPunch(NetworkConnection tg, GameObject targ, float force, Vector3 dir)
     {
         if (targ != null)
         {
             Rigidbody rb = targ.GetComponent<Rigidbody>();
-            Vector3 direction = castPoint.transform.forward;
+            Vector3 direction = dir; //rot
             direction.y = 0.75f;
             if (rb != null) rb.AddForce(direction * force);
         }
