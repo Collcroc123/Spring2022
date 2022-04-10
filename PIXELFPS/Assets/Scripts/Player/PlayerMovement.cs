@@ -14,11 +14,11 @@ public class PlayerMovement : NetworkBehaviour
     private Rigidbody rb;
 
     [Header("Movement")]
-    public float moveSpeed = 4000;
-    public float maxSpeed = 15;
+    public float moveSpeed = 3000;
+    public float maxSpeed = 12;
     public float counterMovement = 0.175f;
     public float maxSlopeAngle = 35f;
-    public float jumpForce = 600f;
+    public float jumpForce = 500f;
     public LayerMask whatIsGround;
     [HideInInspector] [SyncVar] public bool isMoving, isGrounded, isSliding;
     [SyncVar] private bool canJump = true;

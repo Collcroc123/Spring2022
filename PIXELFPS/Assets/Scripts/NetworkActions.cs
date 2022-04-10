@@ -18,9 +18,13 @@ public class NetworkActions : NetworkManager
     [HideInInspector] public ServerResponse currentSelectedServer;
     public MainMenu settings;
 
+    public GameObject canvasPrefab;
+    private GameObject instantiatedCanvas;
+
     void Start()
     {
         netDisc = GetComponent<NetworkDiscovery>();
+        //if (instantiatedCanvas == null) Instantiate(canvasPrefab);
     }
 
     public void FindServers()
