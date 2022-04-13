@@ -4,6 +4,7 @@ using UnityEngine;
 public class Spellcast : NetworkBehaviour
 {
     [HideInInspector] public SpellData spell;
+    [HideInInspector] [SyncVar] public int player; // Tracks which player cast the spell
     private Rigidbody rigidBody;
     private SpriteRenderer texture;
     private AudioSource source;
@@ -43,7 +44,7 @@ public class Spellcast : NetworkBehaviour
         //Instantiate(hitAnim, gameObject.transform.position, gameObject.transform.rotation);
         if (!co.CompareTag("Spell"))
         {
-            if (co.GetComponent<PlayerMovement>() == false || co.GetComponent<PlayerMovement>().netId != spell.player)
+            if (co.GetComponent<PlayerMovement>() == false || co.GetComponent<PlayerMovement>().netId != player)
                 NetworkServer.Destroy(gameObject);
         }
     }

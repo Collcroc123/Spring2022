@@ -26,10 +26,10 @@ public class PlayerHealth : NetworkBehaviour
     {
         if (other.GetComponent<Spellcast>())
         {
-            SpellData spell = other.GetComponent<Spellcast>().spell;
-            if (spell.player != (int)netId) 
+            Spellcast spellcast = other.GetComponent<Spellcast>();
+            if (spellcast.player != (int)netId) 
             {
-                health -= spell.damage;
+                health -= spellcast.spell.damage;
                 if (health <= 0)
                 {
                     netActs.RespawnPlayer(gameObject, respawnTime);

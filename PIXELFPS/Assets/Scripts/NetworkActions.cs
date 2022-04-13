@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror.Discovery;
@@ -11,20 +10,17 @@ public class NetworkActions : NetworkManager
     public GameObject errorWindow;
     public GameObject scrollView;
     public GameObject serverPrefab;
-    
+    public Animator anim;
+    private float animTime = 0.425f;
     private NetworkDiscovery netDisc;
     private List<GameObject> serverPrefabList = new List<GameObject>();
     private List<ServerResponse> currentServers = new List<ServerResponse>();
     [HideInInspector] public ServerResponse currentSelectedServer;
     public MainMenu settings;
 
-    public GameObject canvasPrefab;
-    private GameObject instantiatedCanvas;
-
     void Start()
     {
         netDisc = GetComponent<NetworkDiscovery>();
-        //if (instantiatedCanvas == null) Instantiate(canvasPrefab);
     }
 
     public void FindServers()
@@ -38,23 +34,35 @@ public class NetworkActions : NetworkManager
     {
         Debug.Log("HOSTING LOBBY");
         ClearServerList();
+        anim.Play("Trans_OUT");
+        Invoke(nameof(HS), animTime);
+    }
+
+    private void HS()
+    {
         StartHost();
         netDisc.AdvertiseServer();
     }
     
     public void JoinServer()
     {
-        try
+        Debug.Log("JOINING LOBBY " + currentSelectedServer.uri);
+        netDisc.StopDiscovery();
+        anim.Play("Trans_OUT");
+        Invoke(nameof(JS), animTime);
+        /*try
         {
-            Debug.Log("JOINING LOBBY " + currentSelectedServer.uri);
-            netDisc.StopDiscovery();
-            //StartClient();
-            StartClient(currentSelectedServer.uri);
+            //CODE ABOVE
         }
         catch (Exception e)
         {
             Debug.Log("ERROR HERE!: " + e);
-        }
+        }*/
+    }
+
+    private void JS()
+    {
+        StartClient(currentSelectedServer.uri);
     }
 
     public void OnDiscoveredServer(ServerResponse info)
@@ -73,32 +81,37 @@ public class NetworkActions : NetworkManager
             }
         }
     }
-
+    
     private void ClearServerList()
     {
         Debug.Log("CLEARED SERVER LIST");
         foreach (GameObject svr in serverPrefabList) NetworkServer.Destroy(svr);
         currentServers.Clear();
     }
-
+    
     public void ShutDown()
     {
         Debug.Log("SHUTTING DOWN CLIENTS AND SERVERS");
+        anim.Play("Trans_OUT");
+        Invoke(nameof(DC), animTime);
+    }
+    
+    private void DC()
+    {
         StopClient();
         StopHost();
         StopServer();
     }
-
+    
     public void RespawnPlayer(GameObject player, int time)
-    {
-        StartCoroutine(WaitRespawn(player, time));
-    }
-
-    private IEnumerator WaitRespawn(GameObject player, int time)
-    {
+    { // MIGHT NOT WORK, TEST ASAP
         Debug.Log("DEAD");
         player.SetActive(false);
-        yield return new WaitForSeconds(time);
+        Invoke(nameof(WaitRespawn), time);
+    }
+    
+    private void WaitRespawn(GameObject player)
+    {
         player.SetActive(true);
         Debug.Log("ALIVE");
     }
@@ -110,6 +123,12 @@ public class NetworkActions : NetworkManager
     }
     
     public void QuitGame()
+    {
+        anim.Play("Trans_OUT");
+        Invoke(nameof(QT), animTime);
+    }
+
+    private void QT()
     {
         Application.Quit();
     }

@@ -6,7 +6,8 @@ public class PlayerAttack : NetworkBehaviour
     public GameObject castPoint;                // Where to Cast From
     private Animator anim;                      // Attack Animation
     [SyncVar] private bool canAttack = true;    // Limits Attack Speed
-    public SpellData currentSpell;              // Currently Equipped Spell
+    public SpellArrayData currentSpell;         // List of Spells
+    public int spell;                           // Currently Equipped Spell
     public float punchForce = 400;              // How Hard to Push Players
     public float punchDamage = 5;               // How Much Damage Punches Do
     [SyncVar] private GameObject target;        // Who to Push
@@ -30,12 +31,12 @@ public class PlayerAttack : NetworkBehaviour
 
     void Fire(Quaternion rot)
     {
-        if (currentSpell != null)
+        if (spell != 0)
         {
             canAttack = false;
             anim.Play("Attack4F");
             CmdFire(rot);
-            Invoke(nameof(AttackCooldown), currentSpell.rate);
+            Invoke(nameof(AttackCooldown), currentSpell.var[spell].rate);
         }
         //else Punch();
     }
@@ -43,9 +44,9 @@ public class PlayerAttack : NetworkBehaviour
     [Command]
     void CmdFire(Quaternion rot)
     {
-        GameObject projectile = Instantiate(currentSpell.prefab, castPoint.transform.position, rot);
-        projectile.GetComponent<Spellcast>().spell = currentSpell;
-        projectile.GetComponent<Spellcast>().spell.player = (int)netId;
+        GameObject projectile = Instantiate(currentSpell.var[spell].prefab, castPoint.transform.position, rot);
+        projectile.GetComponent<Spellcast>().spell = currentSpell.var[spell];
+        projectile.GetComponent<Spellcast>().player = (int)netId;
         NetworkServer.Spawn(projectile);
     }
     

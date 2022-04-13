@@ -1,10 +1,8 @@
-//using Mirror;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Datas/SpellData")]
 public class SpellData : ScriptableObject
 {
-    [HideInInspector] public int player; // Tracks which player cast the spell
     [Tooltip("The base spell prefab")]
     public GameObject prefab;
     [Tooltip("How much damage the spell does when colliding with a player")]

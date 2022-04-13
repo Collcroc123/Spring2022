@@ -11,8 +11,8 @@ public class PlayerCamera : NetworkBehaviour
     private float sensMultiplier = 1f;                  // Sensitivity Multiplier
     public float sensitivity = 100f;                    // Mouse Sensitivity
     public float bobFrequency = 5f;                     // How Fast Camera Bobs
-    public float bobXAmplitude = 0.2f;                  // How Wide Camera Bobs
-    public float bobYAmplitude = 0.2f;                  // How High Camera Bobs
+    [Range(0,1)] public float bobXAmplitude = 0.3f;     // How Wide Camera Bobs
+    [Range(0,1)] public float bobYAmplitude = 0.3f;     // How High Camera Bobs
     [Range(0,1)] public float headBobSmoothing = 0.1f;  // How Smooth Camera Bobs
     
 

@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     public GameObject sideMenu;
     public GameObject playerUI;
     public GameObject disconnectButton;
+    private Animator anim;
     /*
     #region Settings
     [Tooltip("Server name")]
@@ -32,6 +33,8 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(transform.gameObject);
+        anim = transform.GetChild(1).GetComponent<Animator>();
+        SceneManager.LoadScene("Menu");
     }
 
     void Update()
@@ -49,7 +52,12 @@ public class MainMenu : MonoBehaviour
 
     void OnLevelLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "Menu") isActive = true;
+        anim.Play("Trans_IN");
+        if (scene.name == "Menu")
+        {
+            Cursor.lockState = CursorLockMode.None;
+            isActive = true;
+        }
         else isActive = false;
         sideMenu.SetActive(isActive);
         playerUI.SetActive(!isActive);
