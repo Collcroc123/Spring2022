@@ -4,11 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    //private bool start = true;
     private bool isActive = true;
     public GameObject sideMenu;
     public GameObject playerUI;
     public GameObject disconnectButton;
-    private Animator anim;
+    public Animator transition;
     /*
     #region Settings
     [Tooltip("Server name")]
@@ -30,11 +31,15 @@ public class MainMenu : MonoBehaviour
         SceneManager.sceneLoaded += OnLevelLoaded;
     }
     
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnLevelLoaded;
+    }
+    
     void Start()
     {
+        //start = true;
         DontDestroyOnLoad(transform.gameObject);
-        anim = transform.GetChild(1).GetComponent<Animator>();
-        SceneManager.LoadScene("Menu");
     }
 
     void Update()
@@ -52,13 +57,15 @@ public class MainMenu : MonoBehaviour
 
     void OnLevelLoaded(Scene scene, LoadSceneMode mode)
     {
-        anim.Play("Trans_IN");
+        Debug.Log("HELLO I EXIST!");
+        transition.Play("Trans_IN");
         if (scene.name == "Menu")
         {
+            //if (!start) Destroy(transform.gameObject);
             Cursor.lockState = CursorLockMode.None;
             isActive = true;
         }
-        else isActive = false;
+        else isActive = false; //start = false;
         sideMenu.SetActive(isActive);
         playerUI.SetActive(!isActive);
         disconnectButton.SetActive(!isActive);

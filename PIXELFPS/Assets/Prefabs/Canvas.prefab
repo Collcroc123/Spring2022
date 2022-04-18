@@ -9690,6 +9690,7 @@ MonoBehaviour:
   sideMenu: {fileID: 6327232042078543181}
   playerUI: {fileID: 6053064965695048488}
   disconnectButton: {fileID: 2502580054773482098}
+  transition: {fileID: 4730785561058600503}
 --- !u!1 &7636522813219136207
 GameObject:
   m_ObjectHideFlags: 0

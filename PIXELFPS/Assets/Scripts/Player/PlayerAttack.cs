@@ -12,7 +12,7 @@ public class PlayerAttack : NetworkBehaviour
     public float punchDamage = 5;               // How Much Damage Punches Do
     [SyncVar] private GameObject target;        // Who to Push
 
-    private void Start()
+    private void Awake()
     {
         anim = GameObject.Find("RHand").GetComponent<Animator>();
     }
@@ -45,7 +45,7 @@ public class PlayerAttack : NetworkBehaviour
     void CmdFire(Quaternion rot)
     {
         GameObject projectile = Instantiate(currentSpell.var[spell].prefab, castPoint.transform.position, rot);
-        projectile.GetComponent<Spellcast>().spell = currentSpell.var[spell];
+        projectile.GetComponent<Spellcast>().spellNumber = spell;
         projectile.GetComponent<Spellcast>().player = (int)netId;
         NetworkServer.Spawn(projectile);
     }

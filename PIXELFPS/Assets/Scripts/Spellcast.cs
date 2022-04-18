@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class Spellcast : NetworkBehaviour
 {
-    [HideInInspector] public SpellData spell;
+    public SpellArrayData spells;
+    [HideInInspector] [SyncVar] public int spellNumber;
     [HideInInspector] [SyncVar] public int player; // Tracks which player cast the spell
+    private SpellData spell;
     private Rigidbody rigidBody;
     private SpriteRenderer texture;
     private AudioSource source;
@@ -12,9 +14,10 @@ public class Spellcast : NetworkBehaviour
 
     public override void OnStartServer()
     {
+        spell = spells.var[spellNumber];
         Invoke(nameof(DestroySelf), spell.duration);
     }
-    
+
     void Start()
     { // Set velocity for server and client so we don't have to sync the position since both now simulate it.
         texture = GetComponentInChildren<SpriteRenderer>();

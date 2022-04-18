@@ -98,6 +98,8 @@ public class NetworkActions : NetworkManager
     
     private void DC()
     {
+        Debug.Log("DESTROYING " + anim.transform.parent.gameObject);
+        Destroy(anim.transform.parent.gameObject);
         StopClient();
         StopHost();
         StopServer();

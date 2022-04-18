@@ -4,6 +4,7 @@ using TMPro;
 
 public class PlayerHealth : NetworkBehaviour
 {
+    public SpellArrayData spells;
     public TMP_Text healthTxt;
     public int respawnTime = 5;
     private int maxHealth = 100;
@@ -29,7 +30,7 @@ public class PlayerHealth : NetworkBehaviour
             Spellcast spellcast = other.GetComponent<Spellcast>();
             if (spellcast.player != (int)netId) 
             {
-                health -= spellcast.spell.damage;
+                health -= spellcast.spells.var[spellcast.spellNumber].damage;
                 if (health <= 0)
                 {
                     netActs.RespawnPlayer(gameObject, respawnTime);

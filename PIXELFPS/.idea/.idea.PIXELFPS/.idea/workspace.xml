@@ -20,90 +20,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33b664d7-3875-4fca-9567-73ffd0c57544" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/riderModule.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Attack.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Attack.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Attack8F.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Attack8F.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/RHand.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/RHand.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extra/Settings/SampleSceneProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Extra/Settings/SampleSceneProfile.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Canvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Canvas.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cast.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cast.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DontDest.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DontDest.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestLevel/LightingData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestLevel/LightingData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestLevel/LightingData.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestLevel/LightingData.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestLevel/ReflectionProbe-0.exr.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestLevel/ReflectionProbe-0.exr.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DataScripts/SpellData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DataScripts/SpellData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/NetworkActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NetworkActions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCamera.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerCamera.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spellcast.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spellcast.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Cinemachine.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Cinemachine.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/FizzySteamworks.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/FizzySteamworks.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Mirror.Authenticators.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Mirror.Authenticators.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Mirror.Components.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Mirror.Components.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Mirror.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Mirror.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/SimpleWebTransport.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/SimpleWebTransport.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Telepathy.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Telepathy.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.Burst.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.Burst.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.Mathematics.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.Mathematics.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.Postprocessing.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.Postprocessing.Runtime.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.ProBuilder.Csg.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.ProBuilder.Csg.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.ProBuilder.KdTree.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.ProBuilder.KdTree.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.ProBuilder.Poly2Tri.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.ProBuilder.Poly2Tri.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.ProBuilder.Stl.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.ProBuilder.Stl.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.ProBuilder.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.ProBuilder.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.RenderPipeline.Universal.ShaderLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.RenderPipeline.Universal.ShaderLibrary.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.RenderPipelines.Core.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.RenderPipelines.Core.Runtime.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.RenderPipelines.Core.ShaderLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.RenderPipelines.Core.ShaderLibrary.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.RenderPipelines.Universal.Runtime.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.RenderPipelines.Universal.Shaders.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.RenderPipelines.Universal.Shaders.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.TextMeshPro.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.TextMeshPro.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.Timeline.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.Timeline.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.VisualScripting.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.VisualScripting.Core.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.VisualScripting.Flow.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.VisualScripting.Flow.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.VisualScripting.State.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Unity.VisualScripting.State.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/UnityEngine.UI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/UnityEngine.UI.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/com.rlabrecque.steamworks.net.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/com.rlabrecque.steamworks.net.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/kcp2k.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/kcp2k.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/where-allocations.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/where-allocations.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Plugins/x86_64/lib_burst_generated.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Plugins/x86_64/lib_burst_generated.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/globalgamemanagers" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/globalgamemanagers.assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level0.resS" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level1" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level2" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/resources.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/resources.assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets0.assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets0.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets0.assets.resS" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets1.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets1.assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets1.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets1.assets.resS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe1.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe2.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe3.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe4.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe5.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe6.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets2.assets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets2.assets.resS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,6 +231,7 @@
       <workItem from="1649300603281" duration="6986000" />
       <workItem from="1649450407827" duration="2032000" />
       <workItem from="1649872260008" duration="9521000" />
+      <workItem from="1650302414858" duration="7089000" />
     </task>
     <servers />
   </component>

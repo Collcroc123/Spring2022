@@ -68,7 +68,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  spell: {fileID: 0}
+  spells: {fileID: 11400000, guid: eb7ccd6f40f40514bbad01649ad948f6, type: 2}
+  spellNumber: 0
   player: 0
 --- !u!135 &7067382707065146403
 SphereCollider:
