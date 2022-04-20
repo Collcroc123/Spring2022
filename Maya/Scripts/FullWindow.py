@@ -24,6 +24,7 @@ class ToolUI:
         cmds.columnLayout(cat=("both", -1))
         cmds.button(l="Toggle Orient", c=lambda x: self.DisplayOrient(), bgc=(1, 0, 0), h=25, w=self.width, ann="Toggles view of orientation and orientation controls in Channel Box.")
         cmds.button(l="Freeze Transforms", c=lambda x: self.Freeze(), bgc=(1, 0.5, 0), h=25, w=self.width, ann="Freezes all transforms of selected objects.")
+        cmds.button(l="Match Transforms", c=lambda x: self.Match(), bgc=(1, 0.7, 0), h=25, w=self.width, ann="Matches all transforms of selected objects.")
         cmds.button(l="Locator", c=lambda x: self.CreateLocator(), bgc=(1, 1, 0), h=25, w=self.width, ann="Creates a locator on selected objects. When nothing is selected, it will create a default one at origin.")
         cmds.button(l="Joint", c=lambda x: self.CreateJoint(), bgc=(0, 1, 0), h=25, w=self.width, ann="Creates a joint on selected objects. When nothing is selected, it will create a default one at origin.")
         cmds.button(l="Control", c=lambda x: self.SetupControl(), bgc=(0, 1, 0.5), h=25, w=self.width, ann="Creates a control on selected objects. When nothing is selected, it will create a default one at origin.")
@@ -142,6 +143,14 @@ class ToolUI:
         sels = cmds.ls(sl=True)
         for sel in sels:
             cmds.makeIdentity(sel, apply=True, t=1, r=1, s=1, n=0)
+        return
+        
+    def Match(self):
+        sels = cmds.ls(sl=True)
+        sels = cmds.ls(sl=True)
+        for i, sel in enumerate(sels):
+            if i < (len(sels) - 1):
+                cmds.matchTransform(sels[i], sels[i + 1])
         return
 
     def OrientJoints(self):

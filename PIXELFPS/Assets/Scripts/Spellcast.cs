@@ -10,7 +10,7 @@ public class Spellcast : NetworkBehaviour
     private Rigidbody rigidBody;
     private SpriteRenderer texture;
     private AudioSource source;
-    //public GameObject hitAnim; // Sound and particles
+    public GameObject hitAnim; // Sound and particles
 
     public override void OnStartServer()
     {
@@ -37,7 +37,8 @@ public class Spellcast : NetworkBehaviour
     [Server]
     void DestroySelf()
     { // Destroy for everyone on the server
-        //Instantiate(hitAnim, gameObject.transform.position, gameObject.transform.rotation);
+        GameObject hit = Instantiate(hitAnim, gameObject.transform.position, gameObject.transform.rotation);
+        NetworkServer.Spawn(hit);
         NetworkServer.Destroy(gameObject);
     }
     
@@ -48,7 +49,11 @@ public class Spellcast : NetworkBehaviour
         if (!co.CompareTag("Spell"))
         {
             if (co.GetComponent<PlayerMovement>() == false || co.GetComponent<PlayerMovement>().netId != player)
+            {
+                GameObject hit = Instantiate(hitAnim, gameObject.transform.position, gameObject.transform.rotation);
+                NetworkServer.Spawn(hit);
                 NetworkServer.Destroy(gameObject);
+            }
         }
     }
 }

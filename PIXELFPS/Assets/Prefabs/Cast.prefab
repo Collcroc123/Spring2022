@@ -71,6 +71,7 @@ MonoBehaviour:
   spells: {fileID: 11400000, guid: eb7ccd6f40f40514bbad01649ad948f6, type: 2}
   spellNumber: 0
   player: 0
+  hitAnim: {fileID: 7067382707065146406, guid: 2af4307f72de4a5408fa0939319e7738, type: 3}
 --- !u!135 &7067382707065146403
 SphereCollider:
   m_ObjectHideFlags: 0

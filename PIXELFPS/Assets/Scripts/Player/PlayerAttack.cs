@@ -11,10 +11,12 @@ public class PlayerAttack : NetworkBehaviour
     public float punchForce = 400;              // How Hard to Push Players
     public float punchDamage = 5;               // How Much Damage Punches Do
     [SyncVar] private GameObject target;        // Who to Push
+    private AudioSource audio;
 
     private void Awake()
     {
         anim = GameObject.Find("RHand").GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
     }
 
     private void Update()

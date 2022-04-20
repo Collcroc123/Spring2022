@@ -10,11 +10,14 @@ public class PlayerHealth : NetworkBehaviour
     private int maxHealth = 100;
     [SyncVar] private int health;
     private NetworkActions netActs;
-    
+    private AudioSource audio;
+    public AudioClip hurt;
+
     void Start()
     {
         health = maxHealth;
         netActs = FindObjectOfType<NetworkActions>();
+        audio = GetComponent<AudioSource>();
     }
     
     void Update()
@@ -31,6 +34,8 @@ public class PlayerHealth : NetworkBehaviour
             if (spellcast.player != (int)netId) 
             {
                 health -= spellcast.spells.var[spellcast.spellNumber].damage;
+                audio.clip = hurt;
+                audio.Play();
                 if (health <= 0)
                 {
                     netActs.RespawnPlayer(gameObject, respawnTime);
