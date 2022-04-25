@@ -6,8 +6,8 @@ public class PlayerAttack : NetworkBehaviour
     public GameObject castPoint;                // Where to Cast From
     private Animator anim;                      // Attack Animation
     [SyncVar] private bool canAttack = true;    // Limits Attack Speed
-    public SpellArrayData currentSpell;         // List of Spells
-    public int spell;                           // Currently Equipped Spell
+    private SpellArrayData currentSpell;        // List of Spells
+    [SyncVar] public int spell;                 // Currently Equipped Spell
     public float punchForce = 400;              // How Hard to Push Players
     public float punchDamage = 5;               // How Much Damage Punches Do
     [SyncVar] private GameObject target;        // Who to Push
@@ -17,6 +17,7 @@ public class PlayerAttack : NetworkBehaviour
     {
         anim = GameObject.Find("RHand").GetComponent<Animator>();
         audio = GetComponent<AudioSource>();
+        currentSpell = Resources.Load<SpellArrayData>("SpellList");
     }
 
     private void Update()
@@ -37,17 +38,20 @@ public class PlayerAttack : NetworkBehaviour
         {
             canAttack = false;
             anim.Play("Attack4F");
-            CmdFire(rot);
+            Debug.Log("SPELL IS " + spell);
+            CmdFire(rot, spell);
             Invoke(nameof(AttackCooldown), currentSpell.var[spell].rate);
         }
         //else Punch();
     }
 
     [Command]
-    void CmdFire(Quaternion rot)
+    void CmdFire(Quaternion rot, int spellNum)
     {
-        GameObject projectile = Instantiate(currentSpell.var[spell].prefab, castPoint.transform.position, rot);
-        projectile.GetComponent<Spellcast>().spellNumber = spell;
+        Debug.Log("COMMAND SPELL IS " + spell);
+        Debug.Log("SPELLNUM IS " + spellNum);
+        GameObject projectile = Instantiate(currentSpell.var[spellNum].prefab, castPoint.transform.position, rot);
+        projectile.GetComponent<Spellcast>().spellNumber = spellNum;
         projectile.GetComponent<Spellcast>().player = (int)netId;
         NetworkServer.Spawn(projectile);
     }

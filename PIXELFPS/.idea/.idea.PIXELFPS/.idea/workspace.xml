@@ -21,25 +21,50 @@
   <component name="ChangeListManager">
     <list default="true" id="33b664d7-3875-4fca-9567-73ffd0c57544" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Maya/Rigs/Tom.ma" beforeDir="false" afterPath="$PROJECT_DIR$/../Maya/Rigs/Tom.ma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Maya/Scripts/FullWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Maya/Scripts/FullWindow.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/contentModel.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cast.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cast.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/riderModule.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/New Server Data.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/New Server Data.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/PlayerData.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/PlayerData.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/Spells.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/Spells/BaseSpell.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/Spells/BaseSpell.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/Spells/Fire.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/Spells/Fire.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/Spells/Ice.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/Spells/Ice.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/Spells/Spells.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Datas/Spells/Spells.asset.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spellcast.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spellcast.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Plugins/x86_64/lib_burst_generated.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Plugins/x86_64/lib_burst_generated.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/globalgamemanagers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/globalgamemanagers.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level1" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/resources.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/resources.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/resources.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/resources.assets.resS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets0.assets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets0.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets0.assets.resS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets1.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets1.assets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker2-prev.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker3-prev.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,9 +83,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerCamera.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Destroyer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -135,7 +159,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$USER_HOME$/Desktop/Builds\PIXELFPS.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -222,6 +246,7 @@
       <workItem from="1649872260008" duration="9521000" />
       <workItem from="1650302414858" duration="7089000" />
       <workItem from="1650419700181" duration="2684000" />
+      <workItem from="1650908049904" duration="4728000" />
     </task>
     <servers />
   </component>
