@@ -29,7 +29,7 @@ class ToolUI:
         cmds.button(l="Joint", c=lambda x: self.CreateJoint(), bgc=(0, 1, 0), h=25, w=self.width, ann="Creates a joint on selected objects. When nothing is selected, it will create a default one at origin.")
         cmds.button(l="Control", c=lambda x: self.SetupControl(), bgc=(0, 1, 0.5), h=25, w=self.width, ann="Creates a control on selected objects. When nothing is selected, it will create a default one at origin.")
         cmds.button(l="Parent", c=lambda x: self.ParentJoints(), bgc=(0, 1, 1), h=25, w=self.width, ann="Parents objects in the order you selected them in.")
-        cmds.button(l="Constraint", c=lambda x: self.Constraint(), bgc=(0, 0.5, 1), h=25, w=self.width, ann="Creates a constraint between selected Control & Joint.")
+        cmds.button(l="P-S Constraint", c=lambda x: self.Constraint(), bgc=(0, 0.5, 1), h=25, w=self.width, ann="Creates a constraint between selected Control & Joint.")
         cmds.button(l="Broken Constraint", c=lambda x: self.BrokenConstraint(), bgc=(0, 0, 1), h=25, w=self.width, ann="Creates a broken constraint between selected Control & Group.")
         cmds.button(l="Rename", c=lambda x: self.Rename(1), bgc=(0.5, 0, 1), h=25, w=self.width, ann="Renames selected object.")
         cmds.button(l="Set Color", c=lambda x: self.ColorChange(self.color), bgc=(1, 0, 1), h=25, w=self.width)
@@ -164,7 +164,7 @@ class ToolUI:
         deg = float(cmds.textField(self.sweepText, q=True, tx=True))
         if objects:
             for item in objects:
-                controlName = item + "_Ctrl"  # item.rpartition('_')[0]
+                controlName = item.replace("_Jnt", "_Ctrl")
                 self.CreateControl(item, rad, hue, sect, deg, controlName)
         else:
             controlName = "Default_Ctrl"
@@ -179,6 +179,7 @@ class ToolUI:
             deg = 360
 
         newControl = cmds.circle(c=(0, 0, 0), r=rad, s=sect, sw=deg, n=controlName, d=1)
+        cmds.rotate(0, 90, 0, r = True)
         newControl = cmds.listRelatives(newControl)
         grp = cmds.group(newControl, n=controlName + "_Grp")
         if item is not 0:
