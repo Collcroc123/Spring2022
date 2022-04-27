@@ -4,7 +4,7 @@ using TMPro;
 
 public class PlayerHealth : NetworkBehaviour
 {
-    public SpellArrayData spells;
+    private SpellArrayData spells;
     public TMP_Text healthTxt;
     public int respawnTime = 5;
     private int maxHealth = 100;
@@ -15,6 +15,7 @@ public class PlayerHealth : NetworkBehaviour
 
     void Start()
     {
+        spells = Resources.Load<SpellArrayData>("SpellList");
         health = maxHealth;
         netActs = FindObjectOfType<NetworkActions>();
         audio = GetComponent<AudioSource>();
@@ -33,7 +34,7 @@ public class PlayerHealth : NetworkBehaviour
             Spellcast spellcast = other.GetComponent<Spellcast>();
             if (spellcast.player != (int)netId) 
             {
-                health -= spellcast.spells.var[spellcast.spellNumber].damage;
+                health -= spells.var[spellcast.spellNumber].damage;
                 audio.clip = hurt;
                 audio.Play();
                 if (health <= 0)

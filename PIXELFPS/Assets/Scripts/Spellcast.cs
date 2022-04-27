@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Spellcast : NetworkBehaviour
 {
-    public SpellArrayData spells;
+    private SpellArrayData spells;
     [HideInInspector] [SyncVar] public int spellNumber;
     [HideInInspector] [SyncVar] public int player; // Tracks which player cast the spell
     private SpellData spell;
@@ -12,8 +12,9 @@ public class Spellcast : NetworkBehaviour
     private AudioSource source;
     public GameObject hitAnim; // Sound and particles
 
-    public override void OnStartServer()
+    public void Awake()
     {
+        spells = Resources.Load<SpellArrayData>("SpellList");
         spell = spells.var[spellNumber];
         Invoke(nameof(DestroySelf), spell.duration);
     }

@@ -204,7 +204,7 @@ class ToolUI:
         grp = cmds.listRelatives(ctrl, p=True)[0]
         transCon = cmds.parentConstraint(target, grp, mo=True, sr=["x", "y", "z"], w=1)[0]
         rotCon = cmds.parentConstraint(target, grp, mo=True, st=["x", "y", "z"], w=1)[0]
-        #cmds.scaleConstraint(target, grp, mo=True, w=1)
+        cmds.scaleConstraint(target, grp, mo=True, w=1)
         cmds.addAttr(ctrl, ln='FollowTranslate', at='double', min=0, max=1, dv=1)
         cmds.setAttr('%s.FollowTranslate' % ctrl, e=True, keyable=True)
         cmds.addAttr(ctrl, ln='FollowRotate', at='double', min=0, max=1, dv=1) # parent=cmds.listRelatives(c=True)[1]
