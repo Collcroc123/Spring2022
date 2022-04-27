@@ -6,11 +6,6 @@
     <e p="C:\Users\colli\Documents\Repos\Spring2022\PIXELFPS" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Actions" t="Include">
-          <e p="GameAction.cs" t="Include" />
-          <e p="GameActionHandler.cs" t="Include" />
-        </e>
-        <e p="Destroyer.cs" t="Include" />
         <e p="Extra" t="Include">
           <e p="Mirror" t="Include">
             <e p="Authenticators" t="Include">
@@ -470,6 +465,9 @@
             <e p="SpellData.cs" t="Include" />
             <e p="StringData.cs" t="Include" />
           </e>
+          <e p="Destroyer.cs" t="Include" />
+          <e p="GameAction.cs" t="Include" />
+          <e p="GameActionHandler.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
           <e p="NetworkActions.cs" t="Include" />
           <e p="OnHover.cs" t="Include" />

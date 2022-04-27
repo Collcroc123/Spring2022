@@ -20,26 +20,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33b664d7-3875-4fca-9567-73ffd0c57544" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Maya/Rigs/Tom.ma" beforeDir="false" afterPath="$PROJECT_DIR$/../Maya/Rigs/Tom.ma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Maya/Scripts/FullWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Maya/Scripts/FullWindow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Cast.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Cast.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/GameAction.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/GameAction.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/GameActionHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/GameActionHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/NETWORK.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/NETWORK/OnPlayerAdded.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/NETWORK/OnPlayerAdded.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/NETWORK/OnShutdown.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/NETWORK/OnShutdown.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/NETWORK/StartFindServers.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/NETWORK/StartFindServers.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/NETWORK/StartLocalHost.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/NETWORK/StartLocalHost.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/NETWORK/StartLocalJoin.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/NETWORK/StartLocalJoin.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/NETWORK/StartShutdown.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/NETWORK/StartShutdown.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/STEAM.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/STEAM/OnSteamLobbyCreated.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/STEAM/OnSteamLobbyCreated.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/STEAM/StartSteamHost.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/STEAM/StartSteamHost.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/STEAM/StartSteamJoin.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Actions/STEAM/StartSteamJoin.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Destroyer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Destroyer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extra/Default.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extra/Default.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extra/Glass.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extra/Glass.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extra/Metal.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extra/Metal.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extra/Mineways2Skfb-RGBA.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extra/Mineways2Skfb-RGBA.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extra/Mineways2Skfb.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extra/Mineways2Skfb.obj.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extra/Water.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Extra/Water.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ground.physicMaterial" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Ground.physicMaterial.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestLevel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spellcast.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spellcast.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker2-prev.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker3-prev.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +92,6 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerCamera.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Destroyer.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -222,6 +253,7 @@
       <workItem from="1649872260008" duration="9521000" />
       <workItem from="1650302414858" duration="7089000" />
       <workItem from="1650419700181" duration="2684000" />
+      <workItem from="1650993575076" duration="2329000" />
     </task>
     <servers />
   </component>
