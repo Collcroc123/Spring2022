@@ -12,13 +12,23 @@ public class PlayerHealth : NetworkBehaviour
     private NetworkActions netActs;
     private AudioSource audio;
     public AudioClip hurt;
+    private NetworkIdentity targetID;
+    private PlayerMovement movement;
+    private PlayerAttack attack;
+    private GameObject head;
+    private GameObject body;
 
     void Start()
     {
+        targetID = GetComponent<NetworkIdentity>();
         spells = Resources.Load<SpellArrayData>("SpellList");
         health = maxHealth;
         netActs = FindObjectOfType<NetworkActions>();
         audio = GetComponent<AudioSource>();
+        movement = GetComponent<PlayerMovement>();
+        attack = GetComponent<PlayerAttack>();
+        head = transform.GetChild(0).gameObject;
+        body = transform.GetChild(1).gameObject;
     }
     
     void Update()
@@ -39,8 +49,8 @@ public class PlayerHealth : NetworkBehaviour
                 audio.Play();
                 if (health <= 0)
                 {
-                    netActs.RespawnPlayer(gameObject, respawnTime);
-                    Invoke(nameof(ResetHealth), respawnTime);// SET HEALTH AFTER RESPAWN!!!
+                    RespawnPlayer(targetID.connectionToClient, gameObject, respawnTime); //netActs.
+                    //Invoke(nameof(ResetHealth), respawnTime);// SET HEALTH AFTER RESPAWN!!!
                 }
             }
         }
@@ -49,5 +59,27 @@ public class PlayerHealth : NetworkBehaviour
     private void ResetHealth()
     {
         health = maxHealth;
+    }
+    
+    [TargetRpc]
+    public void RespawnPlayer(NetworkConnection tg, GameObject player, int time)
+    { // MIGHT NOT WORK, TEST ASAP
+        Debug.Log("DEAD");
+        player.transform.position = NetworkManager.startPositions[Random.Range(0, NetworkManager.startPositions.Count)].position;
+        movement.enabled = false;
+        attack.enabled = false;
+        head.SetActive(false);
+        body.SetActive(false);
+        Invoke(nameof(WaitRespawn), time);
+    }
+    
+    private void WaitRespawn(GameObject player)
+    {
+        movement.enabled = true;
+        attack.enabled = true;
+        head.SetActive(true);
+        body.SetActive(true);
+        health = maxHealth;
+        Debug.Log("ALIVE");
     }
 }

@@ -105,18 +105,7 @@ public class NetworkActions : NetworkManager
         StopServer();
     }
     
-    public void RespawnPlayer(GameObject player, int time)
-    { // MIGHT NOT WORK, TEST ASAP
-        Debug.Log("DEAD");
-        player.SetActive(false);
-        Invoke(nameof(WaitRespawn), time);
-    }
-    
-    private void WaitRespawn(GameObject player)
-    {
-        player.SetActive(true);
-        Debug.Log("ALIVE");
-    }
+    // respawn was here
     
     public void Error(string text)
     {
