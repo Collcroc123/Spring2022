@@ -254,65 +254,65 @@ class ToolUI:
         
     def ReverseFootIKAttr(self):
         sels = cmds.ls(sl=True)
-        ctrl = sels[0]
-        heel = sels[1]
-        toe = sels[2]
-        tap = sels[3]
-        ball = sels[4]
+        ctrl = sels[0]  # IK Foot Control
+        heel = sels[1]  # IK Heel Joint
+        toe = sels[2]  # IK Toe Joint
+        tap = sels[3]  # IK Toetap Joint
+        ball = sels[4]  # IK Ball Joint
+
         cmds.addAttr(ctrl, ln='HeelTap', at='float', dv=0)
         cmds.setAttr('%s.HeelTap' % ctrl, e=True, keyable=True)
+        cmds.connectAttr('%s.HeelTap' % ctrl, '%s.rotate.rotateZ' % heel, f=True)
         cmds.addAttr(ctrl, ln='HeelRoll', at='float', dv=0)
         cmds.setAttr('%s.HeelRoll' % ctrl, e=True, keyable=True)
+        cmds.connectAttr('%s.HeelRoll' % ctrl, '%s.rotate.rotateX' % heel, f=True)
         cmds.addAttr(ctrl, ln='HeelTwist', at='float', dv=0)
         cmds.setAttr('%s.HeelTwist' % ctrl, e=True, keyable=True)
-        cmds.connectAttr('%s.HeelTap' % ctrl, '%s.rotate.rotateZ' % heel, f=True)
-        cmds.connectAttr('%s.HeelRoll' % ctrl, '%s.rotate.rotateX' % heel, f=True)
         cmds.connectAttr('%s.HeelTwist' % ctrl, '%s.rotate.rotateY' % heel, f=True)
         
         cmds.addAttr(ctrl, ln='ToeTap', at='float', dv=0)
         cmds.setAttr('%s.ToeTap' % ctrl, e=True, keyable=True)
+        cmds.connectAttr('%s.ToeTap' % ctrl, '%s.rotate.rotateZ' % toe, f=True)
         cmds.addAttr(ctrl, ln='ToeRoll', at='float', dv=0)
         cmds.setAttr('%s.ToeRoll' % ctrl, e=True, keyable=True)
+        cmds.connectAttr('%s.ToeRoll' % ctrl, '%s.rotate.rotateX' % toe, f=True)
         cmds.addAttr(ctrl, ln='ToeTwist', at='float', dv=0)
         cmds.setAttr('%s.ToeTwist' % ctrl, e=True, keyable=True)
-        cmds.connectAttr('%s.ToeTap' % ctrl, '%s.rotate.rotateZ' % toe, f=True)
-        cmds.connectAttr('%s.ToeRoll' % ctrl, '%s.rotate.rotateX' % toe, f=True)
         cmds.connectAttr('%s.ToeTwist' % ctrl, '%s.rotate.rotateY' % toe, f=True)
         
         cmds.addAttr(ctrl, ln='TipTap', at='float', dv=0)
         cmds.setAttr('%s.TipTap' % ctrl, e=True, keyable=True)
+        cmds.connectAttr('%s.TipTap' % ctrl, '%s.rotate.rotateZ' % tap, f=True)
         cmds.addAttr(ctrl, ln='TipRoll', at='float', dv=0)
         cmds.setAttr('%s.TipRoll' % ctrl, e=True, keyable=True)
+        cmds.connectAttr('%s.TipRoll' % ctrl, '%s.rotate.rotateX' % tap, f=True)
         cmds.addAttr(ctrl, ln='TipTwist', at='float', dv=0)
         cmds.setAttr('%s.TipTwist' % ctrl, e=True, keyable=True)
-        cmds.connectAttr('%s.TipTap' % ctrl, '%s.rotate.rotateZ' % tap, f=True)
-        cmds.connectAttr('%s.TipRoll' % ctrl, '%s.rotate.rotateX' % tap, f=True)
         cmds.connectAttr('%s.TipTwist' % ctrl, '%s.rotate.rotateY' % tap, f=True)
         
         cmds.addAttr(ctrl, ln='BallTap', at='float', dv=0)
         cmds.setAttr('%s.BallTap' % ctrl, e=True, keyable=True)
+        cmds.connectAttr('%s.BallTap' % ctrl, '%s.rotate.rotateZ' % ball, f=True)
         cmds.addAttr(ctrl, ln='BallRoll', at='float', dv=0)
         cmds.setAttr('%s.BallRoll' % ctrl, e=True, keyable=True)
+        cmds.connectAttr('%s.BallRoll' % ctrl, '%s.rotate.rotateX' % ball, f=True)
         cmds.addAttr(ctrl, ln='BallTwist', at='float', dv=0)
         cmds.setAttr('%s.BallTwist' % ctrl, e=True, keyable=True)
-        cmds.connectAttr('%s.BallTap' % ctrl, '%s.rotate.rotateZ' % ball, f=True)
-        cmds.connectAttr('%s.BallRoll' % ctrl, '%s.rotate.rotateX' % ball, f=True)
         cmds.connectAttr('%s.BallTwist' % ctrl, '%s.rotate.rotateY' % ball, f=True)
         
         cmds.addAttr(ctrl, ln='FootRoll', at='float', min=-10, max=10, dv=0)
         cmds.setAttr('%s.FootRoll' % ctrl, e=True, keyable=True)
-        #cmds.connectAttr('%s.BallTap' % ctrl, '%s.rotate.rotateZ' % ball, f=True)
-        #Connected L_Leg_IK_Ctrl.HeelTap to L_Heel_IK_Reverse_Jnt.rotate.rotateX
         
     def LimbTwist(self):
         sels = cmds.ls(sl=True)
-        base = sels[0]
-        first = sels[1]
-        second = sels[2]
-        third = sels[3]
-        fourth = sels[4]
+        base = sels[0]  # Clav Joint
+        first = sels[1]  # Arm/Leg 01 Joint
+        second = sels[2]  # Arm/Leg 02 Joint
+        third = sels[3]  # Arm/Leg 03 Joint
+        fourth = sels[4]  # Hand/Foot 01 Joint
         limb = cmds.textField(self.limbText, q=True, tx=True)
         # REPLACE LINE ABOVE WITH limb = "L_Arm" or "R_Leg" etc
+
         # LOWER LIMB
         grp = cmds.group(em=True, n=limb+"_Lower_Twist_Grp")
         cmds.matchTransform(grp, third)
@@ -356,6 +356,7 @@ class ToolUI:
         cmds.matchTransform(jntTwo, third)
         cmds.parent(jntTwo, second)
         cmds.parentConstraint(aim, jntTwo, w=1)
+
         # UPPER LIMB
         grp = cmds.group(em=True, n=limb + "_Upper_Twist_Grp")
         cmds.matchTransform(grp, first)
@@ -390,7 +391,6 @@ class ToolUI:
         cmds.pointConstraint(second, target, mo=True, w=1)
         cmds.parentConstraint(first, grp, mo=True, w=1)
         cmds.scaleConstraint(first, grp, mo=True, w=1)
-        # IK Upper Stuff
         ikgrp = cmds.group(em=True, n=limb + "_Upper_IK_Twist_Grp")
         cmds.matchTransform(ikgrp, first)
         if 'Leg' in limb:
@@ -411,9 +411,15 @@ class ToolUI:
         cmds.matchTransform(ikup, ikgrp, pos=True)
         cmds.parent(ikup, ikgrp)
         if 'Leg' in limb:
-            cmds.move(0, 5, 0, ls=True)
+            if 'L_' in limb:
+                cmds.move(0, 5, 0, ls=True)
+            else:
+                cmds.move(0, -5, 0, ls=True)
         else:
-            cmds.move(0, 0, -5, ls=True)
+            if 'L_' in limb:
+                cmds.move(0, 0, -5, ls=True)
+            else:
+                cmds.move(0, 0, 5, ls=True)
         handle = cmds.ikHandle(sj=ikjntOne, ee=ikjntTwo, n=limb + "_Upper_IK_Twist_Handle", shf=False)
         cmds.matchTransform(handle, second, pos=True)
         cmds.poleVectorConstraint(ikup, limb + "_Upper_IK_Twist_Handle", weight=1)
