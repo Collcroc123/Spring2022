@@ -20,29 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="33b664d7-3875-4fca-9567-73ffd0c57544" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/contentModel.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PIXELFPS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NetworkActions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NetworkActions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_BurstDebugInformation_DoNotShip/Data/Plugins/x86_64/lib_burst_generated.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Managed/Assembly-CSharp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Plugins/x86_64/lib_burst_generated.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/Plugins/x86_64/lib_burst_generated.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/globalgamemanagers" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/globalgamemanagers" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/globalgamemanagers.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/globalgamemanagers.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level0" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level0.resS" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level0.resS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level1" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/level1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/resources.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/resources.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets0.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets0.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets1.assets" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets1.assets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets1.assets.resS" beforeDir="false" afterPath="$PROJECT_DIR$/Builds/PIXELFPS_Data/sharedassets1.assets.resS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0-prev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1-prev.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/AssetImportWorker1.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-AssetImportWorker0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.probuilder/Settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,8 +41,8 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerCamera.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -117,6 +96,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Spellcast.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAttack.cs" />
+        <option value="$PROJECT_DIR$/Assets/Text.cs" />
+        <option value="$PROJECT_DIR$/Assets/Plugins/WindowsVoice.cs" />
       </list>
     </option>
   </component>
@@ -138,7 +119,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+  <component name="RunManager">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$USER_HOME$/Desktop/Builds\PIXELFPS.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -227,6 +208,7 @@
       <workItem from="1650419700181" duration="2684000" />
       <workItem from="1650993575076" duration="2329000" />
       <workItem from="1651685291483" duration="3241000" />
+      <workItem from="1653020887974" duration="2676000" />
     </task>
     <servers />
   </component>
@@ -539,5 +521,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="578" y="206" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1653022462671">
+      <screen x="0" y="0" width="1920" height="1032" />
+    </state>
+    <state x="578" y="206" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1032/-1920.0.1920.1032@0.0.1920.1032" timestamp="1653022462671" />
   </component>
 </project>
